@@ -16,6 +16,7 @@
 		2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4D81424704E00BDC690 /* MainWindow.xib */; };
 		2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DC1424704E00BDC690 /* RootViewController.m */; };
 		2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DE1424704E00BDC690 /* RootViewController.xib */; };
+		2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4E61424751300BDC690 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +24,17 @@
 		2D8AD4C61424704E00BDC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D8AD4C81424704E00BDC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */ = {isa = PBXFileReference; path = "eBank3-Info.plist"; sourceTree = "<group>"; };
+		2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "eBank3-Info.plist"; sourceTree = "<group>"; };
 		2D8AD4D01424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D8AD4D21424704E00BDC690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */ = {isa = PBXFileReference; path = "eBank3-Prefix.pch"; sourceTree = "<group>"; };
-		2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */ = {isa = PBXFileReference; path = eBank3AppDelegate.h; sourceTree = "<group>"; };
+		2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "eBank3-Prefix.pch"; sourceTree = "<group>"; };
+		2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eBank3AppDelegate.h; sourceTree = "<group>"; };
 		2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = eBank3AppDelegate.m; sourceTree = "<group>"; };
 		2D8AD4D91424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		2D8AD4DB1424704E00BDC690 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		2D8AD4DB1424704E00BDC690 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		2D8AD4DC1424704E00BDC690 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		2D8AD4DF1424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		2D8AD4E61424751300BDC690 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */,
 				2D8AD4C71424704E00BDC690 /* UIKit.framework in Frameworks */,
 				2D8AD4C91424704E00BDC690 /* Foundation.framework in Frameworks */,
 				2D8AD4CB1424704E00BDC690 /* CoreGraphics.framework in Frameworks */,
@@ -69,6 +72,7 @@
 		2D8AD4C51424704E00BDC690 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D8AD4E61424751300BDC690 /* QuartzCore.framework */,
 				2D8AD4C61424704E00BDC690 /* UIKit.framework */,
 				2D8AD4C81424704E00BDC690 /* Foundation.framework */,
 				2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */,
@@ -81,10 +85,8 @@
 			children = (
 				2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */,
 				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
-				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
 				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
-				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
 				2D8AD4CD1424704E00BDC690 /* Supporting Files */,
 			);
 			path = eBank3;
@@ -94,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */,
+				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
+				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 				2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */,
 				2D8AD4D21424704E00BDC690 /* main.m */,
 				2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */,
