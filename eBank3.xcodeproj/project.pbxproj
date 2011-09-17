@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D8AD4C71424704E00BDC690 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C61424704E00BDC690 /* UIKit.framework */; };
+		2D8AD4C91424704E00BDC690 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C81424704E00BDC690 /* Foundation.framework */; };
+		2D8AD4CB1424704E00BDC690 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */; };
+		2D8AD4D11424704E00BDC690 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */; };
+		2D8AD4D31424704E00BDC690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4D21424704E00BDC690 /* main.m */; };
+		2D8AD4D71424704E00BDC690 /* eBank3AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */; };
+		2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4D81424704E00BDC690 /* MainWindow.xib */; };
+		2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DC1424704E00BDC690 /* RootViewController.m */; };
+		2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DE1424704E00BDC690 /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D8AD4C21424704E00BDC690 /* eBank3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBank3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8AD4C61424704E00BDC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2D8AD4C81424704E00BDC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */ = {isa = PBXFileReference; path = "eBank3-Info.plist"; sourceTree = "<group>"; };
+		2D8AD4D01424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D8AD4D21424704E00BDC690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */ = {isa = PBXFileReference; path = "eBank3-Prefix.pch"; sourceTree = "<group>"; };
+		2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */ = {isa = PBXFileReference; path = eBank3AppDelegate.h; sourceTree = "<group>"; };
+		2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = eBank3AppDelegate.m; sourceTree = "<group>"; };
+		2D8AD4D91424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		2D8AD4DB1424704E00BDC690 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		2D8AD4DC1424704E00BDC690 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		2D8AD4DF1424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D8AD4BF1424704E00BDC690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8AD4C71424704E00BDC690 /* UIKit.framework in Frameworks */,
+				2D8AD4C91424704E00BDC690 /* Foundation.framework in Frameworks */,
+				2D8AD4CB1424704E00BDC690 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D8AD4B71424704E00BDC690 = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4CC1424704E00BDC690 /* eBank3 */,
+				2D8AD4C51424704E00BDC690 /* Frameworks */,
+				2D8AD4C31424704E00BDC690 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D8AD4C31424704E00BDC690 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4C21424704E00BDC690 /* eBank3.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D8AD4C51424704E00BDC690 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4C61424704E00BDC690 /* UIKit.framework */,
+				2D8AD4C81424704E00BDC690 /* Foundation.framework */,
+				2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D8AD4CC1424704E00BDC690 /* eBank3 */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */,
+				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
+				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
+				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
+				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
+				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
+				2D8AD4CD1424704E00BDC690 /* Supporting Files */,
+			);
+			path = eBank3;
+			sourceTree = "<group>";
+		};
+		2D8AD4CD1424704E00BDC690 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */,
+				2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */,
+				2D8AD4D21424704E00BDC690 /* main.m */,
+				2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D8AD4C11424704E00BDC690 /* eBank3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8AD4E31424704E00BDC690 /* Build configuration list for PBXNativeTarget "eBank3" */;
+			buildPhases = (
+				2D8AD4BE1424704E00BDC690 /* Sources */,
+				2D8AD4BF1424704E00BDC690 /* Frameworks */,
+				2D8AD4C01424704E00BDC690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = eBank3;
+			productName = eBank3;
+			productReference = 2D8AD4C21424704E00BDC690 /* eBank3.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D8AD4B91424704E00BDC690 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 2D8AD4BC1424704E00BDC690 /* Build configuration list for PBXProject "eBank3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D8AD4B71424704E00BDC690;
+			productRefGroup = 2D8AD4C31424704E00BDC690 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D8AD4C11424704E00BDC690 /* eBank3 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D8AD4C01424704E00BDC690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8AD4D11424704E00BDC690 /* InfoPlist.strings in Resources */,
+				2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */,
+				2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D8AD4BE1424704E00BDC690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8AD4D31424704E00BDC690 /* main.m in Sources */,
+				2D8AD4D71424704E00BDC690 /* eBank3AppDelegate.m in Sources */,
+				2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D8AD4D01424704E00BDC690 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2D8AD4D81424704E00BDC690 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D8AD4D91424704E00BDC690 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		2D8AD4DE1424704E00BDC690 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D8AD4DF1424704E00BDC690 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D8AD4E11424704E00BDC690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D8AD4E21424704E00BDC690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D8AD4E41424704E00BDC690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "eBank3/eBank3-Prefix.pch";
+				INFOPLIST_FILE = "eBank3/eBank3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2D8AD4E51424704E00BDC690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "eBank3/eBank3-Prefix.pch";
+				INFOPLIST_FILE = "eBank3/eBank3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8AD4BC1424704E00BDC690 /* Build configuration list for PBXProject "eBank3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8AD4E11424704E00BDC690 /* Debug */,
+				2D8AD4E21424704E00BDC690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8AD4E31424704E00BDC690 /* Build configuration list for PBXNativeTarget "eBank3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8AD4E41424704E00BDC690 /* Debug */,
+				2D8AD4E51424704E00BDC690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D8AD4B91424704E00BDC690 /* Project object */;
+}
