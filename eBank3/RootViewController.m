@@ -7,8 +7,9 @@
 //
 
 #import "RootViewController.h"
-#import <QuartzCore/QuartzCore.h>
+//#import <QuartzCore/QuartzCore.h>
 
+#import "AccountList.h"
 
 @implementation RootViewController
 
@@ -19,9 +20,9 @@
 @synthesize accountDetailView_2= accountDetailView_2_;
 
 @synthesize transitioning;
-
+@synthesize addButton=addButton_;
 @synthesize containerView =containerView_;
-@synthesize rightItem=rightItem_;
+//@synthesize rightItem=rightItem_;
 
 
 - (void)dealloc
@@ -30,7 +31,7 @@
     [dataSource_ release];
     [accountDetailView_1_ release];
     [accountDetailView_2_ release];
-    [rightItem_ release];
+  //  [rightItem_ release];
     [amount_1_ release];
     [amount_2_ release];
     
@@ -42,13 +43,6 @@
 {
     if (!(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
         return nil;
-    
-    //  [self.containerView addSubview:self.accountDetailView_2];
-    
-    
-    //  self.accountDetailView_2.hidden = YES;
-    //  self.transitioning=NO;
-    
     return self;   
 }
 
@@ -75,6 +69,7 @@
     
     self.navigationItem.title =@"Accounts";
     
+	self.navigationItem.rightBarButtonItem = self.addButton;
     //  UIBarButtonItem* rightItem = 
     
     
@@ -146,6 +141,7 @@
 
 -(void)performTransition
 {
+   /* 
 	// First create a CATransition object to describe the transition
 	CATransition *transition = [CATransition animation];
 	// Animate over 3/4 of a second
@@ -169,7 +165,7 @@
 	
 	// Next add it to the containerView's layer. This will perform the transition based on how we change its contents.
 	[self.containerView.layer addAnimation:transition forKey:nil];
-	
+	*/
 	// Here we hide view1, and show view2, which will cause Core Animation to animate view1 away and view2 in.
 	self.accountDetailView_1.hidden = YES;
 	self.accountDetailView_2.hidden = NO;
@@ -185,7 +181,7 @@
     
     
 }
-
+/*
 -(void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
 	self.transitioning = NO;
@@ -198,7 +194,28 @@
 		[self performTransition];
 	}
 }
+*/
+#pragma mark -
+#pragma mark Actions
 
+- (IBAction) addButtonPressed: (id) sender {
+	NSLog(@"%@", @"Add button pressed.");
+/*	
+    UIViewController *addViewController = [[AccountList alloc] initWithNibName:@"AccountList" bundle:nil];
+*/    
+	UINavigationController *addNavController = [[UINavigationController alloc] initWithRootViewController: [[UIViewController alloc] init]];
+	[self presentModalViewController:addNavController animated:YES]; 
+	[addNavController release];
+
+    
+    
+  //  [self.navigationController pushViewController: [[UIViewController alloc] init] animated:YES];
+
+    
+    
+    
+    
+}
 
 
 

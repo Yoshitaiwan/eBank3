@@ -17,6 +17,8 @@
 		2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DC1424704E00BDC690 /* RootViewController.m */; };
 		2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DE1424704E00BDC690 /* RootViewController.xib */; };
 		2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4E61424751300BDC690 /* QuartzCore.framework */; };
+		2D8AD5131424859A00BDC690 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5111424859A00BDC690 /* AccountList.m */; };
+		2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountList.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		2D8AD4DC1424704E00BDC690 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		2D8AD4DF1424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		2D8AD4E61424751300BDC690 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2D8AD5101424859A00BDC690 /* AccountList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountList.h; sourceTree = "<group>"; };
+		2D8AD5111424859A00BDC690 /* AccountList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountList.m; sourceTree = "<group>"; };
+		2D8AD5121424859A00BDC690 /* AccountList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountList.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,9 @@
 		2D8AD4B71424704E00BDC690 = {
 			isa = PBXGroup;
 			children = (
+				2D8AD5101424859A00BDC690 /* AccountList.h */,
+				2D8AD5111424859A00BDC690 /* AccountList.m */,
+				2D8AD5121424859A00BDC690 /* AccountList.xib */,
 				2D8AD4CC1424704E00BDC690 /* eBank3 */,
 				2D8AD4C51424704E00BDC690 /* Frameworks */,
 				2D8AD4C31424704E00BDC690 /* Products */,
@@ -87,6 +95,7 @@
 				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
 				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
 				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
+				2D8AD5001424839800BDC690 /* Resources */,
 				2D8AD4CD1424704E00BDC690 /* Supporting Files */,
 			);
 			path = eBank3;
@@ -96,13 +105,20 @@
 			isa = PBXGroup;
 			children = (
 				2D8AD4CE1424704E00BDC690 /* eBank3-Info.plist */,
-				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
-				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 				2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */,
 				2D8AD4D21424704E00BDC690 /* main.m */,
 				2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D8AD5001424839800BDC690 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
+				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +171,7 @@
 				2D8AD4D11424704E00BDC690 /* InfoPlist.strings in Resources */,
 				2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */,
 				2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */,
+				2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +185,7 @@
 				2D8AD4D31424704E00BDC690 /* main.m in Sources */,
 				2D8AD4D71424704E00BDC690 /* eBank3AppDelegate.m in Sources */,
 				2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */,
+				2D8AD5131424859A00BDC690 /* AccountList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
