@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource,UINavigationBarDelegate,UIActionSheetDelegate>
+@interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
 
 {
 @private
@@ -29,6 +29,7 @@
     // moved this UIBarButtonITem from MainWindow.xib to RootViewVController, as 
     // pushViewController cannot push on top of UIBarbuttonitem (UIView)
 	UIBarButtonItem *addButton_;
+    UIBarButtonItem *menuButton_;
     
     
 }
@@ -39,7 +40,7 @@
 @property(nonatomic,retain) IBOutlet UIView  *accountDetailView_2;
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *addButton;
-//@property(nonatomic,retain) IBOutlet UIBarButtonItem * rightItem;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * menuButton;
 
 @property BOOL transitioning;
 
@@ -47,4 +48,6 @@
 
 
 - (IBAction) addButtonPressed: (id) sender;
+- (IBAction) menuButtonPressed: (id) sender;
+
 @end

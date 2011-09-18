@@ -10,6 +10,15 @@
 
 @implementation AccountList
 
+
+- (void)dealloc
+{
+    [keys_ release];
+    [dataSource_ release];
+    [super dealloc];
+}
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -38,109 +47,66 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    self.navigationItem.title =@"Edit Accounts";
+    
+    self.navigationItem.rightBarButtonItem = [self editButtonItem];
+
+    // 表示するデータを作成
+    keys_ = [[NSArray alloc] initWithObjects:@"Singapore", @"U.K.", @"Malaysia", @"Indonesia", nil];
+    NSArray* object1 = [NSArray arrayWithObjects:@"Amazon", @"Rakten", @"Lion", @"Elephant", nil];
+    NSArray* object2 = [NSArray arrayWithObjects:@"Snake", @"Gecko", nil];
+    NSArray* object3 = [NSArray arrayWithObjects:@"Frog", @"Newts", nil];
+    NSArray* object4 = [NSArray arrayWithObjects:@"Shark", @"Salmon", nil];
+    NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, object4, nil];
+    dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
+    
+
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section 
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    id key = [keys_ objectAtIndex:section];
+    return [[dataSource_ objectForKey:key] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (UITableViewCell*)tableView:(UITableView*)tableView
+        cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    static NSString* identifier = @"basis-cell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if ( nil == cell ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:identifier];
+        [cell autorelease];
     }
-    
-    // Configure the cell...
-    
+    id key = [keys_ objectAtIndex:indexPath.section];
+    NSString* text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
+    cell.textLabel.text = text;
+    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton   ;
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return [keys_ count];
+}
+
+- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section 
+{
+    return [keys_ objectAtIndex:section];
+}
+
+/*
+- (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView
+{
+    return keys_;
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AccountList : UITableViewController
+{
+@private 
+NSArray* keys_;
+NSDictionary* dataSource_;
 
+}    
 @end
