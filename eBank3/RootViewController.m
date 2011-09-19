@@ -11,6 +11,9 @@
 
 #import "AccountList.h"
 
+#define kTagViewForTransition 1.0
+
+
 @implementation RootViewController
 
 //@synthesize  myTableView= myTableView_;
@@ -217,14 +220,13 @@
     
     // static UIViewAnimationTransition transition = UIViewAnimationTransitionFlipFromLeft;
     
-    static const NSInteger kTagViewForTransitionTest = 1;
-    UIView* nextView = [[UIView alloc] init ];
+    UIView* nextView = [self nextView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
     [UIView setAnimationDuration:2.0];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
-    [[self.view viewWithTag:kTagViewForTransitionTest] removeFromSuperview];
+    [[self.view viewWithTag:kTagViewForTransition] removeFromSuperview];
     [self.view addSubview:nextView];
     [UIView commitAnimations];
     [UIView setAnimationsEnabled:NO];
@@ -232,6 +234,39 @@
 
     
     
+}
+
+- (UIView*)nextView {
+    static BOOL isFront = YES;
+    UIImage* image;
+    UIView* view;
+    if ( isFront ) {
+        image = [UIImage imageNamed:@"dog.jpg"]; //< 表用の画像
+       // view = [[[UIImageView alloc] initWithImage: image] autorelease];
+        view = [[[UITableView alloc] init ] autorelease];
+        
+        self.navigationItem.title =@"Menu"; 
+        
+        self.navigationItem.rightBarButtonItem.enabled= NO;
+        
+    } else {
+        view = nil;
+        
+        self.navigationItem.title =@"Accounts"; 
+        
+        self.navigationItem.rightBarButtonItem.enabled= YES;
+    }
+    isFront = ( YES != isFront );
+    view.tag = kTagViewForTransition;
+    view.frame = self.view.bounds;
+    view.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    view.contentMode = UIViewContentModeScaleAspectFill;
+    return view;
+}
+
+- (void)animationDidStop {
+    [UIView setAnimationsEnabled:YES];
 }
 
 
