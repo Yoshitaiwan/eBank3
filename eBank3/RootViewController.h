@@ -9,6 +9,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AccountMenuDataSource.h"
+
+
 @interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
 
 {
@@ -32,6 +35,10 @@
     UIBarButtonItem *menuButton_;
     
     
+    AccountMenuDataSource*  myDataSource_; 
+    
+    
+    
 }
 
 @property(nonatomic,retain) IBOutlet UILabel *amount_1;
@@ -46,6 +53,7 @@
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;
 
+@property (nonatomic,retain) AccountMenuDataSource* myDataSource;
 
 - (IBAction) addButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;

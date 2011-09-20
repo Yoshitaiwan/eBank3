@@ -27,16 +27,16 @@
 @synthesize menuButton=menuButton_;
 
 @synthesize containerView =containerView_;
-//@synthesize rightItem=rightItem_;
+@synthesize  myDataSource=myDataSource_;
 
 
 - (void)dealloc
 {
     [keys_ release];
     [dataSource_ release];
+    
     [accountDetailView_1_ release];
     [accountDetailView_2_ release];
-  //  [rightItem_ release];
     [amount_1_ release];
     [amount_2_ release];
     
@@ -44,7 +44,9 @@
     [menuButton_ release];
     
     [containerView_ release];
+    [myDataSource_ release];
     [super dealloc];
+    
 }
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,6 +81,8 @@
 	self.navigationItem.rightBarButtonItem = self.addButton;
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
+    
+    myDataSource_ = [[AccountMenuDataSource alloc] init ];
     
 }
 
@@ -238,12 +242,13 @@
 
 - (UIView*)nextView {
     static BOOL isFront = YES;
-    UIImage* image;
     UIView* view;
+    UITableView *table ;
     if ( isFront ) {
-        image = [UIImage imageNamed:@"dog.jpg"]; //< 表用の画像
-       // view = [[[UIImageView alloc] initWithImage: image] autorelease];
-        view = [[[UITableView alloc] init ] autorelease];
+         // view = [[[UIImageView alloc] initWithImage: image] autorelease];
+        table = [[[UITableView alloc] init ]autorelease];
+        table.dataSource = myDataSource_;
+        view = table;
         
         self.navigationItem.title =@"Menu"; 
         
