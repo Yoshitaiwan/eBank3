@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AccountMenuDataSource.h"
+#import "MenuDataSource.h"
 
 
 @interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
@@ -19,11 +19,9 @@
     NSArray* keys_;
     NSDictionary* dataSource_;
     
-    
     UILabel *amount_1_;
     UIView  *accountDetailView_1_;
     UIView *containerView_;
-    
     UILabel *amount_2_;
     UIView  *accountDetailView_2_;
     
@@ -31,31 +29,27 @@
     
     // moved this UIBarButtonITem from MainWindow.xib to RootViewVController, as 
     // pushViewController cannot push on top of UIBarbuttonitem (UIView)
-	UIBarButtonItem *addButton_;
+	UIBarButtonItem *editAccountButton_;
     UIBarButtonItem *menuButton_;
     
-    
-    AccountMenuDataSource*  myDataSource_; 
-    
-    
-    
+    MenuDataSource *myDataSource_; 
 }
 
 @property(nonatomic,retain) IBOutlet UILabel *amount_1;
-@property(nonatomic,retain) IBOutlet UIView  *accountDetailView_1;
+@property(nonatomic,retain) IBOutlet UIView  *accountDetailTopScreenView_1;
 @property(nonatomic,retain) IBOutlet UILabel *amount_2;
-@property(nonatomic,retain) IBOutlet UIView  *accountDetailView_2;
+@property(nonatomic,retain) IBOutlet UIView  *accountDetailTopScreenView_2;
 
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *addButton;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * menuButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *editAccountButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem *menuButton;
 
 @property BOOL transitioning;
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;
 
-@property (nonatomic,retain) AccountMenuDataSource* myDataSource;
+@property (nonatomic,retain) MenuDataSource *myDataSource;
 
-- (IBAction) addButtonPressed: (id) sender;
+- (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;
 
 @end

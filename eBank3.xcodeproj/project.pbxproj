@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D65AD221426596E00B2D054 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D65AD211426596E00B2D054 /* dog.jpg */; };
-		2D866D5414285193004D74CC /* AccountMenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D866D5314285193004D74CC /* AccountMenuDataSource.m */; };
+		2D866D5414285193004D74CC /* MenuDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D866D5314285193004D74CC /* MenuDataSource.m */; };
 		2D8AD4C71424704E00BDC690 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C61424704E00BDC690 /* UIKit.framework */; };
 		2D8AD4C91424704E00BDC690 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C81424704E00BDC690 /* Foundation.framework */; };
 		2D8AD4CB1424704E00BDC690 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */; };
@@ -21,13 +20,11 @@
 		2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4E61424751300BDC690 /* QuartzCore.framework */; };
 		2D8AD5131424859A00BDC690 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5111424859A00BDC690 /* AccountList.m */; };
 		2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountList.xib */; };
-		2D8B314C142796240036F4D1 /* town.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D8B314B142796240036F4D1 /* town.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D65AD211426596E00B2D054 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
-		2D866D5214285193004D74CC /* AccountMenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountMenuDataSource.h; sourceTree = "<group>"; };
-		2D866D5314285193004D74CC /* AccountMenuDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountMenuDataSource.m; sourceTree = "<group>"; };
+		2D866D5214285193004D74CC /* MenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDataSource.h; sourceTree = "<group>"; };
+		2D866D5314285193004D74CC /* MenuDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuDataSource.m; sourceTree = "<group>"; };
 		2D8AD4C21424704E00BDC690 /* eBank3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBank3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8AD4C61424704E00BDC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D8AD4C81424704E00BDC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,7 +43,6 @@
 		2D8AD5101424859A00BDC690 /* AccountList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountList.h; path = ../AccountList.h; sourceTree = "<group>"; };
 		2D8AD5111424859A00BDC690 /* AccountList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountList.m; path = ../AccountList.m; sourceTree = "<group>"; };
 		2D8AD5121424859A00BDC690 /* AccountList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountList.xib; path = ../AccountList.xib; sourceTree = "<group>"; };
-		2D8B314B142796240036F4D1 /* town.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = town.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +63,8 @@
 		2D866D5014285147004D74CC /* Data Source */ = {
 			isa = PBXGroup;
 			children = (
-				2D866D5214285193004D74CC /* AccountMenuDataSource.h */,
-				2D866D5314285193004D74CC /* AccountMenuDataSource.m */,
+				2D866D5214285193004D74CC /* MenuDataSource.h */,
+				2D866D5314285193004D74CC /* MenuDataSource.m */,
 			);
 			name = "Data Source";
 			sourceTree = "<group>";
@@ -104,13 +100,9 @@
 		2D8AD4CC1424704E00BDC690 /* eBank3 */ = {
 			isa = PBXGroup;
 			children = (
+				2D8D90B11428E32500C40448 /* Controller */,
+				2D8D90AF1428E16600C40448 /* Application Support */,
 				2D866D5014285147004D74CC /* Data Source */,
-				2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */,
-				2D8AD5101424859A00BDC690 /* AccountList.h */,
-				2D8AD5111424859A00BDC690 /* AccountList.m */,
-				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
-				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
-				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
 				2D8AD5001424839800BDC690 /* Resources */,
 				2D8AD4CD1424704E00BDC690 /* Supporting Files */,
 			);
@@ -124,8 +116,6 @@
 				2D8AD4CF1424704E00BDC690 /* InfoPlist.strings */,
 				2D8AD4D21424704E00BDC690 /* main.m */,
 				2D8AD4D41424704E00BDC690 /* eBank3-Prefix.pch */,
-				2D65AD211426596E00B2D054 /* dog.jpg */,
-				2D8B314B142796240036F4D1 /* town.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +128,26 @@
 				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		2D8D90AF1428E16600C40448 /* Application Support */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
+				2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */,
+			);
+			name = "Application Support";
+			sourceTree = "<group>";
+		};
+		2D8D90B11428E32500C40448 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD5101424859A00BDC690 /* AccountList.h */,
+				2D8AD5111424859A00BDC690 /* AccountList.m */,
+				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
+				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,8 +201,6 @@
 				2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */,
 				2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */,
 				2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */,
-				2D65AD221426596E00B2D054 /* dog.jpg in Resources */,
-				2D8B314C142796240036F4D1 /* town.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +215,7 @@
 				2D8AD4D71424704E00BDC690 /* eBank3AppDelegate.m in Sources */,
 				2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */,
 				2D8AD5131424859A00BDC690 /* AccountList.m in Sources */,
-				2D866D5414285193004D74CC /* AccountMenuDataSource.m in Sources */,
+				2D866D5414285193004D74CC /* MenuDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

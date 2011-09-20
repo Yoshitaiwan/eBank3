@@ -8,22 +8,22 @@
 
 #import "RootViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
 #import "AccountList.h"
 
 #define kTagViewForTransition 1.0
+#define kTransitionDuration   0.70
+#define kAnimationDuration    2.00
 
 
 @implementation RootViewController
 
-//@synthesize  myTableView= myTableView_;
 @synthesize amount_1 = amount_1_;
-@synthesize accountDetailView_1 = accountDetailView_1_;
+@synthesize accountDetailTopScreenView_1 = accountDetailView_1_;
 @synthesize amount_2 = amount_2_;
-@synthesize accountDetailView_2= accountDetailView_2_;
+@synthesize accountDetailTopScreenView_2= accountDetailView_2_;
 
 @synthesize transitioning;
-@synthesize addButton=addButton_;
+@synthesize editAccountButton=editAccountButton_;
 @synthesize menuButton=menuButton_;
 
 @synthesize containerView =containerView_;
@@ -40,7 +40,7 @@
     [amount_1_ release];
     [amount_2_ release];
     
-    [addButton_ release];
+    [editAccountButton_ release];
     [menuButton_ release];
     
     [containerView_ release];
@@ -69,20 +69,20 @@
     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, object4, nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
     
-    [self.containerView addSubview:self.accountDetailView_1];
-    [self.containerView addSubview:self.accountDetailView_2];
+    [self.containerView addSubview:self.accountDetailTopScreenView_1];
+    [self.containerView addSubview:self.accountDetailTopScreenView_2];
     
-    self.accountDetailView_1.hidden = NO;
-    self.accountDetailView_2.hidden = YES;
+    self.accountDetailTopScreenView_1.hidden = NO;
+    self.accountDetailTopScreenView_2.hidden = YES;
     self.transitioning = NO;
     
     self.navigationItem.title =@"Accounts";
     
-	self.navigationItem.rightBarButtonItem = self.addButton;
+	self.navigationItem.rightBarButtonItem = self.editAccountButton;
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
     
-    myDataSource_ = [[AccountMenuDataSource alloc] init ];
+    myDataSource_ = [[MenuDataSource alloc] init ];
     
 }
 
@@ -133,15 +133,8 @@
 {
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* message  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
-    
-    /*     UIAlertView* alert = [[[UIAlertView alloc] init] autorelease];
-     alert.message = message;
-     [alert addButtonWithTitle:@"OK"];
-     [alert show];
-     */
     NSString *tmp = [message stringByAppendingString:@" current balance"] ;
     self.amount_2.text = tmp; 
-    
     [self nextTransition];
 }    
 
@@ -152,40 +145,31 @@
 	// First create a CATransition object to describe the transition
 	CATransition *transition = [CATransition animation];
 	// Animate over 3/4 of a second
-	transition.duration = 0.70;
+	transition.duration = kTransitionDuration;
 	// using the ease in/out timing function
 	transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-	
-	// Now to set the type of transition. Since we need to choose at random, we'll setup a couple of arrays to help us.
-    //	NSString *types[4] = {kCATransitionMoveIn, kCATransitionPush, kCATransitionReveal, kCATransitionFade};
-    //	NSString *subtypes[4] = {kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom};
-    //	int rnd = random() % 4;
-    //	transition.type = types[rnd];
 	transition.type = kCATransitionMoveIn;
 	transition.subtype = kCATransitionFromRight;
 	// Finally, to avoid overlapping transitions we assign ourselves as the delegate for the animation and wait for the
 	// -animationDidStop:finished: message. When it comes in, we will flag that we are no longer transitioning.
 	transitioning = YES;
-	
-    
     transition.delegate = self;
 	
 	// Next add it to the containerView's layer. This will perform the transition based on how we change its contents.
 	[self.containerView.layer addAnimation:transition forKey:nil];
 	
 	// Here we hide view1, and show view2, which will cause Core Animation to animate view1 away and view2 in.
-	self.accountDetailView_1.hidden = YES;
-	self.accountDetailView_2.hidden = NO;
+	self.accountDetailTopScreenView_1.hidden = YES;
+	self.accountDetailTopScreenView_2.hidden = NO;
 	
 	// And so that we will continue to swap between our two images, we swap the instance variables referencing them.
-	UIView *tmp = self.accountDetailView_2;
-	self.accountDetailView_2 = self.accountDetailView_1;
-	self.accountDetailView_1 = tmp;
+	UIView *tmp = self.accountDetailTopScreenView_2;
+	self.accountDetailTopScreenView_2 = self.accountDetailTopScreenView_1;
+	self.accountDetailTopScreenView_1 = tmp;
     
     UILabel *tmpLabel =self.amount_2;
     self.amount_2 = self.amount_1;
     self.amount_1 = tmpLabel;
-    
     
 }
 
@@ -205,39 +189,28 @@
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction) addButtonPressed: (id) sender {
-	NSLog(@"%@", @"Add button pressed.");
+- (IBAction) editButtonPressed: (id) sender {
+//	NSLog(@"%@", @"Add button pressed.");
 	
     UIViewController *addViewController = [[AccountList alloc] initWithNibName:@"AccountList" bundle:nil];
-    
-//	UINavigationController *addNavController = [[UINavigationController alloc] initWithRootViewController: [[UIViewController alloc] init]];
-	[self.navigationController pushViewController:addViewController animated:YES]; 
-//	[addNavController release];
+  	[self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
-  
-  //  [self.navigationController pushViewController: [[UIViewController alloc] init] animated:YES];
  
 }
 
 - (IBAction) menuButtonPressed: (id) sender {
-	NSLog(@"%@", @"menu button pressed.");
+	//NSLog(@"%@", @"menu button pressed.");
     
-    // static UIViewAnimationTransition transition = UIViewAnimationTransitionFlipFromLeft;
-    
-    UIView* nextView = [self nextView];
+    UIView *nextView = [self nextView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
-    [UIView setAnimationDuration:2.0];
+    [UIView setAnimationDuration:kAnimationDuration];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
     [[self.view viewWithTag:kTagViewForTransition] removeFromSuperview];
     [self.view addSubview:nextView];
     [UIView commitAnimations];
     [UIView setAnimationsEnabled:NO];
-    
-
-    
-    
 }
 
 - (UIView*)nextView {
@@ -245,20 +218,16 @@
     UIView* view;
     UITableView *table ;
     if ( isFront ) {
-         // view = [[[UIImageView alloc] initWithImage: image] autorelease];
         table = [[[UITableView alloc] init ]autorelease];
         table.dataSource = myDataSource_;
         view = table;
-        
+               
         self.navigationItem.title =@"Menu"; 
-        
         self.navigationItem.rightBarButtonItem.enabled= NO;
         
     } else {
         view = nil;
-        
         self.navigationItem.title =@"Accounts"; 
-        
         self.navigationItem.rightBarButtonItem.enabled= YES;
     }
     isFront = ( YES != isFront );
