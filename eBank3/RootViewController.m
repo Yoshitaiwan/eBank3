@@ -8,7 +8,8 @@
 
 #import "RootViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "AccountList.h"
+#import "AccountListController.h"
+#import "AccountStatementController.h"
 
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
@@ -78,14 +79,13 @@
     
     self.navigationItem.title =@"Accounts";
     
-	self.navigationItem.rightBarButtonItem = self.editAccountButton;
+//	self.navigationItem.rightBarButtonItem = self.editAccountButton;
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
     
     myDataSource_ = [[MenuDataSource alloc] init ];
     
 }
-
 
 
 
@@ -192,7 +192,7 @@
 - (IBAction) editButtonPressed: (id) sender {
 //	NSLog(@"%@", @"Add button pressed.");
 	
-    UIViewController *addViewController = [[AccountList alloc] initWithNibName:@"AccountList" bundle:nil];
+    UIViewController *addViewController = [[AccountListController alloc] initWithNibName:@"AccountList" bundle:nil];
   	[self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
  
@@ -213,6 +213,20 @@
     [UIView setAnimationsEnabled:NO];
 }
 
+
+-(IBAction)goToStatementLabelPressed :(id) sender{
+    NSLog(@"go to statement pressed");
+    
+    UIViewController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil];
+  	[self.navigationController pushViewController:addViewController animated:YES];
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
+  	[addViewController release];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+   	self.navigationItem.rightBarButtonItem = self.editAccountButton;
+}
+
 - (UIView*)nextView {
     static BOOL isFront = YES;
     UIView* view;
@@ -222,13 +236,16 @@
         table.dataSource = myDataSource_;
         view = table;
                
-        self.navigationItem.title =@"Menu"; 
-        self.navigationItem.rightBarButtonItem.enabled= NO;
+        [self.navigationItem setTitle:@"Menu" ]; 
+        [self.navigationItem setRightBarButtonItem:nil animated:YES];
+       // self.navigationItem.rightBarButtonItem.enabled= NO;
         
     } else {
         view = nil;
         self.navigationItem.title =@"Accounts"; 
-        self.navigationItem.rightBarButtonItem.enabled= YES;
+        [self.navigationItem setRightBarButtonItem:editAccountButton_ animated:YES];
+        
+    //    self.navigationItem.rightBarButtonItem.enabled= YES;
     }
     isFront = ( YES != isFront );
     view.tag = kTagViewForTransition;

@@ -18,8 +18,12 @@
 		2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DC1424704E00BDC690 /* RootViewController.m */; };
 		2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD4DE1424704E00BDC690 /* RootViewController.xib */; };
 		2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4E61424751300BDC690 /* QuartzCore.framework */; };
-		2D8AD5131424859A00BDC690 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5111424859A00BDC690 /* AccountList.m */; };
-		2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountList.xib */; };
+		2D8AD5131424859A00BDC690 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5111424859A00BDC690 /* AccountListController.m */; };
+		2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountListController.xib */; };
+		2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53390142F6478004852A5 /* AccountStatementController.m */; };
+		2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA53391142F6478004852A5 /* AccountStatementController.xib */; };
+		2DC479DA142C419D001426D5 /* AccountDisclosureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC479D8142C419D001426D5 /* AccountDisclosureController.m */; };
+		2DC479DB142C419D001426D5 /* AccountDisclosureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +44,15 @@
 		2D8AD4DC1424704E00BDC690 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		2D8AD4DF1424704E00BDC690 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		2D8AD4E61424751300BDC690 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2D8AD5101424859A00BDC690 /* AccountList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountList.h; path = ../AccountList.h; sourceTree = "<group>"; };
-		2D8AD5111424859A00BDC690 /* AccountList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountList.m; path = ../AccountList.m; sourceTree = "<group>"; };
-		2D8AD5121424859A00BDC690 /* AccountList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountList.xib; path = ../AccountList.xib; sourceTree = "<group>"; };
+		2D8AD5101424859A00BDC690 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountListController.h; path = ../AccountListController.h; sourceTree = "<group>"; };
+		2D8AD5111424859A00BDC690 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountListController.m; path = ../AccountListController.m; sourceTree = "<group>"; };
+		2D8AD5121424859A00BDC690 /* AccountListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountListController.xib; path = ../AccountListController.xib; sourceTree = "<group>"; };
+		2DA5338F142F6478004852A5 /* AccountStatementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementController.h; sourceTree = "<group>"; };
+		2DA53390142F6478004852A5 /* AccountStatementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementController.m; sourceTree = "<group>"; };
+		2DA53391142F6478004852A5 /* AccountStatementController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementController.xib; sourceTree = "<group>"; };
+		2DC479D7142C419D001426D5 /* AccountDisclosureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDisclosureController.h; sourceTree = "<group>"; };
+		2DC479D8142C419D001426D5 /* AccountDisclosureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDisclosureController.m; sourceTree = "<group>"; };
+		2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDisclosureController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +133,9 @@
 		2D8AD5001424839800BDC690 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2D8AD5121424859A00BDC690 /* AccountList.xib */,
+				2D8AD5121424859A00BDC690 /* AccountListController.xib */,
 				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
+				2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */,
 				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 			);
 			name = Resources;
@@ -142,10 +153,15 @@
 		2D8D90B11428E32500C40448 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2D8AD5101424859A00BDC690 /* AccountList.h */,
-				2D8AD5111424859A00BDC690 /* AccountList.m */,
+				2DC479D7142C419D001426D5 /* AccountDisclosureController.h */,
+				2DC479D8142C419D001426D5 /* AccountDisclosureController.m */,
+				2D8AD5101424859A00BDC690 /* AccountListController.h */,
+				2D8AD5111424859A00BDC690 /* AccountListController.m */,
 				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
 				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
+				2DA5338F142F6478004852A5 /* AccountStatementController.h */,
+				2DA53390142F6478004852A5 /* AccountStatementController.m */,
+				2DA53391142F6478004852A5 /* AccountStatementController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -200,7 +216,9 @@
 				2D8AD4D11424704E00BDC690 /* InfoPlist.strings in Resources */,
 				2D8AD4DA1424704E00BDC690 /* MainWindow.xib in Resources */,
 				2D8AD4E01424704E00BDC690 /* RootViewController.xib in Resources */,
-				2D8AD5141424859A00BDC690 /* AccountList.xib in Resources */,
+				2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */,
+				2DC479DB142C419D001426D5 /* AccountDisclosureController.xib in Resources */,
+				2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,8 +232,10 @@
 				2D8AD4D31424704E00BDC690 /* main.m in Sources */,
 				2D8AD4D71424704E00BDC690 /* eBank3AppDelegate.m in Sources */,
 				2D8AD4DD1424704E00BDC690 /* RootViewController.m in Sources */,
-				2D8AD5131424859A00BDC690 /* AccountList.m in Sources */,
+				2D8AD5131424859A00BDC690 /* AccountListController.m in Sources */,
 				2D866D5414285193004D74CC /* MenuDataSource.m in Sources */,
+				2DC479DA142C419D001426D5 /* AccountDisclosureController.m in Sources */,
+				2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

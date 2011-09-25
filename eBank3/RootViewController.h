@@ -51,5 +51,7 @@
 
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;
+- (IBAction) goToStatementLabelPressed: (id) sender;
+
 
 @end
