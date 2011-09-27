@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MenuDataSource.h"
+#import "MenuController.h"
 
 
 @interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
@@ -32,7 +32,7 @@
 	UIBarButtonItem *editAccountButton_;
     UIBarButtonItem *menuButton_;
     
-    MenuDataSource *myDataSource_; 
+    MenuController *myDataSource_; 
 }
 
 @property(nonatomic,retain) IBOutlet UILabel *amount_1;
@@ -47,7 +47,7 @@
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;
 
-@property (nonatomic,retain) MenuDataSource *myDataSource;
+@property (nonatomic,retain) MenuController *myDataSource;
 
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;

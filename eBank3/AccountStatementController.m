@@ -7,6 +7,7 @@
 //
 
 #import "AccountStatementController.h"
+#import "AccountStatementDetailController.h"
 
 @implementation AccountStatementController
 
@@ -102,6 +103,22 @@
  */
 
 
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
+{
+    id key = [keys_ objectAtIndex:indexPath.section];
+    NSString* message  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
+ //   NSString *tmp = [message stringByAppendingString:@" current balance"] ;
+ //   self.amount_2.text = tmp; 
+
+    NSLog(message);
+
+    UIViewController *addViewController = [[AccountStatementDetailController alloc] initWithNibName:@"AccountStatementDetailController" bundle:nil];
+    addViewController.title= @"Details";
+  	[self.navigationController pushViewController:addViewController animated:YES]; 
+	[addViewController release];
+    
+
+}    
 
 
 

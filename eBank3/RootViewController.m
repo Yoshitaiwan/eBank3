@@ -10,10 +10,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AccountListController.h"
 #import "AccountStatementController.h"
-
+#import "MenuController.h"
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
-#define kAnimationDuration    2.00
+#define kAnimationDuration    1.00
 
 
 @implementation RootViewController
@@ -83,8 +83,11 @@
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
     
-    myDataSource_ = [[MenuDataSource alloc] init ];
+    MenuController* menudata = [[MenuController alloc] init ];
     
+    myDataSource_ = menudata;
+    
+   // [menudata release] ;
 }
 
 
@@ -233,7 +236,9 @@
     UITableView *table ;
     if ( isFront ) {
         table = [[[UITableView alloc] init ]autorelease];
+     //   table = [[[MenuController alloc] init] autorelease]; not working as MenuController is not UIView
         table.dataSource = myDataSource_;
+        table.delegate = myDataSource_;
         view = table;
                
         [self.navigationItem setTitle:@"Menu" ]; 
