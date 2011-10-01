@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2D866D5414285193004D74CC /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D866D5314285193004D74CC /* MenuController.m */; };
+		2D888C501434C71E00396628 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4C1434C71E00396628 /* Dog.png */; };
+		2D888C511434C71E00396628 /* Elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4D1434C71E00396628 /* Elephant.png */; };
+		2D888C521434C71E00396628 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4E1434C71E00396628 /* Lion.png */; };
+		2D888C531434C71E00396628 /* Monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4F1434C71E00396628 /* Monkey.png */; };
 		2D8AD4C71424704E00BDC690 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C61424704E00BDC690 /* UIKit.framework */; };
 		2D8AD4C91424704E00BDC690 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4C81424704E00BDC690 /* Foundation.framework */; };
 		2D8AD4CB1424704E00BDC690 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4CA1424704E00BDC690 /* CoreGraphics.framework */; };
@@ -33,6 +37,10 @@
 /* Begin PBXFileReference section */
 		2D866D5214285193004D74CC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		2D866D5314285193004D74CC /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		2D888C4C1434C71E00396628 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
+		2D888C4D1434C71E00396628 /* Elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elephant.png; sourceTree = "<group>"; };
+		2D888C4E1434C71E00396628 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
+		2D888C4F1434C71E00396628 /* Monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey.png; sourceTree = "<group>"; };
 		2D8AD4C21424704E00BDC690 /* eBank3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBank3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8AD4C61424704E00BDC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D8AD4C81424704E00BDC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +155,10 @@
 				2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */,
 				2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */,
 				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
+				2D888C4C1434C71E00396628 /* Dog.png */,
+				2D888C4D1434C71E00396628 /* Elephant.png */,
+				2D888C4E1434C71E00396628 /* Lion.png */,
+				2D888C4F1434C71E00396628 /* Monkey.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -237,6 +249,10 @@
 				2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */,
 				2D8C559214303EFE007D2FDA /* AccountStatementDetailController.xib in Resources */,
 				2D8FFCB214322546007333B7 /* CurrencyBoardController.xib in Resources */,
+				2D888C501434C71E00396628 /* Dog.png in Resources */,
+				2D888C511434C71E00396628 /* Elephant.png in Resources */,
+				2D888C521434C71E00396628 /* Lion.png in Resources */,
+				2D888C531434C71E00396628 /* Monkey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "CurrencyBoardController.h"
 
 @implementation MenuController
+@synthesize  mainViewContainer= mainViewContainer_;
 
 -(void) dealloc
 {
@@ -82,13 +83,12 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     NSLog (tmp);
-    
-   // UITableViewController *addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
-    UITableViewController *addViewController = [[UITableViewController alloc] init ];
-    addViewController.title= @"Currency Board";
-  	[self.navigationController pushViewController:addViewController animated:YES]; 
+     
+    UITableViewController *addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
+   // UITableViewController *addViewController = [[UITableViewController alloc] init ];
+    addViewController.title= @"My Currency Board";
+  	[mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
-    
     
 }
 

@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface CurrencyBoardController : UITableViewController
+{
+  @private  
+    NSArray* details_;    
+    NSMutableArray* images_;
+    NSDictionary* dataSource_;
+}
+
+- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier;
+- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -9,12 +9,7 @@
 #import "CurrencyBoardController.h"
 
 @implementation CurrencyBoardController
--(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    if (!(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
-        return nil;
-    return self;   
-}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -24,141 +19,100 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
+
+- (void)dealloc
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+    [images_ release];
+    [details_ release];
+    [dataSource_ release];
+    [super dealloc];
 }
 
-#pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
+    images_ = [[NSMutableArray alloc] initWithCapacity:8];
+    for ( NSString* name in dataSource_ ) {
+        NSString* imageName = [NSString stringWithFormat:@"%@.png", name];
+        UIImage* image = [UIImage imageNamed:imageName];
+        [images_ addObject:image];
     }
     
-    // Configure the cell...
+    self.tableView.rowHeight =60;
+}
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    return [dataSource_ count];
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView
+        cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString* CellIdentifier = @"basis-cell";
     
-    return cell;
+   // NSString identifier= [dataSource_ objectAtIndex:indexPath.row];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+		cell = [self tableViewCellWithReuseIdentifier:CellIdentifier];
+	}
+
+    [self configureCell:cell forIndexPath:indexPath];
+
+    cell.imageView.image = [images_ objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = @"20-Sept-2011 12:30:11PM";
+    cell.textLabel.text = [dataSource_ objectAtIndex:indexPath.row];
+    
+    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton   ;
+	return cell;
+
+}   
+
+
+
+#pragma mark -
+#pragma mark Configuring table view cells
+
+#define RATE_TAG 1
+#define MIDDLE_COLUMN_OFFSET 130.0
+#define MIDDLE_COLUMN_WIDTH 150.0
+#define MAIN_FONT_SIZE 23.0
+#define LABEL_HEIGHT 26.0
+#define ROW_HEIGHT 60
+
+- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier {
+        /*
+         Create an instance of UITableViewCell .
+         */
+		
+        UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle   reuseIdentifier:identifier] autorelease];
+        /*
+         Create labels for the text fields; set the highlight color so that when the cell is selected it changes appropriately.
+         */
+        UILabel *label;
+        CGRect rect;
+        
+        // Create a label for the time.
+        rect = CGRectMake(MIDDLE_COLUMN_OFFSET, (ROW_HEIGHT - LABEL_HEIGHT) / 3.7, MIDDLE_COLUMN_WIDTH, LABEL_HEIGHT);
+        label = [[UILabel alloc] initWithFrame:rect];
+        label.tag = RATE_TAG;
+        label.font = [UIFont systemFontOfSize:MAIN_FONT_SIZE];
+        label.textAlignment = UITextAlignmentRight;
+        [cell.contentView addSubview:label];
+        label.highlightedTextColor = [UIColor whiteColor];
+        [label release];
+   
+        return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+    
+	UILabel *label;
+	label = (UILabel *)[cell viewWithTag:RATE_TAG];
+	label.text = @"0.1234569  "; 
+	
+}    
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-}
 
 @end

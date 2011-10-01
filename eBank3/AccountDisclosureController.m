@@ -75,7 +75,7 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     cell.textLabel.text = text;
-    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton   ;
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator   ;
     return cell;
 }
 

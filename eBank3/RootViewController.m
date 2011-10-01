@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AccountListController.h"
 #import "AccountStatementController.h"
-#import "MenuController.h"
+//#import "MenuController.h"
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
 #define kAnimationDuration    1.00
@@ -84,7 +84,7 @@
     
     
     MenuController* menudata = [[MenuController alloc] init ];
-    
+    [menudata setMainViewContainer:self];
     myDataSource_ = menudata;
     
    // [menudata release] ;
@@ -227,6 +227,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
    	self.navigationItem.rightBarButtonItem = self.editAccountButton;
 }
 
@@ -263,6 +264,7 @@
 
 - (void)animationDidStop {
     [UIView setAnimationsEnabled:YES];
+    
 }
 
 

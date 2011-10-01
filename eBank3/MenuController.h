@@ -7,14 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "RootViewController.h"
 
-//@interface MenuController : NSObject<UITableViewDataSource>
+@class RootViewController;
+@interface MenuController : NSObject<UITableViewDataSource>
 //@interface MenuController : UIViewController<UITableViewDataSource>
-@interface MenuController : UITableViewController{
-    @private
+//@interface MenuController : UITableViewController{
+{
+    
+@private
     NSArray* keys_;
     NSDictionary* dataSource_;
-    
+    UIViewController*  mainViewContainer_;  
 }
 
+@property(nonatomic,retain)  UIViewController* mainViewContainer;
+
 @end
+
