@@ -53,5 +53,6 @@
 - (IBAction) menuButtonPressed: (id) sender;
 - (IBAction) goToStatementLabelPressed: (id) sender;
 
-
+-(UIView*)nextView;
+-(void)nextTransition;
 @end

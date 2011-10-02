@@ -7,8 +7,13 @@
 //
 
 #import "CurrencyBoardController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation CurrencyBoardController
+@synthesize currentInputView=currencyInputView_;
+@synthesize transitioning;
+@synthesize shopName=shopName_;
+@synthesize shopImage = shopImage_;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,6 +30,8 @@
     [images_ release];
     [details_ release];
     [dataSource_ release];
+    [currencyInputView_ release];
+    [shopName_ release];
     [super dealloc];
 }
 
@@ -41,6 +48,11 @@
     }
     
     self.tableView.rowHeight =60;
+	self.currentInputView.hidden = YES;
+    
+    [self.view addSubview:self.currentInputView];
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
@@ -113,6 +125,67 @@
 	label.text = @"0.1234569  "; 
 	
 }    
+
+
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
+{
+    self.shopName.text=[dataSource_ objectAtIndex:indexPath.row];  
+    self.shopImage.image = [images_ objectAtIndex:indexPath.row];
+    [self nextTransition];
+    
+}    
+
+
+-(void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+	self.transitioning = NO;
+}
+
+-(void)nextTransition 
+{
+	if(!self.transitioning)
+	{
+		[self performTransition];
+	}
+}
+
+#define kTagViewForTransition 1.0
+#define kTransitionDuration   0.70
+#define kAnimationDuration    1.00
+
+
+-(void)performTransition
+{
+    
+	// First create a CATransition object to describe the transition
+	CATransition *transition = [CATransition animation];
+	// Animate over 3/4 of a second
+	transition.duration = kTransitionDuration;
+	// using the ease in/out timing function
+	transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	transition.type = kCATransitionFade ;
+//	transition.subtype = kCATransitionFromTop;
+	// Finally, to avoid overlapping transitions we assign ourselves as the delegate for the animation and wait for the
+	// -animationDidStop:finished: message. When it comes in, we will flag that we are no longer transitioning.
+	transitioning = YES;
+    transition.delegate = self;
+	
+	// Next add it to the containerView's layer. This will perform the transition based on how we change its contents.
+    [self.view.layer addAnimation:transition forKey:nil];
+	
+	// Here we hide view1, and show view2, which will cause Core Animation to animate view1 away and view2 in.
+	self.currentInputView.hidden = NO;
+	
+/*	// And so that we will continue to swap between our two images, we swap the instance variables referencing them.
+	UIView *tmp = self.accountDetailTopScreenView_2;
+	self.accountDetailTopScreenView_2 = self.accountDetailTopScreenView_1;
+	self.accountDetailTopScreenView_1 = tmp;
+    
+    UILabel *tmpLabel =self.amount_2;
+    self.amount_2 = self.amount_1;
+    self.amount_1 = tmpLabel;
+  */  
+}
 
 
 @end

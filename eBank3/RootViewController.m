@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AccountListController.h"
 #import "AccountStatementController.h"
-//#import "MenuController.h"
+
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
 #define kAnimationDuration    1.00
@@ -209,7 +209,7 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
     [UIView setAnimationDuration:kAnimationDuration];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES]; 
     [[self.view viewWithTag:kTagViewForTransition] removeFromSuperview];
     [self.view addSubview:nextView];
     [UIView commitAnimations];
