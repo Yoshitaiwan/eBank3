@@ -43,8 +43,8 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIBarButtonItem" id="990933483">
-				<string key="IBUITitle">Menu</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISystemItemIdentifier">13</int>
 			</object>
 			<object class="IBUIBarButtonItem" id="308794342">
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -213,6 +213,7 @@
 						<string key="NSFrame">{{8, 5}, {305, 126}}</string>
 						<reference key="NSSuperview" ref="267091121"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="59627710"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -237,7 +238,7 @@
 				<string key="NSFrameSize">{322, 136}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="59627710"/>
+				<reference key="NSNextKeyView" ref="840519769"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -316,6 +317,7 @@
 						<string key="NSFrame">{{9, 3}, {305, 126}}</string>
 						<reference key="NSSuperview" ref="857762038"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="543530161"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -333,7 +335,7 @@
 				<string key="NSFrameSize">{320, 136}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="543530161"/>
+				<reference key="NSNextKeyView" ref="1027823554"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>

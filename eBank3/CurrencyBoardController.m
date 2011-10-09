@@ -8,6 +8,7 @@
 
 #import "CurrencyBoardController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CurrencyBoardSettingController.h"
 
 @implementation CurrencyBoardController
 @synthesize currentInputView=currencyInputView_;
@@ -164,7 +165,6 @@
 	// using the ease in/out timing function
 	transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 	transition.type = kCATransitionFade ;
-//	transition.subtype = kCATransitionFromTop;
 	// Finally, to avoid overlapping transitions we assign ourselves as the delegate for the animation and wait for the
 	// -animationDidStop:finished: message. When it comes in, we will flag that we are no longer transitioning.
 	transitioning = YES;
@@ -175,16 +175,19 @@
 	
 	// Here we hide view1, and show view2, which will cause Core Animation to animate view1 away and view2 in.
 	self.currentInputView.hidden = NO;
-	
-/*	// And so that we will continue to swap between our two images, we swap the instance variables referencing them.
-	UIView *tmp = self.accountDetailTopScreenView_2;
-	self.accountDetailTopScreenView_2 = self.accountDetailTopScreenView_1;
-	self.accountDetailTopScreenView_1 = tmp;
+
+}
+
+#pragma mark 
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath     
+{
+     UIViewController *addViewController = [[CurrencyBoardSettingController alloc] initWithNibName:@"CurrencyBoardSettingController" bundle:nil];
+ //   UIViewController *addViewController = [[UIViewController alloc]init ];
     
-    UILabel *tmpLabel =self.amount_2;
-    self.amount_2 = self.amount_1;
-    self.amount_1 = tmpLabel;
-  */  
+    addViewController.title=[dataSource_ objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:addViewController animated:YES]; 
+	[addViewController release];   
 }
 
 

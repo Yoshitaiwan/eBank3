@@ -15,6 +15,9 @@
 #define kTransitionDuration   0.70
 #define kAnimationDuration    1.00
 
+#define kAccounts        @"My Accounts"
+#define kMenu            @"Menu"
+
 
 @implementation RootViewController
 
@@ -77,9 +80,8 @@
     self.accountDetailTopScreenView_2.hidden = YES;
     self.transitioning = NO;
     
-    self.navigationItem.title =@"Accounts";
+    self.navigationItem.title =kAccounts;
     
-//	self.navigationItem.rightBarButtonItem = self.editAccountButton;
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
     
@@ -87,7 +89,6 @@
     [menudata setMainViewContainer:self];
     myDataSource_ = menudata;
     
-   // [menudata release] ;
 }
 
 
@@ -232,28 +233,26 @@
 }
 
 - (UIView*)nextView {
-    static BOOL isFront = YES;
+  //  static BOOL isFront = YES;
     UIView* view;
     UITableView *table ;
-    if ( isFront ) {
+    if (  [self.navigationItem.title isEqualToString:kAccounts] ) {
         table = [[[UITableView alloc] init ]autorelease];
      //   table = [[[MenuController alloc] init] autorelease]; not working as MenuController is not UIView
         table.dataSource = myDataSource_;
         table.delegate = myDataSource_;
         view = table;
-               
-        [self.navigationItem setTitle:@"Menu" ]; 
+        [self.navigationItem setTitle:kMenu]; 
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
        // self.navigationItem.rightBarButtonItem.enabled= NO;
-        
     } else {
         view = nil;
-        self.navigationItem.title =@"Accounts"; 
+        self.navigationItem.title = kAccounts; 
         [self.navigationItem setRightBarButtonItem:editAccountButton_ animated:YES];
         
     //    self.navigationItem.rightBarButtonItem.enabled= YES;
     }
-    isFront = ( YES != isFront );
+    //isFront = ( YES != isFront );
     view.tag = kTagViewForTransition;
     view.frame = self.view.bounds;
     view.autoresizingMask =

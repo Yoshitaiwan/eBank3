@@ -8,6 +8,13 @@
 
 #import "MenuController.h"
 #import "CurrencyBoardController.h"
+#import "TransferAmountController.h"
+#import "RootViewController.h"
+
+#define kMyCurrencyBoard @"My Currency Board"
+#define kTransfer        @"Transfer"
+#define kExchangeMarkets @"Exchange Markets"
+#define kAccounts        @"My Accounts"
 
 @implementation MenuController
 @synthesize  mainViewContainer= mainViewContainer_;
@@ -26,8 +33,8 @@
     if (nil !=self) {
         // Initialization code here.
         keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Information", nil];
-        NSArray* object1 = [NSArray arrayWithObjects:@"Accounts", @"Transfer", @"Delivery", nil];
-        NSArray* object2 = [NSArray arrayWithObjects:@"Gobal Call Markets", @"My Currency Board", nil];
+        NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, @"Delivery", nil];
+        NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, kMyCurrencyBoard, nil];
         NSArray* object3 = [NSArray arrayWithObjects:@"Trade Ranking", @"Rich Ranking",@"Broadcast", nil];
         NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
         dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
@@ -80,15 +87,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *addViewController =nil;
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
-    NSLog (tmp);
-     
-    UITableViewController *addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
-   // UITableViewController *addViewController = [[UITableViewController alloc] init ];
-    addViewController.title= @"My Currency Board";
-  	[mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
+    
+    if ( [tmp isEqualToString:kMyCurrencyBoard])
+    {
+        addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
+        addViewController.title= kMyCurrencyBoard;
+   
+    }
+    else if ([tmp isEqualToString:kTransfer]) 
+    {
+        addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
+        addViewController.title= @"Transfer 1/3";
+    }  
+    else if ([tmp isEqualToString:kAccounts]) 
+    { 
+       
+       addViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+                               
+                             
+    }else {
+        addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
+        addViewController.title= @"Transfer 1/3";
+    }
+  
+    [mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
+    
+    
+    
     
 }
 

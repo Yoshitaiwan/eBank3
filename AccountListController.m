@@ -23,7 +23,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        // Custom initiaflization
     }
     return self;
 }

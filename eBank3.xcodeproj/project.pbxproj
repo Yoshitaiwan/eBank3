@@ -26,12 +26,33 @@
 		2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountListController.xib */; };
 		2D8C559114303EFE007D2FDA /* AccountStatementDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */; };
 		2D8C559214303EFE007D2FDA /* AccountStatementDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */; };
+		2D8E3F9314407E06002451EE /* bump.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9214407E06002451EE /* bump.png */; };
+		2D8E3F9714408D20002451EE /* transfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9514408D20002451EE /* transfer.png */; };
+		2D8E3F9814408D20002451EE /* ranking.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9614408D20002451EE /* ranking.png */; };
+		2D8E3F9D14408D2D002451EE /* currencyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9914408D2D002451EE /* currencyboard.png */; };
+		2D8E3F9E14408D2D002451EE /* delivery.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9A14408D2D002451EE /* delivery.png */; };
+		2D8E3F9F14408D2D002451EE /* globalmarket.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9B14408D2D002451EE /* globalmarket.png */; };
+		2D8E3FA014408D2D002451EE /* accounts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9C14408D2D002451EE /* accounts.png */; };
+		2D8E3FA4144097DA002451EE /* ExchangeMarketsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E3FA2144097DA002451EE /* ExchangeMarketsController.m */; };
+		2D8E3FA5144097DA002451EE /* ExchangeMarketsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */; };
 		2D8FFCB114322546007333B7 /* CurrencyBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */; };
 		2D8FFCB214322546007333B7 /* CurrencyBoardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */; };
+		2D9A6DD3143B4F94005C95DF /* payment arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD2143B4F94005C95DF /* payment arrow3.png */; };
+		2D9A6DD6143B4FA0005C95DF /* payment arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */; };
 		2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53390142F6478004852A5 /* AccountStatementController.m */; };
 		2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA53391142F6478004852A5 /* AccountStatementController.xib */; };
+		2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA5083143A039F007E14E7 /* TransferAmountController.m */; };
+		2DAA5086143A039F007E14E7 /* TransferAmountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5084143A039F007E14E7 /* TransferAmountController.xib */; };
+		2DAA5089143A0420007E14E7 /* payment arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5088143A0420007E14E7 /* payment arrow1.png */; };
 		2DC479DA142C419D001426D5 /* AccountDisclosureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC479D8142C419D001426D5 /* AccountDisclosureController.m */; };
 		2DC479DB142C419D001426D5 /* AccountDisclosureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */; };
+		2DD4BA8C14402F1500C4C97F /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4BA8B14402F1400C4C97F /* CustomView.m */; };
+		2DD4BA9A144048FC00C4C97F /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4BA97144048F600C4C97F /* email.png */; };
+		2DD4BA9B144048FC00C4C97F /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4BA98144048F700C4C97F /* twitter.png */; };
+		2DD4BA9C144048FC00C4C97F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4BA99144048F900C4C97F /* facebook.png */; };
+		2DD4BA9E1440491600C4C97F /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4BA9D1440491500C4C97F /* Phone.png */; };
+		2DEAA3961438B96A002D55F9 /* CurrencyBoardSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEAA3941438B969002D55F9 /* CurrencyBoardSettingController.m */; };
+		2DEAA3971438B96A002D55F9 /* CurrencyBoardSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEAA3951438B969002D55F9 /* CurrencyBoardSettingController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,15 +83,40 @@
 		2D8C558E14303EFE007D2FDA /* AccountStatementDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementDetailController.h; sourceTree = "<group>"; };
 		2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementDetailController.m; sourceTree = "<group>"; };
 		2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementDetailController.xib; sourceTree = "<group>"; };
+		2D8E3F9214407E06002451EE /* bump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bump.png; sourceTree = "<group>"; };
+		2D8E3F9514408D20002451EE /* transfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transfer.png; sourceTree = "<group>"; };
+		2D8E3F9614408D20002451EE /* ranking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ranking.png; sourceTree = "<group>"; };
+		2D8E3F9914408D2D002451EE /* currencyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currencyboard.png; sourceTree = "<group>"; };
+		2D8E3F9A14408D2D002451EE /* delivery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delivery.png; sourceTree = "<group>"; };
+		2D8E3F9B14408D2D002451EE /* globalmarket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globalmarket.png; sourceTree = "<group>"; };
+		2D8E3F9C14408D2D002451EE /* accounts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounts.png; sourceTree = "<group>"; };
+		2D8E3FA1144097D9002451EE /* ExchangeMarketsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeMarketsController.h; sourceTree = "<group>"; };
+		2D8E3FA2144097DA002451EE /* ExchangeMarketsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeMarketsController.m; sourceTree = "<group>"; };
+		2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeMarketsController.xib; sourceTree = "<group>"; };
 		2D8FFCAE14322545007333B7 /* CurrencyBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardController.h; sourceTree = "<group>"; };
 		2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardController.m; sourceTree = "<group>"; };
 		2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardController.xib; sourceTree = "<group>"; };
+		2D9A6DD2143B4F94005C95DF /* payment arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow3.png"; sourceTree = "<group>"; };
+		2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow2.png"; sourceTree = "<group>"; };
 		2DA5338F142F6478004852A5 /* AccountStatementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementController.h; sourceTree = "<group>"; };
 		2DA53390142F6478004852A5 /* AccountStatementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementController.m; sourceTree = "<group>"; };
 		2DA53391142F6478004852A5 /* AccountStatementController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementController.xib; sourceTree = "<group>"; };
+		2DAA5082143A039F007E14E7 /* TransferAmountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferAmountController.h; sourceTree = "<group>"; };
+		2DAA5083143A039F007E14E7 /* TransferAmountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferAmountController.m; sourceTree = "<group>"; };
+		2DAA5084143A039F007E14E7 /* TransferAmountController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferAmountController.xib; sourceTree = "<group>"; };
+		2DAA5088143A0420007E14E7 /* payment arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow1.png"; sourceTree = "<group>"; };
 		2DC479D7142C419D001426D5 /* AccountDisclosureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDisclosureController.h; sourceTree = "<group>"; };
 		2DC479D8142C419D001426D5 /* AccountDisclosureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDisclosureController.m; sourceTree = "<group>"; };
 		2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDisclosureController.xib; sourceTree = "<group>"; };
+		2DD4BA8A14402F1400C4C97F /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		2DD4BA8B14402F1400C4C97F /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		2DD4BA97144048F600C4C97F /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		2DD4BA98144048F700C4C97F /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		2DD4BA99144048F900C4C97F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		2DD4BA9D1440491500C4C97F /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone.png; sourceTree = "<group>"; };
+		2DEAA3931438B968002D55F9 /* CurrencyBoardSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardSettingController.h; sourceTree = "<group>"; };
+		2DEAA3941438B969002D55F9 /* CurrencyBoardSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardSettingController.m; sourceTree = "<group>"; };
+		2DEAA3951438B969002D55F9 /* CurrencyBoardSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardSettingController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,16 +195,8 @@
 		2D8AD5001424839800BDC690 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
-				2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */,
-				2D8AD5121424859A00BDC690 /* AccountListController.xib */,
-				2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */,
-				2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */,
-				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
-				2D888C4C1434C71E00396628 /* Dog.png */,
-				2D888C4D1434C71E00396628 /* Elephant.png */,
-				2D888C4E1434C71E00396628 /* Lion.png */,
-				2D888C4F1434C71E00396628 /* Monkey.png */,
+				2DD4BA80143F60DA00C4C97F /* xib files */,
+				2DD4BA7F143F60C500C4C97F /* images */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -185,13 +223,62 @@
 				2D8AD4DC1424704E00BDC690 /* RootViewController.m */,
 				2DA5338F142F6478004852A5 /* AccountStatementController.h */,
 				2DA53390142F6478004852A5 /* AccountStatementController.m */,
-				2DA53391142F6478004852A5 /* AccountStatementController.xib */,
 				2D866D5214285193004D74CC /* MenuController.h */,
 				2D866D5314285193004D74CC /* MenuController.m */,
 				2D8FFCAE14322545007333B7 /* CurrencyBoardController.h */,
 				2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */,
+				2DEAA3931438B968002D55F9 /* CurrencyBoardSettingController.h */,
+				2DEAA3941438B969002D55F9 /* CurrencyBoardSettingController.m */,
+				2DAA5082143A039F007E14E7 /* TransferAmountController.h */,
+				2DAA5083143A039F007E14E7 /* TransferAmountController.m */,
+				2DD4BA8A14402F1400C4C97F /* CustomView.h */,
+				2DD4BA8B14402F1400C4C97F /* CustomView.m */,
+				2D8E3FA1144097D9002451EE /* ExchangeMarketsController.h */,
+				2D8E3FA2144097DA002451EE /* ExchangeMarketsController.m */,
+				2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		2DD4BA7F143F60C500C4C97F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2DAA5088143A0420007E14E7 /* payment arrow1.png */,
+				2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */,
+				2D9A6DD2143B4F94005C95DF /* payment arrow3.png */,
+				2D8E3F9214407E06002451EE /* bump.png */,
+				2D8E3F9514408D20002451EE /* transfer.png */,
+				2D8E3F9614408D20002451EE /* ranking.png */,
+				2DD4BA97144048F600C4C97F /* email.png */,
+				2DD4BA98144048F700C4C97F /* twitter.png */,
+				2DD4BA99144048F900C4C97F /* facebook.png */,
+				2DD4BA9D1440491500C4C97F /* Phone.png */,
+				2D888C4C1434C71E00396628 /* Dog.png */,
+				2D8E3F9914408D2D002451EE /* currencyboard.png */,
+				2D8E3F9A14408D2D002451EE /* delivery.png */,
+				2D8E3F9B14408D2D002451EE /* globalmarket.png */,
+				2D8E3F9C14408D2D002451EE /* accounts.png */,
+				2D888C4D1434C71E00396628 /* Elephant.png */,
+				2D888C4E1434C71E00396628 /* Lion.png */,
+				2D888C4F1434C71E00396628 /* Monkey.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		2DD4BA80143F60DA00C4C97F /* xib files */ = {
+			isa = PBXGroup;
+			children = (
+				2D8AD4DE1424704E00BDC690 /* RootViewController.xib */,
+				2DA53391142F6478004852A5 /* AccountStatementController.xib */,
+				2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */,
+				2D8AD5121424859A00BDC690 /* AccountListController.xib */,
+				2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */,
+				2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */,
+				2DEAA3951438B969002D55F9 /* CurrencyBoardSettingController.xib */,
+				2DAA5084143A039F007E14E7 /* TransferAmountController.xib */,
+				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
+			);
+			name = "xib files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +340,23 @@
 				2D888C511434C71E00396628 /* Elephant.png in Resources */,
 				2D888C521434C71E00396628 /* Lion.png in Resources */,
 				2D888C531434C71E00396628 /* Monkey.png in Resources */,
+				2DEAA3971438B96A002D55F9 /* CurrencyBoardSettingController.xib in Resources */,
+				2DAA5086143A039F007E14E7 /* TransferAmountController.xib in Resources */,
+				2DAA5089143A0420007E14E7 /* payment arrow1.png in Resources */,
+				2D9A6DD3143B4F94005C95DF /* payment arrow3.png in Resources */,
+				2D9A6DD6143B4FA0005C95DF /* payment arrow2.png in Resources */,
+				2DD4BA9A144048FC00C4C97F /* email.png in Resources */,
+				2DD4BA9B144048FC00C4C97F /* twitter.png in Resources */,
+				2DD4BA9C144048FC00C4C97F /* facebook.png in Resources */,
+				2DD4BA9E1440491600C4C97F /* Phone.png in Resources */,
+				2D8E3F9314407E06002451EE /* bump.png in Resources */,
+				2D8E3F9714408D20002451EE /* transfer.png in Resources */,
+				2D8E3F9814408D20002451EE /* ranking.png in Resources */,
+				2D8E3F9D14408D2D002451EE /* currencyboard.png in Resources */,
+				2D8E3F9E14408D2D002451EE /* delivery.png in Resources */,
+				2D8E3F9F14408D2D002451EE /* globalmarket.png in Resources */,
+				2D8E3FA014408D2D002451EE /* accounts.png in Resources */,
+				2D8E3FA5144097DA002451EE /* ExchangeMarketsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +376,10 @@
 				2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */,
 				2D8C559114303EFE007D2FDA /* AccountStatementDetailController.m in Sources */,
 				2D8FFCB114322546007333B7 /* CurrencyBoardController.m in Sources */,
+				2DEAA3961438B96A002D55F9 /* CurrencyBoardSettingController.m in Sources */,
+				2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */,
+				2DD4BA8C14402F1500C4C97F /* CustomView.m in Sources */,
+				2D8E3FA4144097DA002451EE /* ExchangeMarketsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
