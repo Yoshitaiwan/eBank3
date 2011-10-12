@@ -181,7 +181,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{71, 307}, {178, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -269,7 +268,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{109, 161}, {178, 44}}</string>
 						<reference key="NSSuperview" ref="20874625"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -367,7 +365,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{164, 344}, {122, 59}}</string>
 						<reference key="NSSuperview" ref="858551773"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -806,7 +803,6 @@
 						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{0, 244}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="26412121"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:624</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
@@ -1152,6 +1148,7 @@
 						<int key="objectID">102</int>
 						<reference key="object" ref="1047098015"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Bar Button Item - Play</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">107</int>

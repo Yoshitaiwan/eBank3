@@ -17,7 +17,6 @@
 	NSArray					*dataSourceArray;
 }
 
-@property (nonatomic, retain, readonly) UISwitch *switchCtl;
 @property (nonatomic, retain, readonly) UISlider *sliderCtl;
 @property (nonatomic, retain) NSArray *dataSourceArray;
 

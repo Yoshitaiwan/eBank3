@@ -25,6 +25,9 @@
     UILabel *amount_2_;
     UIView  *accountDetailView_2_;
     
+    NSMutableArray* images_;
+
+    
     BOOL transitioning;
     
     // moved this UIBarButtonITem from MainWindow.xib to RootViewVController, as 
@@ -48,6 +51,8 @@
 @property (nonatomic, retain) IBOutlet UIView *containerView;
 
 @property (nonatomic,retain) MenuController *myDataSource;
+
+@property (nonatomic,retain) NSMutableArray* images;
 
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;

@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D85CE7F144518B70007027C /* CurrencyBoardTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D85CE7D144518B70007027C /* CurrencyBoardTableController.m */; };
+		2D85CE80144518B70007027C /* CurrencyBoardTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D85CE7E144518B70007027C /* CurrencyBoardTableController.xib */; };
 		2D866D5414285193004D74CC /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D866D5314285193004D74CC /* MenuController.m */; };
+		2D8790E71441A8ED00307FCB /* MyOfferController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8790E51441A8ED00307FCB /* MyOfferController.m */; };
+		2D8790E81441A8ED00307FCB /* MyOfferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8790E61441A8ED00307FCB /* MyOfferController.xib */; };
 		2D888C501434C71E00396628 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4C1434C71E00396628 /* Dog.png */; };
 		2D888C511434C71E00396628 /* Elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4D1434C71E00396628 /* Elephant.png */; };
 		2D888C521434C71E00396628 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4E1434C71E00396628 /* Lion.png */; };
@@ -24,6 +28,8 @@
 		2D8AD4E71424751300BDC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8AD4E61424751300BDC690 /* QuartzCore.framework */; };
 		2D8AD5131424859A00BDC690 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5111424859A00BDC690 /* AccountListController.m */; };
 		2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountListController.xib */; };
+		2D8AD5A314418E6400437E5E /* DeliveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5A114418E6400437E5E /* DeliveryController.m */; };
+		2D8AD5A414418E6400437E5E /* DeliveryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5A214418E6400437E5E /* DeliveryController.xib */; };
 		2D8C559114303EFE007D2FDA /* AccountStatementDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */; };
 		2D8C559214303EFE007D2FDA /* AccountStatementDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */; };
 		2D8E3F9314407E06002451EE /* bump.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9214407E06002451EE /* bump.png */; };
@@ -37,6 +43,10 @@
 		2D8E3FA5144097DA002451EE /* ExchangeMarketsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */; };
 		2D8FFCB114322546007333B7 /* CurrencyBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */; };
 		2D8FFCB214322546007333B7 /* CurrencyBoardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */; };
+		2D915C9C1441E7A9004D3D31 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915C9B1441E7A9004D3D31 /* starbucks.png */; };
+		2D915C9F1441E7B0004D3D31 /* daiso.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915C9E1441E7B0004D3D31 /* daiso.png */; };
+		2D915CA11441E7B8004D3D31 /* amazon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915CA01441E7B8004D3D31 /* amazon.png */; };
+		2D915CA51441E843004D3D31 /* FairPrice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915CA41441E843004D3D31 /* FairPrice.png */; };
 		2D9A6DD3143B4F94005C95DF /* payment arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD2143B4F94005C95DF /* payment arrow3.png */; };
 		2D9A6DD6143B4FA0005C95DF /* payment arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */; };
 		2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53390142F6478004852A5 /* AccountStatementController.m */; };
@@ -56,8 +66,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D85CE7C144518B70007027C /* CurrencyBoardTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardTableController.h; sourceTree = "<group>"; };
+		2D85CE7D144518B70007027C /* CurrencyBoardTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardTableController.m; sourceTree = "<group>"; };
+		2D85CE7E144518B70007027C /* CurrencyBoardTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardTableController.xib; sourceTree = "<group>"; };
 		2D866D5214285193004D74CC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		2D866D5314285193004D74CC /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		2D8790E41441A8ED00307FCB /* MyOfferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOfferController.h; sourceTree = "<group>"; };
+		2D8790E51441A8ED00307FCB /* MyOfferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOfferController.m; sourceTree = "<group>"; };
+		2D8790E61441A8ED00307FCB /* MyOfferController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOfferController.xib; sourceTree = "<group>"; };
 		2D888C4C1434C71E00396628 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
 		2D888C4D1434C71E00396628 /* Elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elephant.png; sourceTree = "<group>"; };
 		2D888C4E1434C71E00396628 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
@@ -80,6 +96,9 @@
 		2D8AD5101424859A00BDC690 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountListController.h; path = ../AccountListController.h; sourceTree = "<group>"; };
 		2D8AD5111424859A00BDC690 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountListController.m; path = ../AccountListController.m; sourceTree = "<group>"; };
 		2D8AD5121424859A00BDC690 /* AccountListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountListController.xib; path = ../AccountListController.xib; sourceTree = "<group>"; };
+		2D8AD5A014418E6400437E5E /* DeliveryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryController.h; sourceTree = "<group>"; };
+		2D8AD5A114418E6400437E5E /* DeliveryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryController.m; sourceTree = "<group>"; };
+		2D8AD5A214418E6400437E5E /* DeliveryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryController.xib; sourceTree = "<group>"; };
 		2D8C558E14303EFE007D2FDA /* AccountStatementDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementDetailController.h; sourceTree = "<group>"; };
 		2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementDetailController.m; sourceTree = "<group>"; };
 		2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementDetailController.xib; sourceTree = "<group>"; };
@@ -96,6 +115,10 @@
 		2D8FFCAE14322545007333B7 /* CurrencyBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardController.h; sourceTree = "<group>"; };
 		2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardController.m; sourceTree = "<group>"; };
 		2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardController.xib; sourceTree = "<group>"; };
+		2D915C9B1441E7A9004D3D31 /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
+		2D915C9E1441E7B0004D3D31 /* daiso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daiso.png; sourceTree = "<group>"; };
+		2D915CA01441E7B8004D3D31 /* amazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazon.png; sourceTree = "<group>"; };
+		2D915CA41441E843004D3D31 /* FairPrice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FairPrice.png; sourceTree = "<group>"; };
 		2D9A6DD2143B4F94005C95DF /* payment arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow3.png"; sourceTree = "<group>"; };
 		2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow2.png"; sourceTree = "<group>"; };
 		2DA5338F142F6478004852A5 /* AccountStatementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementController.h; sourceTree = "<group>"; };
@@ -173,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				2D8D90B11428E32500C40448 /* Controller */,
-				2D8D90AF1428E16600C40448 /* Application Support */,
 				2D866D5014285147004D74CC /* Data Source */,
 				2D8AD5001424839800BDC690 /* Resources */,
 				2D8AD4CD1424704E00BDC690 /* Supporting Files */,
@@ -195,6 +217,7 @@
 		2D8AD5001424839800BDC690 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D8D90AF1428E16600C40448 /* Application Support */,
 				2DD4BA80143F60DA00C4C97F /* xib files */,
 				2DD4BA7F143F60C500C4C97F /* images */,
 			);
@@ -227,6 +250,9 @@
 				2D866D5314285193004D74CC /* MenuController.m */,
 				2D8FFCAE14322545007333B7 /* CurrencyBoardController.h */,
 				2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */,
+				2D85CE7C144518B70007027C /* CurrencyBoardTableController.h */,
+				2D85CE7D144518B70007027C /* CurrencyBoardTableController.m */,
+				2D85CE7E144518B70007027C /* CurrencyBoardTableController.xib */,
 				2DEAA3931438B968002D55F9 /* CurrencyBoardSettingController.h */,
 				2DEAA3941438B969002D55F9 /* CurrencyBoardSettingController.m */,
 				2DAA5082143A039F007E14E7 /* TransferAmountController.h */,
@@ -235,7 +261,12 @@
 				2DD4BA8B14402F1400C4C97F /* CustomView.m */,
 				2D8E3FA1144097D9002451EE /* ExchangeMarketsController.h */,
 				2D8E3FA2144097DA002451EE /* ExchangeMarketsController.m */,
-				2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */,
+				2D8AD5A014418E6400437E5E /* DeliveryController.h */,
+				2D8AD5A114418E6400437E5E /* DeliveryController.m */,
+				2D8AD5A214418E6400437E5E /* DeliveryController.xib */,
+				2D8790E41441A8ED00307FCB /* MyOfferController.h */,
+				2D8790E51441A8ED00307FCB /* MyOfferController.m */,
+				2D8790E61441A8ED00307FCB /* MyOfferController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -247,7 +278,11 @@
 				2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */,
 				2D9A6DD2143B4F94005C95DF /* payment arrow3.png */,
 				2D8E3F9214407E06002451EE /* bump.png */,
+				2D915C9E1441E7B0004D3D31 /* daiso.png */,
 				2D8E3F9514408D20002451EE /* transfer.png */,
+				2D915C9B1441E7A9004D3D31 /* starbucks.png */,
+				2D915CA41441E843004D3D31 /* FairPrice.png */,
+				2D915CA01441E7B8004D3D31 /* amazon.png */,
 				2D8E3F9614408D20002451EE /* ranking.png */,
 				2DD4BA97144048F600C4C97F /* email.png */,
 				2DD4BA98144048F700C4C97F /* twitter.png */,
@@ -276,6 +311,7 @@
 				2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */,
 				2DEAA3951438B969002D55F9 /* CurrencyBoardSettingController.xib */,
 				2DAA5084143A039F007E14E7 /* TransferAmountController.xib */,
+				2D8E3FA3144097DA002451EE /* ExchangeMarketsController.xib */,
 				2D8AD4D81424704E00BDC690 /* MainWindow.xib */,
 			);
 			name = "xib files";
@@ -357,6 +393,13 @@
 				2D8E3F9F14408D2D002451EE /* globalmarket.png in Resources */,
 				2D8E3FA014408D2D002451EE /* accounts.png in Resources */,
 				2D8E3FA5144097DA002451EE /* ExchangeMarketsController.xib in Resources */,
+				2D8AD5A414418E6400437E5E /* DeliveryController.xib in Resources */,
+				2D8790E81441A8ED00307FCB /* MyOfferController.xib in Resources */,
+				2D915C9C1441E7A9004D3D31 /* starbucks.png in Resources */,
+				2D915C9F1441E7B0004D3D31 /* daiso.png in Resources */,
+				2D915CA11441E7B8004D3D31 /* amazon.png in Resources */,
+				2D915CA51441E843004D3D31 /* FairPrice.png in Resources */,
+				2D85CE80144518B70007027C /* CurrencyBoardTableController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +423,9 @@
 				2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */,
 				2DD4BA8C14402F1500C4C97F /* CustomView.m in Sources */,
 				2D8E3FA4144097DA002451EE /* ExchangeMarketsController.m in Sources */,
+				2D8AD5A314418E6400437E5E /* DeliveryController.m in Sources */,
+				2D8790E71441A8ED00307FCB /* MyOfferController.m in Sources */,
+				2D85CE7F144518B70007027C /* CurrencyBoardTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

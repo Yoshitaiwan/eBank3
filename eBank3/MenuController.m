@@ -10,11 +10,13 @@
 #import "CurrencyBoardController.h"
 #import "TransferAmountController.h"
 #import "RootViewController.h"
+#import "ExchangeMarketsController.h"
 
 #define kMyCurrencyBoard @"My Currency Board"
 #define kTransfer        @"Transfer"
 #define kExchangeMarkets @"Exchange Markets"
 #define kAccounts        @"My Accounts"
+#define kDelivery        @"Get Delivery"
 
 @implementation MenuController
 @synthesize  mainViewContainer= mainViewContainer_;
@@ -32,11 +34,14 @@
     
     if (nil !=self) {
         // Initialization code here.
-        keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Information", nil];
-        NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, @"Delivery", nil];
+        keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Ranking",@"Setting", nil];
+        NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, kDelivery, @"My Offer", nil];
         NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, kMyCurrencyBoard, nil];
-        NSArray* object3 = [NSArray arrayWithObjects:@"Trade Ranking", @"Rich Ranking",@"Broadcast", nil];
-        NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
+        NSArray* object3 = [NSArray arrayWithObjects:@"Trade Volumne",@"News", nil];
+        NSArray* object4 = [NSArray arrayWithObjects:@"My Setting", nil];
+        
+        NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,object4,  nil];
+    
         dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
     }
     return self;
@@ -88,6 +93,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *addViewController =nil;
+    
+   
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     
@@ -104,15 +111,38 @@
     }  
     else if ([tmp isEqualToString:kAccounts]) 
     { 
-       
-       addViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
-                               
-                             
+        addViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+        
+    }
+    else if ([tmp isEqualToString:kDelivery]) 
+    { 
+        addViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+        addViewController.title =@"Delivery 1/3";
+    }
+    else if ([tmp isEqualToString:kExchangeMarkets]) 
+    { 
+        addViewController = [[ExchangeMarketsController alloc] initWithNibName:@"ExchangeMarketsController" bundle:nil];
+        addViewController.title =@"Exchange 1/3";
+        
     }else {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
-        addViewController.title= @"Transfer 1/3";
+        addViewController.title= @"Others 1/3";
     }
   
+  /*  
+    UITabBarController* addViewController = [[UITabBarController alloc] init];
+    
+    UIViewController* temp1 = [[UIViewController alloc] init];
+    UIViewController* temp2 = [[UIViewController alloc] init];
+    
+    NSArray* controllers = [NSArray arrayWithObjects:temp1, temp2, nil];
+   
+   [addViewController setViewControllers:controllers];
+   
+   */
+    
+  //  UITabBarController* addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
+    
     [mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
     

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrencyBoardController : UITableViewController
+@interface CurrencyBoardController : UITabBarController<UITableViewDelegate,UITableViewDataSource>
 {
   @private  
     NSArray* details_;    
@@ -17,16 +17,28 @@
     
     UIView* currencyInputView_;
     UILabel* shopName_;
-    UIImageView* shopImage_;
+ //   UIImageView* shopImage_;
     
     BOOL transitioning;
+    
+    UIViewController* viewControllerSell_;
+    UIViewController* viewControllerBuy_;
+    
+    UITabBarController* tabBarController_;
+    
 }
 
 @property(nonatomic, retain) IBOutlet UIView* currentInputView;
 @property(nonatomic,retain) IBOutlet UILabel* shopName;
 @property(nonatomic,retain) IBOutlet UIImageView* shopImage;
 
+@property(nonatomic,retain) IBOutlet UIViewController* viewControllerSell;
+@property(nonatomic,retain) IBOutlet UIViewController* viewControllerBuy;
+
 @property BOOL transitioning;
+@property(nonatomic,retain) NSMutableArray* images;
+
+@property(nonatomic,retain) IBOutlet UITabBarController* tabBarController;
 
 
 - (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier;

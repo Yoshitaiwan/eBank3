@@ -44,7 +44,7 @@ static NSString *kViewKey = @"viewKey";
     [super viewDidLoad];
 	self.title = NSLocalizedString(@"Settings", @"");
     
-	self.dataSourceArray = [NSArray arrayWithObjects:
+	/*self.dataSourceArray = [NSArray arrayWithObjects:
                             [NSDictionary dictionaryWithObjectsAndKeys:
                              @"Trade Enabled", kSectionTitleKey,
                              @" ", kLabelKey,
@@ -61,6 +61,8 @@ static NSString *kViewKey = @"viewKey";
 							
                             
 							nil];
+
+    */     
 }
 
 // called after the view controller's view is released and set to nil.

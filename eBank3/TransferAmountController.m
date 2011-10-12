@@ -51,7 +51,7 @@
     return self;
 }
 
-#pragma mark - View lifecycle
+//#pragm  a mark - View lifecycle
 
 - (void)viewDidLoad
 {   

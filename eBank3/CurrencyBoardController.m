@@ -9,12 +9,18 @@
 #import "CurrencyBoardController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CurrencyBoardSettingController.h"
-
+#import "CurrencyBoardTableController.h"
 @implementation CurrencyBoardController
 @synthesize currentInputView=currencyInputView_;
 @synthesize transitioning;
 @synthesize shopName=shopName_;
-@synthesize shopImage = shopImage_;
+//@synthesize shopImage = shopImage_;
+
+@synthesize viewControllerBuy=viewControllerBuy_;
+@synthesize viewControllerSell=viewControllerSell_;
+@synthesize images = images_;
+@synthesize tabBarController=tabBarController_;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -24,7 +30,28 @@
     }
     return self;
 }
-
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        UITableViewController* temp1 = [[CurrencyBoardTableController alloc] init];
+        UIViewController* temp2 = [[UIViewController alloc] init];
+        UIImage* icon = [UIImage imageNamed:@"Dog.png"];
+        temp1.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Hello" image:icon tag:0] autorelease];
+       NSArray* controllers = [NSArray arrayWithObjects:temp1,temp2, nil];
+      
+      /*  
+        UIImage* icon = [UIImage imageNamed:@"Dog.png"];
+        self.viewControllerBuy.tabBarItem= [[[UITabBarItem alloc] initWithTitle:@"Hello" image:icon tag:0] autorelease];
+        NSArray* controllers = [NSArray arrayWithObjects:self.viewControllerBuy, self.viewControllerBuy, nil];
+        */
+        [self setViewControllers:controllers];
+    
+    }
+    return self;
+    
+}
 
 - (void)dealloc
 {
@@ -48,10 +75,10 @@
         [images_ addObject:image];
     }
     
-    self.tableView.rowHeight =60;
-	self.currentInputView.hidden = YES;
+ //   self.tableView.rowHeight =60;
+//	self.currentInputView.hidden = YES;
     
-    [self.view addSubview:self.currentInputView];
+ //   [self.view addSubview:self.currentInputView];
     
     
 }

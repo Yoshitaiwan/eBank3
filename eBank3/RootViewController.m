@@ -32,6 +32,7 @@
 
 @synthesize containerView =containerView_;
 @synthesize  myDataSource=myDataSource_;
+@synthesize images = images_;
 
 
 - (void)dealloc
@@ -49,6 +50,8 @@
     
     [containerView_ release];
     [myDataSource_ release];
+    
+    [images_ release];
     [super dealloc];
     
 }
@@ -65,13 +68,19 @@
 {
     [super viewDidLoad];
     // 表示するデータを作成
-    keys_ = [[NSArray alloc] initWithObjects:@"Singapore", @"U.K.", @"Malaysia", @"Indonesia", nil];
-    NSArray* object1 = [NSArray arrayWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
-    NSArray* object2 = [NSArray arrayWithObjects:@"Snake", @"Gecko", nil];
-    NSArray* object3 = [NSArray arrayWithObjects:@"Frog", @"Newts", nil];
-    NSArray* object4 = [NSArray arrayWithObjects:@"Shark", @"Salmon", nil];
-    NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, object4, nil];
+    keys_ = [[NSArray alloc] initWithObjects:@"Singapore", @"U.K.", @"Malaysia", nil];
+    NSArray* object1 = [NSArray arrayWithObjects:@"starbucks", @"daiso", @"fairprice" , nil];
+    NSArray* object2 = [NSArray arrayWithObjects:@"amazon", @"facebook", nil];
+    NSArray* object3 = [NSArray arrayWithObjects:@"Dog", @"Lion", nil];
+    NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
+    
+    for (id key in keys_){
+        for (NSString* name in [dataSource_ objectForKey:key]){
+            NSLog(name);
+        }
+    }
+    
     
     [self.containerView addSubview:self.accountDetailTopScreenView_1];
     [self.containerView addSubview:self.accountDetailTopScreenView_2];
@@ -191,12 +200,12 @@
 }
 
 #pragma mark -
-#pragma mark Actions
+#pragma mark Actios
 
 - (IBAction) editButtonPressed: (id) sender {
 //	NSLog(@"%@", @"Add button pressed.");
 	
-    UIViewController *addViewController = [[AccountListController alloc] initWithNibName:@"AccountList" bundle:nil];
+    UIViewController *addViewController = [[AccountListController alloc] initWithNibName:@"AccountListController" bundle:nil];
   	[self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
  
