@@ -39,6 +39,9 @@
 {
     [keys_ release];
     [dataSource_ release];
+
+    [dataSourceImage_ release];
+    
     
     [accountDetailView_1_ release];
     [accountDetailView_2_ release];
@@ -74,14 +77,21 @@
     NSArray* object3 = [NSArray arrayWithObjects:@"Dog", @"Lion", nil];
     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
+    //dataSourceImage_ = [[NSDictionary alloc] init];
     
+    NSMutableArray*  imageTemp2 = [[NSMutableArray alloc ]  initWithCapacity:8];
     for (id key in keys_){
+        NSMutableArray*  imageTemp = [[NSMutableArray alloc] init ];
         for (NSString* name in [dataSource_ objectForKey:key]){
-            NSLog(name);
+            NSString* imageName = [NSString stringWithFormat:@"%@.png",name];
+            UIImage* image = [UIImage imageNamed:imageName];
+            [imageTemp addObject:image];
         }
+        [imageTemp2 addObject:imageTemp];
+        [imageTemp release];
     }
     
-    
+    dataSourceImage_ =  [[NSDictionary alloc] initWithObjects:imageTemp2 forKeys:keys_];
     [self.containerView addSubview:self.accountDetailTopScreenView_1];
     [self.containerView addSubview:self.accountDetailTopScreenView_2];
     
@@ -121,6 +131,11 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     cell.textLabel.text = text;
+   
+///    UIImage* iconImage =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
+   
+    cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
+
     return cell;
 }
 
@@ -203,17 +218,12 @@
 #pragma mark Actios
 
 - (IBAction) editButtonPressed: (id) sender {
-//	NSLog(@"%@", @"Add button pressed.");
-	
     UIViewController *addViewController = [[AccountListController alloc] initWithNibName:@"AccountListController" bundle:nil];
   	[self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
- 
 }
 
 - (IBAction) menuButtonPressed: (id) sender {
-	//NSLog(@"%@", @"menu button pressed.");
-    
     UIView *nextView = [self nextView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:self];
@@ -242,26 +252,21 @@
 }
 
 - (UIView*)nextView {
-  //  static BOOL isFront = YES;
     UIView* view;
     UITableView *table ;
     if (  [self.navigationItem.title isEqualToString:kAccounts] ) {
         table = [[[UITableView alloc] init ]autorelease];
-     //   table = [[[MenuController alloc] init] autorelease]; not working as MenuController is not UIView
         table.dataSource = myDataSource_;
         table.delegate = myDataSource_;
         view = table;
         [self.navigationItem setTitle:kMenu]; 
         [self.navigationItem setRightBarButtonItem:nil animated:YES];
-       // self.navigationItem.rightBarButtonItem.enabled= NO;
     } else {
         view = nil;
         self.navigationItem.title = kAccounts; 
         [self.navigationItem setRightBarButtonItem:editAccountButton_ animated:YES];
         
-    //    self.navigationItem.rightBarButtonItem.enabled= YES;
     }
-    //isFront = ( YES != isFront );
     view.tag = kTagViewForTransition;
     view.frame = self.view.bounds;
     view.autoresizingMask =

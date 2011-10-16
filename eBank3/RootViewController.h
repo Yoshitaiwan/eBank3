@@ -19,6 +19,9 @@
     NSArray* keys_;
     NSDictionary* dataSource_;
     
+    
+    NSDictionary* dataSourceImage_;
+    
     UILabel *amount_1_;
     UIView  *accountDetailView_1_;
     UIView *containerView_;
@@ -29,9 +32,7 @@
 
     
     BOOL transitioning;
-    
-    // moved this UIBarButtonITem from MainWindow.xib to RootViewVController, as 
-    // pushViewController cannot push on top of UIBarbuttonitem (UIView)
+  
 	UIBarButtonItem *editAccountButton_;
     UIBarButtonItem *menuButton_;
     
@@ -49,9 +50,7 @@
 @property BOOL transitioning;
 
 @property (nonatomic, retain) IBOutlet UIView *containerView;
-
 @property (nonatomic,retain) MenuController *myDataSource;
-
 @property (nonatomic,retain) NSMutableArray* images;
 
 - (IBAction) editButtonPressed: (id) sender;
@@ -60,4 +59,5 @@
 
 -(UIView*)nextView;
 -(void)nextTransition;
+
 @end
