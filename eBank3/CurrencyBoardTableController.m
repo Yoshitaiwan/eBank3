@@ -44,7 +44,7 @@
     dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
  //   images_ = [[NSMutableArray alloc] initWithCapacity:8];
     
-    self.tableView.rowHeight =60;
+    self.tableView.rowHeight =80;
    // self.currentInputView.hidden = YES;
     
     //   [self.view addSubview:self.currentInputView];

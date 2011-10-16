@@ -10,37 +10,38 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CurrencyBoardSettingController.h"
 #import "CurrencyBoardTableController.h"
+
 @implementation CurrencyBoardController
 @synthesize currentInputView=currencyInputView_;
 @synthesize transitioning;
-@synthesize shopName=shopName_;
-//@synthesize shopImage = shopImage_;
-
-@synthesize viewControllerBuy=viewControllerBuy_;
-@synthesize viewControllerSell=viewControllerSell_;
-@synthesize images = images_;
-@synthesize tabBarController=tabBarController_;
 
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)dealloc
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+//    [images_ release];
+ //   [details_ release];
+    [dataSource_ release];
+    [currencyInputView_ release];
+    [super dealloc];
 }
+
+
+
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        UITableViewController* temp1 = [[CurrencyBoardTableController alloc] init];
-        UIViewController* temp2 = [[UIViewController alloc] init];
-        UIImage* icon = [UIImage imageNamed:@"Dog.png"];
-        temp1.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Hello" image:icon tag:0] autorelease];
-       NSArray* controllers = [NSArray arrayWithObjects:temp1,temp2, nil];
-      
+        UITableViewController* currencyBoardSell = [[CurrencyBoardTableController alloc] init];
+        UIImage* icon1 = [UIImage imageNamed:@"Dog.png"];
+        currencyBoardSell.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Sell" image:icon1 tag:0] autorelease];
+       
+        UITableViewController* currencyBoardBuy = [[CurrencyBoardTableController alloc] init];
+        UIImage* icon2 = [UIImage imageNamed:@"Moneky.png"];
+        currencyBoardBuy.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Buy" image:icon2 tag:0] autorelease];
+        NSArray* controllers = [NSArray arrayWithObjects:currencyBoardBuy,currencyBoardSell, nil];
+        
+        
       /*  
         UIImage* icon = [UIImage imageNamed:@"Dog.png"];
         self.viewControllerBuy.tabBarItem= [[[UITabBarItem alloc] initWithTitle:@"Hello" image:icon tag:0] autorelease];
@@ -53,17 +54,7 @@
     
 }
 
-- (void)dealloc
-{
-    [images_ release];
-    [details_ release];
-    [dataSource_ release];
-    [currencyInputView_ release];
-    [shopName_ release];
-    [super dealloc];
-}
-
-
+/*
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,91 +65,18 @@
         UIImage* image = [UIImage imageNamed:imageName];
         [images_ addObject:image];
     }
-    
- //   self.tableView.rowHeight =60;
-//	self.currentInputView.hidden = YES;
-    
- //   [self.view addSubview:self.currentInputView];
-    
-    
 }
-
+*/
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
     return [dataSource_ count];
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView
-        cellForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    static NSString* CellIdentifier = @"basis-cell";
-    
-   // NSString identifier= [dataSource_ objectAtIndex:indexPath.row];
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-		cell = [self tableViewCellWithReuseIdentifier:CellIdentifier];
-	}
-
-    [self configureCell:cell forIndexPath:indexPath];
-
-    cell.imageView.image = [images_ objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = @"20-Sept-2011 12:30:11PM";
-    cell.textLabel.text = [dataSource_ objectAtIndex:indexPath.row];
-    
-    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton   ;
-	return cell;
-
-}   
-
-
-
-#pragma mark -
-#pragma mark Configuring table view cells
-
-#define RATE_TAG 1
-#define MIDDLE_COLUMN_OFFSET 130.0
-#define MIDDLE_COLUMN_WIDTH 150.0
-#define MAIN_FONT_SIZE 23.0
-#define LABEL_HEIGHT 26.0
-#define ROW_HEIGHT 60
-
-- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier {
-        /*
-         Create an instance of UITableViewCell .
-         */
-		
-        UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle   reuseIdentifier:identifier] autorelease];
-        /*
-         Create labels for the text fields; set the highlight color so that when the cell is selected it changes appropriately.
-         */
-        UILabel *label;
-        CGRect rect;
-        
-        // Create a label for the time.
-        rect = CGRectMake(MIDDLE_COLUMN_OFFSET, (ROW_HEIGHT - LABEL_HEIGHT) / 3.7, MIDDLE_COLUMN_WIDTH, LABEL_HEIGHT);
-        label = [[UILabel alloc] initWithFrame:rect];
-        label.tag = RATE_TAG;
-        label.font = [UIFont systemFontOfSize:MAIN_FONT_SIZE];
-        label.textAlignment = UITextAlignmentRight;
-        [cell.contentView addSubview:label];
-        label.highlightedTextColor = [UIColor whiteColor];
-        [label release];
-   
-        return cell;
-}
-
-- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
-    
-	UILabel *label;
-	label = (UILabel *)[cell viewWithTag:RATE_TAG];
-	label.text = @"0.1234569  "; 
-	
-}    
 
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-    self.shopName.text=[dataSource_ objectAtIndex:indexPath.row];  
-    self.shopImage.image = [images_ objectAtIndex:indexPath.row];
+    //self.shopName.text=[dataSource_ objectAtIndex:indexPath.row];  
+    //self.shopImage.image = [images_ objectAtIndex:indexPath.row];
     [self nextTransition];
     
 }    

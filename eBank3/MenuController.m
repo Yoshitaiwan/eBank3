@@ -100,7 +100,8 @@
     
     if ( [tmp isEqualToString:kMyCurrencyBoard])
     {
-        addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
+        addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
+     //   addViewController = [[UITabBarController alloc] init];
         addViewController.title= kMyCurrencyBoard;
    
     }
