@@ -24,5 +24,6 @@
 @property(nonatomic, retain) IBOutlet UIView* currentInputView;
 
 @property BOOL transitioning;
+-(void) buttonClicked:(id)sender;
 
 @end

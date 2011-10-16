@@ -2,22 +2,22 @@
 //  CurrencyBoardTableController.m
 //  eBank3
 //
-//  Created by Yoshiyuki Matsuoka on 12/10/11.
+//  Created by Yoshiyuki Matsuoka on 16/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "CurrencyBoardTableController.h"
+#import "CurrencyBoardInputController.h"
+#import "CurrencyMarket.h"
+
+#define ROW_HEIGHT 100
 
 @implementation CurrencyBoardTableController
-@synthesize images=images_;
-//@synthesize 
+@synthesize cellForCurrencyBoard=cellForCurrencyBoard_;
+@synthesize editButton=editButton_;
 
--(void) dealloc
-{
-    [images_ release];
-    [super  dealloc];
-    
-}
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -41,100 +41,78 @@
 {
     [super viewDidLoad];
 
-    dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
- //   images_ = [[NSMutableArray alloc] initWithCapacity:8];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.rowHeight =ROW_HEIGHT;   
+   // self.title = @"Currency Board";
     
-    self.tableView.rowHeight =80;
-   // self.currentInputView.hidden = YES;
+    //self.navigationItem.rightBarButtonItem = self.editButton;
     
-    //   [self.view addSubview:self.currentInputView];
-
+    //self.navigationItem.rightBarButtonItem = self.editButton;
+   // self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:nil action:nil ]autorelease];
 
 }
 
+#pragma mark - Table view data source
 
 
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return [dataSource_ count];
-}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
-- (UITableViewCell*)tableView:(UITableView*)tableView
-        cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    static NSString* CellIdentifier = @"basis-cell";
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
     
-    // NSString identifier= [dataSource_ objectAtIndex:indexPath.row];
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-		cell = [self tableViewCellWithReuseIdentifier:CellIdentifier];
-	}
+       // cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        [[NSBundle mainBundle] loadNibNamed:@"CurrencyBoardCell" owner:self options:nil];
+		cell = self.cellForCurrencyBoard;
+		self.cellForCurrencyBoard = nil;
     
-    [self configureCell:cell forIndexPath:indexPath];
+    }
     
-  //  cell.imageView.image = [images_ objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = @"20-Sept-2011 12:30:11PM";
-    cell.textLabel.text = [dataSource_ objectAtIndex:indexPath.row];
-    
-    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton   ;
-	return cell;
-    
-}   
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-}
-#pragma mark -
-#pragma mark Configuring table view cells
-
-#define RATE_TAG 1
-#define MIDDLE_COLUMN_OFFSET 130.0
-#define MIDDLE_COLUMN_WIDTH 150.0
-#define MAIN_FONT_SIZE 23.0
-#define LABEL_HEIGHT 26.0
-#define ROW_HEIGHT 60
-
-- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier {
-    /*
-     Create an instance of UITableViewCell .
-     */
-    
-    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle   reuseIdentifier:identifier] autorelease];
-    /*
-     Create labels for the text fields; set the highlight color so that when the cell is selected it changes appropriately.
-     */
-    UILabel *label;
-    CGRect rect;
-    
-    // Create a label for the time.
-    rect = CGRectMake(MIDDLE_COLUMN_OFFSET, (ROW_HEIGHT - LABEL_HEIGHT) / 3.7, MIDDLE_COLUMN_WIDTH, LABEL_HEIGHT);
-    label = [[UILabel alloc] initWithFrame:rect];
-    label.tag = RATE_TAG;
-    label.font = [UIFont systemFontOfSize:MAIN_FONT_SIZE];
-    label.textAlignment = UITextAlignmentRight;
-    [cell.contentView addSubview:label];
-    label.highlightedTextColor = [UIColor whiteColor];
-    [label release];
+    // Configure the cell...
     
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
-    
-	UILabel *label;
-	label = (UILabel *)[cell viewWithTag:RATE_TAG];
-	label.text = @"0.1234569  "; 
-	
-}    
 
+-(void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *addViewController = [[CurrencyMarket alloc] initWithNibName:@"CurrencyMarket" bundle:nil];
+    [self.navigationController pushViewController:addViewController animated:YES]; 
+	[addViewController release];
+    
+    
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UIViewController *addViewController = [[CurrencyBoardInputController alloc] initWithNibName:@"CurrencyBoardInputController" bundle:nil];
+    addViewController.title= @"Edit";
+    addViewController.navigationItem.rightBarButtonItem = editButton_;
+  	[self.navigationController pushViewController:addViewController animated:YES]; 
+	[addViewController release];
+    
+    
+    
+}
+#pragma mark - Table view delegate
 
 @end

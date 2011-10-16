@@ -10,9 +10,9 @@
 #import "CurrencyBoardController.h"
 #import "TransferAmountController.h"
 #import "RootViewController.h"
-#import "ExchangeMarketsController.h"
+//#import "ExchangeMarketsController.h"
 
-#define kMyCurrencyBoard @"My Currency Board"
+//#define kMyCurrencyBoard @"My Currency Board"
 #define kTransfer        @"Transfer"
 #define kExchangeMarkets @"Exchange Markets"
 #define kAccounts        @"My Accounts"
@@ -36,7 +36,7 @@
         // Initialization code here.
         keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Ranking",@"Setting", nil];
         NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, kDelivery, @"My Offer", nil];
-        NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, kMyCurrencyBoard, nil];
+        NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, nil];
         NSArray* object3 = [NSArray arrayWithObjects:@"Trade Volumne",@"News", nil];
         NSArray* object4 = [NSArray arrayWithObjects:@"My Setting", nil];
         
@@ -98,17 +98,21 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     
-    if ( [tmp isEqualToString:kMyCurrencyBoard])
+/*    if ( [tmp isEqualToString:kMyCurrencyBoard])
     {
         addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
      //   addViewController = [[UITabBarController alloc] init];
         addViewController.title= kMyCurrencyBoard;
    
     }
-    else if ([tmp isEqualToString:kTransfer]) 
+    else 
+*/    
+    if ([tmp isEqualToString:kTransfer]) 
     {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
         addViewController.title= @"Transfer 1/3";
+  
+    
     }  
     else if ([tmp isEqualToString:kAccounts]) 
     { 
@@ -122,27 +126,15 @@
     }
     else if ([tmp isEqualToString:kExchangeMarkets]) 
     { 
-        addViewController = [[ExchangeMarketsController alloc] initWithNibName:@"ExchangeMarketsController" bundle:nil];
-        addViewController.title =@"Exchange 1/3";
+        addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
+        addViewController.title= kExchangeMarkets;
+      
         
     }else {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
         addViewController.title= @"Others 1/3";
     }
   
-  /*  
-    UITabBarController* addViewController = [[UITabBarController alloc] init];
-    
-    UIViewController* temp1 = [[UIViewController alloc] init];
-    UIViewController* temp2 = [[UIViewController alloc] init];
-    
-    NSArray* controllers = [NSArray arrayWithObjects:temp1, temp2, nil];
-   
-   [addViewController setViewControllers:controllers];
-   
-   */
-    
-  //  UITabBarController* addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardController" bundle:nil];
     
     [mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];

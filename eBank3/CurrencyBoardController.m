@@ -7,9 +7,12 @@
 //
 
 #import "CurrencyBoardController.h"
-#import <QuartzCore/QuartzCore.h>
-#import "CurrencyBoardSettingController.h"
 #import "CurrencyBoardTableController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CurrencyBoardInputController.h"
+
+//#import "CurrencyBoardSettingController.h"
+//#import "CurrencyBoardTableController.h"
 
 @implementation CurrencyBoardController
 @synthesize currentInputView=currencyInputView_;
@@ -32,15 +35,19 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        UITableViewController* currencyBoardSell = [[CurrencyBoardTableController alloc] init];
+        CurrencyBoardTableController* currencyBoardSell = [[CurrencyBoardTableController alloc] initWithNibName:@"CurrencyBoardTableController" bundle:nil];
         UIImage* icon1 = [UIImage imageNamed:@"Dog.png"];
         currencyBoardSell.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Sell" image:icon1 tag:0] autorelease];
        
-        UITableViewController* currencyBoardBuy = [[CurrencyBoardTableController alloc] init];
+        CurrencyBoardTableController* currencyBoardBuy = [[CurrencyBoardTableController alloc]initWithNibName:@"CurrencyBoardTableController" bundle:nil];
         UIImage* icon2 = [UIImage imageNamed:@"Moneky.png"];
         currencyBoardBuy.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Buy" image:icon2 tag:0] autorelease];
-        NSArray* controllers = [NSArray arrayWithObjects:currencyBoardBuy,currencyBoardSell, nil];
         
+        CurrencyBoardTableController* currencyBoardSellMyCurrency = [[CurrencyBoardTableController alloc]initWithNibName:@"CurrencyBoardTableController" bundle:nil];
+        UIImage* icon3 = [UIImage imageNamed:@"Lion.png"];
+        currencyBoardSellMyCurrency.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"My Currency" image:icon3 tag:0] autorelease];
+      
+        NSArray* controllers = [NSArray arrayWithObjects:currencyBoardBuy,currencyBoardSell,currencyBoardSellMyCurrency, nil];
         
       /*  
         UIImage* icon = [UIImage imageNamed:@"Dog.png"];
@@ -54,19 +61,32 @@
     
 }
 
-/*
+
+-(void) buttonClicked:(id)sender
+{
+    UIViewController *addViewController = [[CurrencyBoardInputController alloc] initWithNibName:@"CurrencyBoardInputController" bundle:nil];
+    addViewController.title= @"Create New";
+  	[self.navigationController pushViewController:addViewController animated:YES]; 
+	[addViewController release];
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
+/*    dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
     images_ = [[NSMutableArray alloc] initWithCapacity:8];
     for ( NSString* name in dataSource_ ) {
         NSString* imageName = [NSString stringWithFormat:@"%@.png", name];
         UIImage* image = [UIImage imageNamed:imageName];
         [images_ addObject:image];
     }
-}
 */
+    //self.navigationItem.rightBarButtonItem = self.editButton;
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:self action:@selector(buttonClicked:) ]autorelease];
+
+}
+
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
     return [dataSource_ count];
 }
@@ -127,13 +147,14 @@
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath     
 {
-     UIViewController *addViewController = [[CurrencyBoardSettingController alloc] initWithNibName:@"CurrencyBoardSettingController" bundle:nil];
+    // UIViewController *addViewController = [[CurrencyBoardSettingController alloc] initWithNibName:@"CurrencyBoardSettingController" bundle:nil];
  //   UIViewController *addViewController = [[UIViewController alloc]init ];
     
-    addViewController.title=[dataSource_ objectAtIndex:indexPath.row];
+ /*   addViewController.title=[dataSource_ objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];   
-}
+*/
+  }
 
 
 @end
