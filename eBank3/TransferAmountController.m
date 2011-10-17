@@ -9,7 +9,7 @@
 #import "TransferAmountController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AccountListController.h"
-#import "CustomView.h"
+#import "CustomViewForPicker.h"
 
 
 @implementation TransferAmountController
@@ -61,32 +61,32 @@
    
     NSMutableArray* viewArray = [[NSMutableArray alloc] init];
     
-    CustomView* phoneView = [[CustomView alloc] initWithFrame:CGRectZero];
+    CustomViewForPicker* phoneView = [[CustomViewForPicker alloc] initWithFrame:CGRectZero];
     phoneView.title = @"Mobile Phone";
     phoneView.image = [UIImage imageNamed:@"Phone.png"];
     [viewArray addObject:phoneView];
     [phoneView release];
     
-    CustomView* facebookView = [[CustomView alloc] initWithFrame:CGRectZero];
+    CustomViewForPicker* facebookView = [[CustomViewForPicker alloc] initWithFrame:CGRectZero];
     facebookView.title = @"Facebook";
     facebookView.image = [UIImage imageNamed:@"facebook.png"];
     [viewArray addObject:facebookView];
     [facebookView release];
     
-    CustomView* twitter = [[CustomView alloc] initWithFrame:CGRectZero];
+    CustomViewForPicker* twitter = [[CustomViewForPicker alloc] initWithFrame:CGRectZero];
     twitter.title = @"Twitter";
     twitter.image = [UIImage imageNamed:@"twitter.png"];
     [viewArray addObject:twitter];
     [twitter release];
     
-    CustomView* email = [[CustomView alloc] initWithFrame:CGRectZero];
+    CustomViewForPicker* email = [[CustomViewForPicker alloc] initWithFrame:CGRectZero];
     email.title = @"Email";
     email.image = [UIImage imageNamed:@"email.png"];
     [viewArray addObject:email];
     [email release];
     
     
-    CustomView* bump = [[CustomView alloc] initWithFrame:CGRectZero];
+    CustomViewForPicker* bump = [[CustomViewForPicker alloc] initWithFrame:CGRectZero];
     email.title = @"bump";
     email.image = [UIImage imageNamed:@"bump.png"];
     [viewArray addObject:bump];
@@ -213,11 +213,6 @@
 #pragma mark -
 #pragma mark Picker Delegate Protocol
 
-/*- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component 
-{
-		return [dataSourceArray_ objectAtIndex:row];
-}
-*/
 // tell the picker which view to use for a given component and row, we have an array of views to show
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
 		  forComponent:(NSInteger)component reusingView:(UIView *)view

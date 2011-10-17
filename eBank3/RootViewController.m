@@ -39,8 +39,7 @@
 {
     [keys_ release];
     [dataSource_ release];
-
-    [dataSourceImage_ release];
+   [dataSourceImage_ release];
     
     
     [accountDetailView_1_ release];
@@ -77,7 +76,6 @@
     NSArray* object3 = [NSArray arrayWithObjects:@"Dog", @"Lion", nil];
     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
-    //dataSourceImage_ = [[NSDictionary alloc] init];
     
     NSMutableArray*  imageTemp2 = [[NSMutableArray alloc ]  initWithCapacity:8];
     for (id key in keys_){
@@ -92,6 +90,8 @@
     }
     
     dataSourceImage_ =  [[NSDictionary alloc] initWithObjects:imageTemp2 forKeys:keys_];
+    [imageTemp2 release];
+    
     [self.containerView addSubview:self.accountDetailTopScreenView_1];
     [self.containerView addSubview:self.accountDetailTopScreenView_2];
     
@@ -100,7 +100,6 @@
     self.transitioning = NO;
     
     self.navigationItem.title =kAccounts;
-    
     self.navigationItem.leftBarButtonItem =self.menuButton;
     
     
@@ -131,9 +130,6 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     cell.textLabel.text = text;
-   
-///    UIImage* iconImage =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
-   
     cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
 
     return cell;

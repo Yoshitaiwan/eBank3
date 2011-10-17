@@ -37,8 +37,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
-    // Return the number of sections.
-   // return 0;
    return [keys_ count];
 }
 
@@ -94,23 +92,5 @@
     return [keys_ objectAtIndex:section];
 }
 
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"test");
-    
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     CurrencyBoardInputController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
- 
-    
-}
 
 @end

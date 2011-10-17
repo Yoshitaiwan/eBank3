@@ -56,16 +56,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        //     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        //     cell = [self tableViewCellWithReuseIdentifier:CellIdentifier];
         [[NSBundle mainBundle] loadNibNamed:@"CurrencyMarketCell" owner:self options:nil];
 		cell = self.ccyMarketCell;
 		self.ccyMarketCell = nil;
         
     }
-    
-    // Configure the cell.
-    //   cell.textLabel.text = [dataSource_ objectAtIndex:indexPath.row];
     
     return cell;
 }

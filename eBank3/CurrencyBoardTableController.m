@@ -41,19 +41,8 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tableView.rowHeight =ROW_HEIGHT;   
-   // self.title = @"Currency Board";
-    
-    //self.navigationItem.rightBarButtonItem = self.editButton;
-    
-    //self.navigationItem.rightBarButtonItem = self.editButton;
-   // self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:nil action:nil ]autorelease];
-
+     self.tableView.rowHeight =ROW_HEIGHT;   
 }
 
 #pragma mark - Table view data source
@@ -80,15 +69,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-       // cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         [[NSBundle mainBundle] loadNibNamed:@"CurrencyBoardCell" owner:self options:nil];
 		cell = self.cellForCurrencyBoard;
 		self.cellForCurrencyBoard = nil;
     
     }
-    
-    // Configure the cell...
-    
     return cell;
 }
 
@@ -97,6 +82,7 @@
 {
     UIViewController *addViewController = [[CurrencyMarket alloc] initWithNibName:@"CurrencyMarket" bundle:nil];
     [self.navigationController pushViewController:addViewController animated:YES]; 
+    addViewController.title = @"Rakuten : Amazon";
 	[addViewController release];
     
     
@@ -113,6 +99,5 @@
     
     
 }
-#pragma mark - Table view delegate
 
 @end

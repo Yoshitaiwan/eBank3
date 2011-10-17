@@ -10,24 +10,25 @@
 #import "CurrencyBoardController.h"
 #import "TransferAmountController.h"
 #import "RootViewController.h"
-//#import "ExchangeMarketsController.h"
 
-//#define kMyCurrencyBoard @"My Currency Board"
 #define kTransfer        @"Transfer"
-#define kExchangeMarkets @"Exchange Markets"
-#define kAccounts        @"My Accounts"
+#define kExchangeMarkets @"Market"
+#define kAccounts        @"Accounts"
 #define kDelivery        @"Get Delivery"
+#define kMyCurrency  @"My Currency"
 
 @implementation MenuController
 @synthesize  mainViewContainer= mainViewContainer_;
 
 -(void) dealloc
 {
-    [super dealloc];   
     [keys_ release];
     [dataSource_ release];
+    [mainViewContainer_ release];
+    [super dealloc];   
     
 }
+
 - (id)init
 {
     self = [super init];
@@ -35,19 +36,41 @@
     if (nil !=self) {
         // Initialization code here.
         keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Ranking",@"Setting", nil];
-        NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, kDelivery, @"My Offer", nil];
+        NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, kDelivery, nil];
         NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, nil];
         NSArray* object3 = [NSArray arrayWithObjects:@"Trade Volumne",@"News", nil];
-        NSArray* object4 = [NSArray arrayWithObjects:@"My Setting", nil];
+        NSArray* object4 = [NSArray arrayWithObjects:kMyCurrency, nil];
         
         NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,object4,  nil];
-    
+        
         dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
+
+        NSMutableArray*  imageTemp2 = [[NSMutableArray alloc ]  initWithCapacity:8];
+        for (id key in keys_){
+            NSMutableArray*  imageTemp = [[NSMutableArray alloc] init ];
+            for (NSString* name in [dataSource_ objectForKey:key]){
+                NSString* imageName = [NSString stringWithFormat:@"%@.png",name];
+                UIImage* image = [UIImage imageNamed:imageName];
+                if(image)
+                [imageTemp addObject:image];
+            }
+            [imageTemp2 addObject:imageTemp];
+            [imageTemp release];
+        }
+        
+        dataSourceImage_ =  [[NSDictionary alloc] initWithObjects:imageTemp2 forKeys:keys_];
+        [imageTemp2 release];
+    
     }
     return self;
 }
 
 
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section 
@@ -70,7 +93,12 @@
     NSString* text = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     cell.textLabel.text = text;
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator   ;
+  
     
+   // cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
+    
+    cell.imageView.image = [UIImage imageNamed:@"question-mark.png"];
+
     return cell;
 }
 
@@ -98,20 +126,10 @@
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     
-/*    if ( [tmp isEqualToString:kMyCurrencyBoard])
-    {
-        addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
-     //   addViewController = [[UITabBarController alloc] init];
-        addViewController.title= kMyCurrencyBoard;
-   
-    }
-    else 
-*/    
     if ([tmp isEqualToString:kTransfer]) 
     {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
         addViewController.title= @"Transfer 1/3";
-  
     
     }  
     else if ([tmp isEqualToString:kAccounts]) 
@@ -128,7 +146,6 @@
     { 
         addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
         addViewController.title= kExchangeMarkets;
-      
         
     }else {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];
@@ -138,9 +155,6 @@
     
     [mainViewContainer_.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
-    
-    
-    
     
 }
 

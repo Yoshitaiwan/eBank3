@@ -19,38 +19,17 @@
 }
 
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // 表示するデータを作成
     keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Information",  nil];
     NSArray* object1 = [NSArray arrayWithObjects:@"Offer", @"Review", @"Delivery Record", @"Web Site", nil];
     NSArray* object2 = [NSArray arrayWithObjects:@"Transaction Volume", @"Price Board", nil];
     NSArray* object3 = [NSArray arrayWithObjects:@"Trade Ranking", @"Rich Ranking", nil];
     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
-    
-    
 }
 
 
@@ -87,30 +66,6 @@
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section 
 {
     return [keys_ objectAtIndex:section];
-}
-
-/*
- - (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView
- {
- return keys_;
- }
- */
-
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-    
 }
 
 

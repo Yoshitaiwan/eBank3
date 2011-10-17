@@ -21,8 +21,8 @@
 
 - (void)dealloc
 {
-//    [images_ release];
- //   [details_ release];
+    [images_ release];
+    [details_ release];
     [dataSource_ release];
     [currencyInputView_ release];
     [super dealloc];
@@ -49,11 +49,6 @@
       
         NSArray* controllers = [NSArray arrayWithObjects:currencyBoardBuy,currencyBoardSell,currencyBoardSellMyCurrency, nil];
         
-      /*  
-        UIImage* icon = [UIImage imageNamed:@"Dog.png"];
-        self.viewControllerBuy.tabBarItem= [[[UITabBarItem alloc] initWithTitle:@"Hello" image:icon tag:0] autorelease];
-        NSArray* controllers = [NSArray arrayWithObjects:self.viewControllerBuy, self.viewControllerBuy, nil];
-        */
         [self setViewControllers:controllers];
     
     }
@@ -68,22 +63,11 @@
     addViewController.title= @"Create New";
   	[self.navigationController pushViewController:addViewController animated:YES]; 
 	[addViewController release];
-    
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-/*    dataSource_ = [[NSArray alloc] initWithObjects:@"Monkey", @"Dog", @"Lion", @"Elephant", nil];
-    images_ = [[NSMutableArray alloc] initWithCapacity:8];
-    for ( NSString* name in dataSource_ ) {
-        NSString* imageName = [NSString stringWithFormat:@"%@.png", name];
-        UIImage* image = [UIImage imageNamed:imageName];
-        [images_ addObject:image];
-    }
-*/
-    //self.navigationItem.rightBarButtonItem = self.editButton;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:self action:@selector(buttonClicked:) ]autorelease];
+     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose  target:self action:@selector(buttonClicked:) ]autorelease];
 
 }
 
@@ -95,10 +79,7 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-    //self.shopName.text=[dataSource_ objectAtIndex:indexPath.row];  
-    //self.shopImage.image = [images_ objectAtIndex:indexPath.row];
     [self nextTransition];
-    
 }    
 
 

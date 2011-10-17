@@ -28,31 +28,14 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
     self.navigationItem.title =@"Edit Accounts";
-    
     self.navigationItem.rightBarButtonItem = [self editButtonItem];
-
-    // 表示するデータを作成
     keys_ = [[NSArray alloc] initWithObjects:@"Singapore", @"U.K.", @"Malaysia", @"Indonesia", nil];
     NSArray* object1 = [NSArray arrayWithObjects:@"Amazon", @"Rakten", @"Lion", @"Elephant", nil];
     NSArray* object2 = [NSArray arrayWithObjects:@"Snake", @"Gecko", nil];
@@ -61,9 +44,7 @@
     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, object4, nil];
     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
     
-
 }
-
 
 #pragma mark - Table view data source
 
@@ -100,26 +81,11 @@
     return [keys_ objectAtIndex:section];
 }
 
-/*
-- (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView
-{
-    return keys_;
-}
-*/
-
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
     id key = [keys_ objectAtIndex:indexPath.section];
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     NSLog (tmp);
