@@ -7,13 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+
+@class RootViewController;
 
 @interface eBank3AppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-
+{
+    UIWindow *window;    
+    UINavigationController *navigationController;
+    NSManagedObjectContext *managedObjectContext;	    
+    NSManagedObjectModel* managedObjectModel;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+//    RootViewController*  rootViewController;
+    
+}
+//@property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+//@property (nonatomic, retain) IBOutlet RootViewController*  rootViewController;
 
+
+@property (nonatomic, retain,readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain,readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain,readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (NSString *)applicationDocumentsDirectory ;
 
 
 @end

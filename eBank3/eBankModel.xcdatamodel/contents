@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RecordEntity" representedClassName="RecordEntity" syncable="YES">
+        <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accumBal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="narrative" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStampInserted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="StatementEntity" representedClassName="StatementEntity" syncable="YES">
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecordEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RecordEntity" positionX="-117" positionY="153" width="128" height="135"/>
+        <element name="StatementEntity" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>

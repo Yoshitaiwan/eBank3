@@ -8,18 +8,18 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import <CoreData/CoreData.h>
 #import "MenuController.h"
+#import "StatementEntity.h"
 
 
 @interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
 
 {
 @private
-    NSArray* keys_;
-    NSDictionary* dataSource_;
-    
-    
+ // NSArray* keys_;
+ //   NSDictionary* dataSource_;
+   
     NSDictionary* dataSourceImage_;
     
     UILabel *amount_1_;
@@ -37,6 +37,12 @@
     UIBarButtonItem *menuButton_;
     
     MenuController *myDataSource_; 
+
+    NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
+
+    StatementEntity* stmtEntity ; 
+    
 }
 
 @property(nonatomic,retain) IBOutlet UILabel *amount_1;
@@ -53,11 +59,18 @@
 @property (nonatomic,retain) MenuController *myDataSource;
 @property (nonatomic,retain) NSMutableArray* images;
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+@property (nonatomic, retain) StatementEntity* stmtEntity ;
+
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;
 - (IBAction) goToStatementLabelPressed: (id) sender;
 
 -(UIView*)nextView;
 -(void)nextTransition;
+-(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *) context;
+-(void) downloadStatement:(NSManagedObjectContext *)context   ;
 
 @end

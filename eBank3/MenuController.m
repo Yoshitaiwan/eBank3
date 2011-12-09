@@ -9,7 +9,7 @@
 #import "MenuController.h"
 #import "CurrencyBoardController.h"
 #import "TransferAmountController.h"
-#import "RootViewController.h"
+//#import "RootViewController.h"
 
 #define kTransfer        @"Transfer"
 #define kExchangeMarkets @"Market"

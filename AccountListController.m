@@ -90,11 +90,9 @@
     NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
     NSLog (tmp);
     
-    
-    UIViewController *addViewController = [[AccountDisclosureController alloc] initWithNibName:@"AccountDisclosureController" bundle:nil];
-    addViewController.title= tmp;
-  	[self.navigationController pushViewController:addViewController animated:YES]; 
-	[addViewController release];
+    //addViewController.title= tmp;
+ // 	[self.navigationController pushViewController:addViewController animated:YES]; 
+//	[addViewController release];
     
 }
 
