@@ -28,7 +28,7 @@
    
     RootViewController* rootViewController= [[RootViewController alloc] initWithNibName:@"RootViewController"  bundle:nil context:self.managedObjectContext] ;
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController]  ;
-    [navigationController setNavigationBarHidden:YES animated:NO]; 
+    [navigationController setNavigationBarHidden:NO animated:NO]; 
     
   //  [self deleteAllObjects:@"RecordEntity"];
     
