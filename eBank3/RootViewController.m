@@ -125,6 +125,7 @@
     
     self.navigationItem.title =kAccounts;
     self.navigationItem.leftBarButtonItem =self.menuButton;
+    //[self.navigationItem setRightBarButtonItem:editAccountButton_ animated:YES];
     
     
     MenuController* menudata = [[MenuController alloc] init ];
@@ -135,7 +136,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    //   	self.navigationItem.rightBarButtonItem = self.editAccountButton;
+    self.navigationItem.rightBarButtonItem = self.editAccountButton;
     [self downloadAndSaveStatement:self.managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -194,7 +195,7 @@
         recordEntity.currency = [(Record*)rec currency];
         recordEntity.narrative =[(Record*)rec narrative];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
-        
+    
         [stmtEntity addRecordsObject:recordEntity ];
    /*     
         NSLog (@"%@", [NSString stringWithFormat:@"%d", [(Record*)rec accumBal ]]);

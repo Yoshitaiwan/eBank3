@@ -28,6 +28,7 @@
    
     RootViewController* rootViewController= [[RootViewController alloc] initWithNibName:@"RootViewController"  bundle:nil context:self.managedObjectContext] ;
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController]  ;
+    navigationController.navigationBar.tintColor= [UIColor greenColor];
     [navigationController setNavigationBarHidden:NO animated:NO]; 
     
   //  [self deleteAllObjects:@"RecordEntity"];
