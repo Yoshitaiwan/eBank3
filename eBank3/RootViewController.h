@@ -43,6 +43,7 @@
 
     StatementEntity* stmtEntity ; 
     
+    NSNumberFormatter* formatter;
 }
 
 @property(nonatomic,retain) IBOutlet UILabel *amount_1;
@@ -63,6 +64,7 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @property (nonatomic, retain) StatementEntity* stmtEntity ;
+@property (nonatomic, retain) NSNumberFormatter*  formatter;
 
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;
@@ -71,6 +73,6 @@
 -(UIView*)nextView;
 -(void)nextTransition;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *) context;
--(void) downloadStatement:(NSManagedObjectContext *)context   ;
+-(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   ;
 
 @end

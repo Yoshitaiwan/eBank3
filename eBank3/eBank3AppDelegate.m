@@ -30,6 +30,9 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController]  ;
     [navigationController setNavigationBarHidden:YES animated:NO]; 
     
+  //  [self deleteAllObjects:@"RecordEntity"];
+    
+    
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
     return YES;
@@ -135,6 +138,31 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
+
+/**
+ Returns the path to the application's Documents directory.
+ */
+
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [fetchRequest release];
+    
+    
+    for (NSManagedObject *managedObject in items) {
+        [self.managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+    
+}
 
 
 

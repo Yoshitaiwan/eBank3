@@ -39,11 +39,10 @@
 @synthesize fetchedResultsController,stmtEntity;
 @synthesize managedObjectContext;
 
+@synthesize formatter ;
 
 - (void)dealloc
 {
-//    [keys_ release];
-//    [dataSource_ release];
    [dataSourceImage_ release];
     
     
@@ -61,7 +60,7 @@
     [images_ release];
 
     [managedObjectContext release];
-    
+    [formatter release] ;   
     [super dealloc];
     
 }
@@ -73,16 +72,6 @@
     return self;
 }
 
-/*
--(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    id  xxx =[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (!(self =xxx ))
-        return nil;
-    return self;   
-}
-
-*/
 
 - (void)viewDidLoad
 {
@@ -147,7 +136,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     //   	self.navigationItem.rightBarButtonItem = self.editAccountButton;
-    [self downloadStatement:self.managedObjectContext];
+    [self downloadAndSaveStatement:self.managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:@"RecordEntity" inManagedObjectContext:self.managedObjectContext];
@@ -172,10 +161,15 @@
 		abort();
 	}		
     
+    
+     formatter = [[NSNumberFormatter alloc]init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    
 }
 
 
--(void) downloadStatement:(NSManagedObjectContext *)context   
+-(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   
 {
     stmtEntity= (StatementEntity*)[NSEntityDescription insertNewObjectForEntityForName:@"StatementEntity" 
                                                                 inManagedObjectContext:context]; 
@@ -189,30 +183,29 @@
     
     Statement* stmt = [[Statement alloc ] init];
     stmt = [Statement parseFromData:returnData];
-    NSArray* records = stmt.recordsList;
-    
+    NSArray* records = stmt.recordsList;    
     for (id rec in records){
         RecordEntity* recordEntity= (RecordEntity*)[NSEntityDescription insertNewObjectForEntityForName:@"RecordEntity" 
                                                                                  inManagedObjectContext:context]; 
         
-        recordEntity.account = [(Record*)rec account]; 
-        recordEntity.amount= [NSNumber numberWithUnsignedLongLong:[(Record*)rec amount ]];
-        recordEntity.accumBal= [NSNumber numberWithUnsignedLongLong:[(Record*)rec accumBal ]];
-        
+        recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
+        recordEntity.amount= [NSNumber numberWithLongLong:[(Record*)rec amount ]];
+        recordEntity.account = [(Record*)rec account];
         recordEntity.currency = [(Record*)rec currency];
         recordEntity.narrative =[(Record*)rec narrative];
-        recordEntity.timeStampInserted=  [NSNumber numberWithUnsignedLongLong:[(Record*)rec timeStampInsert]];
+        recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
         
         [stmtEntity addRecordsObject:recordEntity ];
-        
+   /*     
         NSLog (@"%@", [NSString stringWithFormat:@"%d", [(Record*)rec accumBal ]]);
+        
         NSLog (@"%@",[(Record*)rec account]);
         NSLog (@"%@",[(Record*)rec currency]);
-        
+     */   
     }
     
     [context save:nil];
-    
+
 }
 
 
@@ -255,8 +248,8 @@
         [cell autorelease];
     }
  
-    RecordEntity* text =[fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = text.account;
+    RecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = recordEntity.account;
   //  cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
 
     return cell;
@@ -278,10 +271,9 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-//    id key = [keys_ objectAtIndex:indexPath.section];
-//    NSString* message  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
-  //  NSString *tmp = [message stringByAppendingString:@" current balance"] ;
- //   self.amount_2.text = tmp; 
+    RecordEntity* record =[fetchedResultsController objectAtIndexPath:indexPath];
+    self.amount_2.text = [formatter stringFromNumber: record.accumBal];    
+    
     [self nextTransition];
 }    
 
