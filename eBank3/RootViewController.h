@@ -17,9 +17,6 @@
 
 {
 @private
- // NSArray* keys_;
- //   NSDictionary* dataSource_;
-   
     NSDictionary* dataSourceImage_;
     
     UILabel *amount_1_;

@@ -76,45 +76,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-/*    
-    NSError *error;
-    
-    
-    NSMutableArray *test=  [managedObjectContext executeFetchRequest:request error:&error];
-    //        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    
-    [request release];
-    
-    self.fetchedResultsController = frc;
-    [frc release];
-    
-    
-    
-    keys_ = [[NSArray alloc] initWithObjects:@"Singapore", @"U.K.", @"Malaysia", nil];
-    NSArray* object1 = [NSArray arrayWithObjects:@"starbucks", @"daiso", @"fairprice" , nil];
-    NSArray* object2 = [NSArray arrayWithObjects:@"amazon", @"facebook", nil];
-    NSArray* object3 = [NSArray arrayWithObjects:@"Dog", @"Lion", nil];
-    NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,  nil];
-    dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
-    
-    NSMutableArray*  imageTemp2 = [[NSMutableArray alloc ]  initWithCapacity:8];
-    for (id key in keys_){
-        NSMutableArray*  imageTemp = [[NSMutableArray alloc] init ];
-        for (NSString* name in [dataSource_ objectForKey:key]){
-            NSString* imageName = [NSString stringWithFormat:@"%@.png",name];
-            UIImage* image = [UIImage imageNamed:imageName];
-            [imageTemp addObject:image];
-        }
-        [imageTemp2 addObject:imageTemp];
-        [imageTemp release];
-    }
-    
-    dataSourceImage_ =  [[NSDictionary alloc] initWithObjects:imageTemp2 forKeys:keys_];
-    [imageTemp2 release];
- */   
-
-    
-    
     
     [self.containerView addSubview:self.accountDetailTopScreenView_1];
     [self.containerView addSubview:self.accountDetailTopScreenView_2];
@@ -125,8 +86,6 @@
     
     self.navigationItem.title =kAccounts;
     self.navigationItem.leftBarButtonItem =self.menuButton;
-    //[self.navigationItem setRightBarButtonItem:editAccountButton_ animated:YES];
-    
     
     MenuController* menudata = [[MenuController alloc] init ];
     [menudata setMainViewContainer:self];
@@ -190,19 +149,11 @@
                                                                                  inManagedObjectContext:context]; 
         
         recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
-        recordEntity.amount= [NSNumber numberWithLongLong:[(Record*)rec amount ]];
         recordEntity.account = [(Record*)rec account];
         recordEntity.currency = [(Record*)rec currency];
-        recordEntity.narrative =[(Record*)rec narrative];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
     
         [stmtEntity addRecordsObject:recordEntity ];
-   /*     
-        NSLog (@"%@", [NSString stringWithFormat:@"%d", [(Record*)rec accumBal ]]);
-        
-        NSLog (@"%@",[(Record*)rec account]);
-        NSLog (@"%@",[(Record*)rec currency]);
-     */   
     }
     
     [context save:nil];
@@ -352,10 +303,12 @@
 -(IBAction)goToStatementLabelPressed :(id) sender{
     NSLog(@"go to statement pressed");
     
-    UIViewController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil];
+    UIViewController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil context:self.managedObjectContext];
   	[self.navigationController pushViewController:addViewController animated:YES];
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
   	[addViewController release];
+
+     
 }
 
 - (UIView*)nextView {
