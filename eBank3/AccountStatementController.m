@@ -9,20 +9,22 @@
 #import "AccountStatementController.h"
 #import "AccountStatementDetailController.h"
 #import "Statement.pb.h"
-#import "StatementEntity.h"
-#import "RecordEntity.h"
+#import "StatementGroupEntity.h"
+#import "StatementRecordEntity.h"
+
+#define kStatementRecordEntity @"StatementRecordEntity"
+#define kStatementGroupEntity  @"StatementGroupEntity"
 
 @implementation AccountStatementController
 
-@synthesize managedObjectContext, fetchedResultsController, formatter;
+@synthesize managedObjectContext, fetchedResultsController, formatter,PreviouslyLastSelectedBalanceRecordEntity;
 
 - (void)dealloc
 {
-    //   [keys_ release];
-    //   [dataSource_ release];
     [managedObjectContext release];
     [fetchedResultsController release];
     [formatter release];
+    [PreviouslyLastSelectedBalanceRecordEntity release];
     [super dealloc];
 }
 
@@ -42,22 +44,14 @@
     [super viewDidLoad];
     
     self.navigationItem.title =@"Transactions";
-    
-    /*    keys_ = [[NSArray alloc] initWithObjects:@"21-Septempber-2011", @"01-October-2011", @"11-October-2011", @"21-October-2011", nil];
-     NSArray* object1 = [NSArray arrayWithObjects:@"Pay to Thomas", @"From Ken by Transfer", @"From Tom by Bump", @"From Market ", nil];
-     NSArray* object2 = [NSArray arrayWithObjects:@"Snake", @"Gecko", nil];
-     NSArray* object3 = [NSArray arrayWithObjects:@"Frog", @"Newts", nil];
-     NSArray* object4 = [NSArray arrayWithObjects:@"Shark", @"Salmon", nil];
-     NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3, object4, nil];
-     dataSource_ = [[NSDictionary alloc] initWithObjects:objects forKeys:keys_];
-     */    
+       
 }
 -(void)viewWillAppear:(BOOL)animated{
     
     [self downloadAndSaveStatement:self.managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = [NSEntityDescription entityForName:@"RecordEntity" inManagedObjectContext:self.managedObjectContext];
+    request.entity = [NSEntityDescription entityForName:kStatementRecordEntity inManagedObjectContext:self.managedObjectContext];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"currency" ascending:YES]];
     request.predicate = nil;
     request.fetchBatchSize = 20;
@@ -90,10 +84,14 @@
 -(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   
 {
    
-    stmtEntity= (StatementEntity*)[NSEntityDescription insertNewObjectForEntityForName:@"StatementEntity" 
+    stmtGroupEntity= (StatementGroupEntity*)[NSEntityDescription insertNewObjectForEntityForName:kStatementGroupEntity 
                                                                   inManagedObjectContext:context]; 
     
-    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?account=Ac2"]; 
+    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?account="];
+    urlString = [urlString stringByAppendingString:PreviouslyLastSelectedBalanceRecordEntity.account];
+ //   NSLog(PreviouslyLastSelectedBalanceRecordEntity.account);
+//    NSLog(urlString);
+    
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease]; 
     [request setURL:[NSURL URLWithString:urlString]]; 
     [request setHTTPMethod:@"GET"];
@@ -104,7 +102,7 @@
     stmt = [Statement parseFromData:returnData];
     NSArray* records = stmt.recordsList;    
     for (id rec in records){
-        RecordEntity* recordEntity= (RecordEntity*)[NSEntityDescription insertNewObjectForEntityForName:@"RecordEntity" 
+        StatementRecordEntity* recordEntity= (StatementRecordEntity*)[NSEntityDescription insertNewObjectForEntityForName:kStatementRecordEntity 
                                                                                  inManagedObjectContext:context]; 
         
         recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
@@ -114,7 +112,7 @@
         recordEntity.narrative =[(Record*)rec narrative];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
         
-        [stmtEntity addRecordsObject:recordEntity ];
+        [stmtGroupEntity addRecordsObject:recordEntity ];
     }
     
     [context save:nil];
@@ -157,7 +155,7 @@
         [cell autorelease];
     }
     
-    RecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
+    StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = recordEntity.narrative;
     cell.detailTextLabel.text = [formatter stringFromNumber: recordEntity.amount];    
     
@@ -174,15 +172,12 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-    /*   id key = [keys_ objectAtIndex:indexPath.section];
-     NSString* message  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
      
      UIViewController *addViewController = [[AccountStatementDetailController alloc] initWithNibName:@"AccountStatementDetailController" bundle:nil];
      addViewController.title= @"Details";
      [self.navigationController pushViewController:addViewController animated:YES]; 
      [addViewController release];
      
-     */
 }    
 
 

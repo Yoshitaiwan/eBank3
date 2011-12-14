@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "MenuController.h"
-#import "StatementEntity.h"
+#import "BalanceGroupEntity.h"
 
 
 @interface RootViewController : UIViewController  <UITableViewDelegate,UITableViewDataSource>
@@ -38,8 +38,8 @@
     NSManagedObjectContext *managedObjectContext;
     NSFetchedResultsController *fetchedResultsController;
 
-    StatementEntity* stmtEntity ; 
-    
+    BalanceGroupEntity* balanceGroupEntity ; 
+    BalanceRecordEntity* lastSelectedBalanceRecordEntity;
     NSNumberFormatter* formatter;
 }
 
@@ -60,8 +60,9 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-@property (nonatomic, retain) StatementEntity* stmtEntity ;
+@property (nonatomic, retain) BalanceGroupEntity* balanceGroupEntity ;
 @property (nonatomic, retain) NSNumberFormatter*  formatter;
+@property (nonatomic, retain) BalanceRecordEntity*  lastSelectedBalanceRecordEntity;
 
 - (IBAction) editButtonPressed: (id) sender;
 - (IBAction) menuButtonPressed: (id) sender;

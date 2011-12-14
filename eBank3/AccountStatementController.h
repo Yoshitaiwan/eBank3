@@ -8,25 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "StatementEntity.h"
+#import "StatementGroupEntity.h"
+#import "BalanceRecordEntity.h"
 
 @interface AccountStatementController : UITableViewController
 {
 @private 
-   // NSArray* details_;    
-   // NSArray* keys_;
-   // NSDictionary* dataSource_;
     NSManagedObjectContext *managedObjectContext;
     NSFetchedResultsController *fetchedResultsController;
     
     NSNumberFormatter* formatter;
-    StatementEntity* stmtEntity ; 
-    
+    StatementGroupEntity* stmtGroupEntity ; 
+    BalanceRecordEntity* PreviouslyLastSelectedBalanceRecordEntity ;
 
 }
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSNumberFormatter* formatter;
+@property (nonatomic, retain) BalanceRecordEntity* PreviouslyLastSelectedBalanceRecordEntity ; 
+
+
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *) context;
 -(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   ;
 

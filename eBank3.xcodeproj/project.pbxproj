@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D0D4315149119B800568D35 /* RecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D4314149119B800568D35 /* RecordEntity.m */; };
 		2D21798314894C9F009C0983 /* iMint-roman-coin114by114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D21798214894C9F009C0983 /* iMint-roman-coin114by114.png */; };
 		2D21798614894CC2009C0983 /* iMint-roman-coin57by57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D21798514894CC2009C0983 /* iMint-roman-coin57by57.png */; };
 		2D866D5414285193004D74CC /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D866D5314285193004D74CC /* MenuController.m */; };
 		2D8790E71441A8ED00307FCB /* MyOfferController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8790E51441A8ED00307FCB /* MyOfferController.m */; };
 		2D8790E81441A8ED00307FCB /* MyOfferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8790E61441A8ED00307FCB /* MyOfferController.xib */; };
+		2D886B0C1496D92E003EE5CC /* BalanceGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */; };
+		2D886B0F1496D94E003EE5CC /* StatementRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */; };
+		2D886B121496D94F003EE5CC /* BalanceRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */; };
+		2D886B151496D94F003EE5CC /* StatementGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B141496D94F003EE5CC /* StatementGroupEntity.m */; };
 		2D888C501434C71E00396628 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4C1434C71E00396628 /* Dog.png */; };
 		2D888C511434C71E00396628 /* Elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4D1434C71E00396628 /* Elephant.png */; };
 		2D888C521434C71E00396628 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4E1434C71E00396628 /* Lion.png */; };
@@ -63,7 +66,6 @@
 		2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53390142F6478004852A5 /* AccountStatementController.m */; };
 		2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA53391142F6478004852A5 /* AccountStatementController.xib */; };
 		2DA7C9A5148BBAF900101450 /* eBankModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7C9A1148BBAF900101450 /* eBankModel.xcdatamodel */; };
-		2DA7C9A6148BBAF900101450 /* StatementEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7C9A3148BBAF900101450 /* StatementEntity.m */; };
 		2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA5083143A039F007E14E7 /* TransferAmountController.m */; };
 		2DAA5086143A039F007E14E7 /* TransferAmountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5084143A039F007E14E7 /* TransferAmountController.xib */; };
 		2DAA5089143A0420007E14E7 /* payment arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5088143A0420007E14E7 /* payment arrow1.png */; };
@@ -103,8 +105,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D0D4313149119B800568D35 /* RecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordEntity.h; sourceTree = "<group>"; };
-		2D0D4314149119B800568D35 /* RecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordEntity.m; sourceTree = "<group>"; };
 		2D21798214894C9F009C0983 /* iMint-roman-coin114by114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iMint-roman-coin114by114.png"; path = "../iMint-roman-coin114by114.png"; sourceTree = "<group>"; };
 		2D21798514894CC2009C0983 /* iMint-roman-coin57by57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iMint-roman-coin57by57.png"; path = "../iMint-roman-coin57by57.png"; sourceTree = "<group>"; };
 		2D866D5214285193004D74CC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
@@ -112,6 +112,14 @@
 		2D8790E41441A8ED00307FCB /* MyOfferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOfferController.h; sourceTree = "<group>"; };
 		2D8790E51441A8ED00307FCB /* MyOfferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOfferController.m; sourceTree = "<group>"; };
 		2D8790E61441A8ED00307FCB /* MyOfferController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOfferController.xib; sourceTree = "<group>"; };
+		2D886B0A1496D92E003EE5CC /* BalanceGroupEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceGroupEntity.h; sourceTree = "<group>"; };
+		2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceGroupEntity.m; sourceTree = "<group>"; };
+		2D886B0D1496D94E003EE5CC /* StatementRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementRecordEntity.h; sourceTree = "<group>"; };
+		2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatementRecordEntity.m; sourceTree = "<group>"; };
+		2D886B101496D94F003EE5CC /* BalanceRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceRecordEntity.h; sourceTree = "<group>"; };
+		2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceRecordEntity.m; sourceTree = "<group>"; };
+		2D886B131496D94F003EE5CC /* StatementGroupEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementGroupEntity.h; sourceTree = "<group>"; };
+		2D886B141496D94F003EE5CC /* StatementGroupEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatementGroupEntity.m; sourceTree = "<group>"; };
 		2D888C4C1434C71E00396628 /* Dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dog.png; sourceTree = "<group>"; };
 		2D888C4D1434C71E00396628 /* Elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elephant.png; sourceTree = "<group>"; };
 		2D888C4E1434C71E00396628 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
@@ -179,8 +187,6 @@
 		2DA53390142F6478004852A5 /* AccountStatementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementController.m; sourceTree = "<group>"; };
 		2DA53391142F6478004852A5 /* AccountStatementController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementController.xib; sourceTree = "<group>"; };
 		2DA7C9A1148BBAF900101450 /* eBankModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eBankModel.xcdatamodel; sourceTree = "<group>"; };
-		2DA7C9A2148BBAF900101450 /* StatementEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementEntity.h; sourceTree = "<group>"; };
-		2DA7C9A3148BBAF900101450 /* StatementEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatementEntity.m; sourceTree = "<group>"; };
 		2DAA5082143A039F007E14E7 /* TransferAmountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferAmountController.h; sourceTree = "<group>"; };
 		2DAA5083143A039F007E14E7 /* TransferAmountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferAmountController.m; sourceTree = "<group>"; };
 		2DAA5084143A039F007E14E7 /* TransferAmountController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferAmountController.xib; sourceTree = "<group>"; };
@@ -384,10 +390,14 @@
 			isa = PBXGroup;
 			children = (
 				2DA7C9A1148BBAF900101450 /* eBankModel.xcdatamodel */,
-				2D0D4313149119B800568D35 /* RecordEntity.h */,
-				2D0D4314149119B800568D35 /* RecordEntity.m */,
-				2DA7C9A2148BBAF900101450 /* StatementEntity.h */,
-				2DA7C9A3148BBAF900101450 /* StatementEntity.m */,
+				2D886B0A1496D92E003EE5CC /* BalanceGroupEntity.h */,
+				2D886B131496D94F003EE5CC /* StatementGroupEntity.h */,
+				2D886B141496D94F003EE5CC /* StatementGroupEntity.m */,
+				2D886B101496D94F003EE5CC /* BalanceRecordEntity.h */,
+				2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */,
+				2D886B0D1496D94E003EE5CC /* StatementRecordEntity.h */,
+				2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */,
+				2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */,
 			);
 			name = "Model Class";
 			sourceTree = "<group>";
@@ -584,8 +594,10 @@
 				2D8D43A9144A75B2003C0A0B /* CurrencyMarket.m in Sources */,
 				2D8A15AF148B6B2300966651 /* Statement.pb.m in Sources */,
 				2DA7C9A5148BBAF900101450 /* eBankModel.xcdatamodel in Sources */,
-				2DA7C9A6148BBAF900101450 /* StatementEntity.m in Sources */,
-				2D0D4315149119B800568D35 /* RecordEntity.m in Sources */,
+				2D886B0C1496D92E003EE5CC /* BalanceGroupEntity.m in Sources */,
+				2D886B0F1496D94E003EE5CC /* StatementRecordEntity.m in Sources */,
+				2D886B121496D94F003EE5CC /* BalanceRecordEntity.m in Sources */,
+				2D886B151496D94F003EE5CC /* StatementGroupEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
