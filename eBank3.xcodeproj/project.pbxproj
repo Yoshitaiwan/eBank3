@@ -37,8 +37,8 @@
 		2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5121424859A00BDC690 /* AccountListController.xib */; };
 		2D8AD5A314418E6400437E5E /* DeliveryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AD5A114418E6400437E5E /* DeliveryController.m */; };
 		2D8AD5A414418E6400437E5E /* DeliveryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5A214418E6400437E5E /* DeliveryController.xib */; };
-		2D8C559114303EFE007D2FDA /* AccountStatementDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */; };
-		2D8C559214303EFE007D2FDA /* AccountStatementDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */; };
+		2D8C559114303EFE007D2FDA /* AccountStatementTransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */; };
+		2D8C559214303EFE007D2FDA /* AccountStatementTransactionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C559014303EFE007D2FDA /* AccountStatementTransactionController.xib */; };
 		2D8D4394144A7380003C0A0B /* CurrencyBoardTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D4392144A7380003C0A0B /* CurrencyBoardTableController.m */; };
 		2D8D4395144A7380003C0A0B /* CurrencyBoardTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8D4393144A7380003C0A0B /* CurrencyBoardTableController.xib */; };
 		2D8D439A144A73D9003C0A0B /* CurrencyMarketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D4398144A73D9003C0A0B /* CurrencyMarketCell.m */; };
@@ -150,9 +150,9 @@
 		2D8AD5A014418E6400437E5E /* DeliveryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryController.h; sourceTree = "<group>"; };
 		2D8AD5A114418E6400437E5E /* DeliveryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryController.m; sourceTree = "<group>"; };
 		2D8AD5A214418E6400437E5E /* DeliveryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryController.xib; sourceTree = "<group>"; };
-		2D8C558E14303EFE007D2FDA /* AccountStatementDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementDetailController.h; sourceTree = "<group>"; };
-		2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementDetailController.m; sourceTree = "<group>"; };
-		2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementDetailController.xib; sourceTree = "<group>"; };
+		2D8C558E14303EFE007D2FDA /* AccountStatementTransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementTransactionController.h; sourceTree = "<group>"; };
+		2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementTransactionController.m; sourceTree = "<group>"; };
+		2D8C559014303EFE007D2FDA /* AccountStatementTransactionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementTransactionController.xib; sourceTree = "<group>"; };
 		2D8D4391144A7380003C0A0B /* CurrencyBoardTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardTableController.h; sourceTree = "<group>"; };
 		2D8D4392144A7380003C0A0B /* CurrencyBoardTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardTableController.m; sourceTree = "<group>"; };
 		2D8D4393144A7380003C0A0B /* CurrencyBoardTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardTableController.xib; sourceTree = "<group>"; };
@@ -361,8 +361,8 @@
 			children = (
 				2DC479D7142C419D001426D5 /* AccountDisclosureController.h */,
 				2DC479D8142C419D001426D5 /* AccountDisclosureController.m */,
-				2D8C558E14303EFE007D2FDA /* AccountStatementDetailController.h */,
-				2D8C558F14303EFE007D2FDA /* AccountStatementDetailController.m */,
+				2D8C558E14303EFE007D2FDA /* AccountStatementTransactionController.h */,
+				2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */,
 				2D8AD5101424859A00BDC690 /* AccountListController.h */,
 				2D8AD5111424859A00BDC690 /* AccountListController.m */,
 				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
@@ -440,7 +440,7 @@
 				2DA53391142F6478004852A5 /* AccountStatementController.xib */,
 				2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */,
 				2D8AD5121424859A00BDC690 /* AccountListController.xib */,
-				2D8C559014303EFE007D2FDA /* AccountStatementDetailController.xib */,
+				2D8C559014303EFE007D2FDA /* AccountStatementTransactionController.xib */,
 				2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */,
 				2DAA5084143A039F007E14E7 /* TransferAmountController.xib */,
 			);
@@ -529,7 +529,7 @@
 				2D8AD5141424859A00BDC690 /* AccountListController.xib in Resources */,
 				2DC479DB142C419D001426D5 /* AccountDisclosureController.xib in Resources */,
 				2DA53393142F6478004852A5 /* AccountStatementController.xib in Resources */,
-				2D8C559214303EFE007D2FDA /* AccountStatementDetailController.xib in Resources */,
+				2D8C559214303EFE007D2FDA /* AccountStatementTransactionController.xib in Resources */,
 				2D8FFCB214322546007333B7 /* CurrencyBoardController.xib in Resources */,
 				2D888C501434C71E00396628 /* Dog.png in Resources */,
 				2D888C511434C71E00396628 /* Elephant.png in Resources */,
@@ -581,7 +581,7 @@
 				2D866D5414285193004D74CC /* MenuController.m in Sources */,
 				2DC479DA142C419D001426D5 /* AccountDisclosureController.m in Sources */,
 				2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */,
-				2D8C559114303EFE007D2FDA /* AccountStatementDetailController.m in Sources */,
+				2D8C559114303EFE007D2FDA /* AccountStatementTransactionController.m in Sources */,
 				2D8FFCB114322546007333B7 /* CurrencyBoardController.m in Sources */,
 				2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */,
 				2DD4BA8C14402F1500C4C97F /* CustomViewForPicker.m in Sources */,

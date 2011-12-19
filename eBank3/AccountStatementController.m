@@ -7,7 +7,7 @@
 //
 
 #import "AccountStatementController.h"
-#import "AccountStatementDetailController.h"
+#import "AccountStatementTransactionController.h"
 #import "Statement.pb.h"
 #import "StatementGroupEntity.h"
 #import "StatementRecordEntity.h"
@@ -171,12 +171,13 @@
 
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
-{
-     
-     UIViewController *addViewController = [[AccountStatementDetailController alloc] initWithNibName:@"AccountStatementDetailController" bundle:nil];
-     addViewController.title= @"Details";
-     [self.navigationController pushViewController:addViewController animated:YES]; 
-     [addViewController release];
+{   
+    AccountStatementTransactionController  *addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];
+    addViewController.previouslyObtainedFetchedResultsController = fetchedResultsController ;
+    addViewController.lastSelectedIndexPath=indexPath;
+    addViewController.title= @"Details";
+    [self.navigationController pushViewController:addViewController animated:YES]; 
+    [addViewController release];
      
 }    
 
