@@ -11,6 +11,7 @@
 #import "Statement.pb.h"
 #import "StatementGroupEntity.h"
 #import "StatementRecordEntity.h"
+#import "DateTimeHelper.h"
 
 #define kStatementRecordEntity @"StatementRecordEntity"
 #define kStatementGroupEntity  @"StatementGroupEntity"
@@ -44,22 +45,28 @@
     [super viewDidLoad];
     
     self.navigationItem.title =@"Transactions";
-       
+    [self downloadAndSaveStatement:self.managedObjectContext];
+    
+    
+    formatter = [[NSNumberFormatter alloc]init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+   
+	
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     
-    [self downloadAndSaveStatement:self.managedObjectContext];
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:kStatementRecordEntity inManagedObjectContext:self.managedObjectContext];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"currency" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timeStampInserted" ascending:YES]];
     request.predicate = nil;
     request.fetchBatchSize = 20;
     
     fetchedResultsController = [[NSFetchedResultsController alloc]
                                 initWithFetchRequest:request 
                                 managedObjectContext:managedObjectContext 
-                                sectionNameKeyPath:@"timeStampInserted" 
+                                sectionNameKeyPath:@"date" 
                                 cacheName:@"MyStatementEntityCache"];
     
     NSError *error = nil;
@@ -71,11 +78,8 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }		
-    
-    
-    formatter = [[NSNumberFormatter alloc]init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    }	
+
     
     
 }
@@ -89,8 +93,12 @@
     
     NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?account="];
     urlString = [urlString stringByAppendingString:PreviouslyLastSelectedBalanceRecordEntity.account];
- //   NSLog(PreviouslyLastSelectedBalanceRecordEntity.account);
-//    NSLog(urlString);
+    urlString = [urlString stringByAppendingString:@"&currency="];
+    urlString = [urlString stringByAppendingString:PreviouslyLastSelectedBalanceRecordEntity.currency];
+    
+    
+     //   NSLog(PreviouslyLastSelectedBalanceRecordEntity.account);
+    NSLog(urlString);
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease]; 
     [request setURL:[NSURL URLWithString:urlString]]; 
@@ -105,18 +113,50 @@
         StatementRecordEntity* recordEntity= (StatementRecordEntity*)[NSEntityDescription insertNewObjectForEntityForName:kStatementRecordEntity 
                                                                                  inManagedObjectContext:context]; 
         
-        recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
+    //    recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
         recordEntity.amount= [NSNumber numberWithLongLong:[(Record*)rec amount ]];
         recordEntity.account = [(Record*)rec account];
         recordEntity.currency = [(Record*)rec currency];
         recordEntity.narrative =[(Record*)rec narrative];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
+        recordEntity.date = [DateTimeHelper convertNSNumberToDate:recordEntity.timeStampInserted withTime:FALSE];
+        
         
         [stmtGroupEntity addRecordsObject:recordEntity ];
+        
+    //    NSLog(@"%d", [(Record*)rec accumBal] );
+        
+    //    NSLog(@"%d",[recordEntity.accumBal longLongValue]);
+    //    NSLog(@"%d",[recordEntity.amount longLongValue]);
+        
     }
     
     [context save:nil];
 
+}
+
+- (NSString*) retrieveStringDateOutOfNSNumber:(NSNumber*) dateNumber
+{
+    NSString* strDate =[dateNumber stringValue];
+    
+    NSDateComponents* comps = [[[NSDateComponents alloc] init] autorelease];
+    
+    [comps setYear:[[strDate substringWithRange:NSMakeRange(0,4)] integerValue]];
+    [comps setMonth:[[strDate substringWithRange:NSMakeRange(4,2)] integerValue]];
+    [comps setDay:[[strDate substringWithRange:NSMakeRange(6,2)] integerValue]];
+   // [comps setHour:[[strDate substringWithRange:NSMakeRange(8,2)] integerValue]];
+   // [comps setMinute:[[strDate substringWithRange:NSMakeRange(10,2)] integerValue]];
+   // [comps setSecond:[[strDate substringWithRange:NSMakeRange(12,2)] integerValue]];
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDate* date = [calendar dateFromComponents:comps];
+    
+    NSLog(@"%@", date);
+    
+
+    
+    
+    return ;
 }
 
 
@@ -159,6 +199,11 @@
     cell.textLabel.text = recordEntity.narrative;
     cell.detailTextLabel.text = [formatter stringFromNumber: recordEntity.amount];    
     
+  //  NSLog(@"%d",[recordEntity.accumBal longLongValue]);
+  //  NSLog(@"%d",[recordEntity.amount longLongValue]);
+    
+    
+    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator   ;
     return cell;
 }
@@ -172,6 +217,13 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {   
+ 
+    StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
+ //   NSLog(@"%d",[recordEntity.accumBal longLongValue]);
+ //   NSLog(@"%d",[recordEntity.amount longLongValue]);
+    
+    
+    
     AccountStatementTransactionController  *addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];
     addViewController.previouslyObtainedFetchedResultsController = fetchedResultsController ;
     addViewController.lastSelectedIndexPath=indexPath;

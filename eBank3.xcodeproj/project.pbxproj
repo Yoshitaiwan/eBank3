@@ -13,13 +13,13 @@
 		2D8790E71441A8ED00307FCB /* MyOfferController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8790E51441A8ED00307FCB /* MyOfferController.m */; };
 		2D8790E81441A8ED00307FCB /* MyOfferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8790E61441A8ED00307FCB /* MyOfferController.xib */; };
 		2D886B0C1496D92E003EE5CC /* BalanceGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */; };
-		2D886B0F1496D94E003EE5CC /* StatementRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */; };
 		2D886B121496D94F003EE5CC /* BalanceRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */; };
 		2D886B151496D94F003EE5CC /* StatementGroupEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D886B141496D94F003EE5CC /* StatementGroupEntity.m */; };
 		2D888C501434C71E00396628 /* Dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4C1434C71E00396628 /* Dog.png */; };
 		2D888C511434C71E00396628 /* Elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4D1434C71E00396628 /* Elephant.png */; };
 		2D888C521434C71E00396628 /* Lion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4E1434C71E00396628 /* Lion.png */; };
 		2D888C531434C71E00396628 /* Monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D888C4F1434C71E00396628 /* Monkey.png */; };
+		2D89523F14A40BBE0066E837 /* StatementRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D89523E14A40BBE0066E837 /* StatementRecordEntity.m */; };
 		2D8A15A9148B54D200966651 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8A15A8148B54D200966651 /* CoreData.framework */; };
 		2D8A15AF148B6B2300966651 /* Statement.pb.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8A15AE148B6B2300966651 /* Statement.pb.m */; };
 		2D8A15B1148B6B6F00966651 /* libProtocolBuffers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8A15B0148B6B6F00966651 /* libProtocolBuffers.a */; };
@@ -39,6 +39,7 @@
 		2D8AD5A414418E6400437E5E /* DeliveryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8AD5A214418E6400437E5E /* DeliveryController.xib */; };
 		2D8C559114303EFE007D2FDA /* AccountStatementTransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */; };
 		2D8C559214303EFE007D2FDA /* AccountStatementTransactionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C559014303EFE007D2FDA /* AccountStatementTransactionController.xib */; };
+		2D8C876814A5CA38002CE30B /* DateTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C876714A5CA38002CE30B /* DateTimeHelper.m */; };
 		2D8D4394144A7380003C0A0B /* CurrencyBoardTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D4392144A7380003C0A0B /* CurrencyBoardTableController.m */; };
 		2D8D4395144A7380003C0A0B /* CurrencyBoardTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8D4393144A7380003C0A0B /* CurrencyBoardTableController.xib */; };
 		2D8D439A144A73D9003C0A0B /* CurrencyMarketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D4398144A73D9003C0A0B /* CurrencyMarketCell.m */; };
@@ -114,8 +115,6 @@
 		2D8790E61441A8ED00307FCB /* MyOfferController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOfferController.xib; sourceTree = "<group>"; };
 		2D886B0A1496D92E003EE5CC /* BalanceGroupEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceGroupEntity.h; sourceTree = "<group>"; };
 		2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceGroupEntity.m; sourceTree = "<group>"; };
-		2D886B0D1496D94E003EE5CC /* StatementRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementRecordEntity.h; sourceTree = "<group>"; };
-		2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatementRecordEntity.m; sourceTree = "<group>"; };
 		2D886B101496D94F003EE5CC /* BalanceRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceRecordEntity.h; sourceTree = "<group>"; };
 		2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceRecordEntity.m; sourceTree = "<group>"; };
 		2D886B131496D94F003EE5CC /* StatementGroupEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementGroupEntity.h; sourceTree = "<group>"; };
@@ -124,6 +123,8 @@
 		2D888C4D1434C71E00396628 /* Elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elephant.png; sourceTree = "<group>"; };
 		2D888C4E1434C71E00396628 /* Lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lion.png; sourceTree = "<group>"; };
 		2D888C4F1434C71E00396628 /* Monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Monkey.png; sourceTree = "<group>"; };
+		2D89523D14A40BBE0066E837 /* StatementRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatementRecordEntity.h; sourceTree = "<group>"; };
+		2D89523E14A40BBE0066E837 /* StatementRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatementRecordEntity.m; sourceTree = "<group>"; };
 		2D8A15A8148B54D200966651 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2D8A15AD148B6B2300966651 /* Statement.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statement.pb.h; sourceTree = "<group>"; };
 		2D8A15AE148B6B2300966651 /* Statement.pb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statement.pb.m; sourceTree = "<group>"; };
@@ -153,6 +154,8 @@
 		2D8C558E14303EFE007D2FDA /* AccountStatementTransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementTransactionController.h; sourceTree = "<group>"; };
 		2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementTransactionController.m; sourceTree = "<group>"; };
 		2D8C559014303EFE007D2FDA /* AccountStatementTransactionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountStatementTransactionController.xib; sourceTree = "<group>"; };
+		2D8C876614A5CA38002CE30B /* DateTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeHelper.h; sourceTree = "<group>"; };
+		2D8C876714A5CA38002CE30B /* DateTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeHelper.m; sourceTree = "<group>"; };
 		2D8D4391144A7380003C0A0B /* CurrencyBoardTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardTableController.h; sourceTree = "<group>"; };
 		2D8D4392144A7380003C0A0B /* CurrencyBoardTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardTableController.m; sourceTree = "<group>"; };
 		2D8D4393144A7380003C0A0B /* CurrencyBoardTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardTableController.xib; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 				2D8D43A1144A755A003C0A0B /* CurrencyBoardCell.h */,
 				2D8AD4D51424704E00BDC690 /* eBank3AppDelegate.h */,
 				2D8AD4D61424704E00BDC690 /* eBank3AppDelegate.m */,
+				2D8C876614A5CA38002CE30B /* DateTimeHelper.h */,
+				2D8C876714A5CA38002CE30B /* DateTimeHelper.m */,
 			);
 			name = "Application Support";
 			sourceTree = "<group>";
@@ -390,13 +395,13 @@
 			isa = PBXGroup;
 			children = (
 				2DA7C9A1148BBAF900101450 /* eBankModel.xcdatamodel */,
+				2D89523D14A40BBE0066E837 /* StatementRecordEntity.h */,
+				2D89523E14A40BBE0066E837 /* StatementRecordEntity.m */,
 				2D886B0A1496D92E003EE5CC /* BalanceGroupEntity.h */,
 				2D886B131496D94F003EE5CC /* StatementGroupEntity.h */,
 				2D886B141496D94F003EE5CC /* StatementGroupEntity.m */,
 				2D886B101496D94F003EE5CC /* BalanceRecordEntity.h */,
 				2D886B111496D94F003EE5CC /* BalanceRecordEntity.m */,
-				2D886B0D1496D94E003EE5CC /* StatementRecordEntity.h */,
-				2D886B0E1496D94E003EE5CC /* StatementRecordEntity.m */,
 				2D886B0B1496D92E003EE5CC /* BalanceGroupEntity.m */,
 			);
 			name = "Model Class";
@@ -595,9 +600,10 @@
 				2D8A15AF148B6B2300966651 /* Statement.pb.m in Sources */,
 				2DA7C9A5148BBAF900101450 /* eBankModel.xcdatamodel in Sources */,
 				2D886B0C1496D92E003EE5CC /* BalanceGroupEntity.m in Sources */,
-				2D886B0F1496D94E003EE5CC /* StatementRecordEntity.m in Sources */,
 				2D886B121496D94F003EE5CC /* BalanceRecordEntity.m in Sources */,
 				2D886B151496D94F003EE5CC /* StatementGroupEntity.m in Sources */,
+				2D89523F14A40BBE0066E837 /* StatementRecordEntity.m in Sources */,
+				2D8C876814A5CA38002CE30B /* DateTimeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

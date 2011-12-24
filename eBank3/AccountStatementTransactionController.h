@@ -33,6 +33,9 @@
     NSFetchedResultsController* previouslyObtainedFetchedResultsController;
     NSIndexPath* lastSelectedIndexPath;
     
+    
+    NSInteger pageCount ;
+    
 }
 
 
@@ -45,7 +48,7 @@
 
 @property(nonatomic,retain) IBOutlet UILabel *page_1;
 @property(nonatomic,retain) IBOutlet UILabel *page_2;
-
+@property(nonatomic) NSInteger pageCount;
 
 @property(nonatomic,retain) IBOutlet UIView  *transactionDetailView_1;
 @property(nonatomic,retain) IBOutlet UIView  *transactionDetailView_2;

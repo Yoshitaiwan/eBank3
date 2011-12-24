@@ -17,13 +17,14 @@
         <attribute name="accumBal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="narrative" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStampInserted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StatementRecordEntity" positionX="-117" positionY="153" width="128" height="135"/>
-        <element name="StatementGroupEntity" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="BalanceRecordEntity" positionX="160" positionY="192" width="128" height="105"/>
         <element name="BalanceGroupEntity" positionX="18" positionY="207" width="128" height="60"/>
+        <element name="BalanceRecordEntity" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="StatementGroupEntity" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="StatementRecordEntity" positionX="-117" positionY="153" width="128" height="150"/>
     </elements>
 </model>

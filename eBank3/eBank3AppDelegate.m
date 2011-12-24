@@ -31,8 +31,13 @@
     navigationController.navigationBar.tintColor= [UIColor greenColor];
     [navigationController setNavigationBarHidden:NO animated:NO]; 
     
-  //  [self deleteAllObjects:@"RecordEntity"];
+   [self deleteAllObjects:@"BalanceRecordEntity"];
+   [self deleteAllObjects:@"StatementRecordEntity"];
+    [self deleteAllObjects:@"StatementGroupEntity"];
     
+    
+    
+
     
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];

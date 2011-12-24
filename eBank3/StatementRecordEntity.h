@@ -2,7 +2,7 @@
 //  StatementRecordEntity.h
 //  eBank3
 //
-//  Created by Yoshiyuki Matsuoka on 13/12/11.
+//  Created by Yoshiyuki Matsuoka on 23/12/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 
 @property (nonatomic, retain) NSString * account;
 @property (nonatomic, retain) NSNumber * accumBal;
-@property (nonatomic, retain) NSString * currency;
-@property (nonatomic, retain) NSNumber * timeStampInserted;
-@property (nonatomic, retain) NSString * narrative;
 @property (nonatomic, retain) NSNumber * amount;
+@property (nonatomic, retain) NSString * currency;
+@property (nonatomic, retain) NSString * narrative;
+@property (nonatomic, retain) NSNumber * timeStampInserted;
+@property (nonatomic, retain) NSString * date;
 
 @end

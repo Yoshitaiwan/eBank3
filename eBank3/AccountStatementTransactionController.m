@@ -16,11 +16,12 @@
 
 @implementation AccountStatementTransactionController
 
-@synthesize transactionDetailView_1, transactionDetailView_2,amount_1,amount_2,narrative_1,narrative_2;
+@synthesize transactionDetailView_1, transactionDetailView_2,amount_1,amount_2,narrative_1,narrative_2, page_1,page_2,timeStamp_1,timeStamp_2;
 @synthesize transitioning;
 @synthesize formatter ;
 @synthesize previouslyObtainedFetchedResultsController,containerView ;
 @synthesize lastSelectedIndexPath;
+@synthesize pageCount;
 
 -(void) dealloc
 {
@@ -68,22 +69,38 @@
     self.transactionDetailView_2.hidden = YES;
     self.transitioning = NO;
     
+    
+    formatter = [[NSNumberFormatter alloc]init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
    // self.navigationItem.title =kAccounts;
    // self.navigationItem.leftBarButtonItem =self.menuButton;
     
-    StatementRecordEntity* recordEntity =[previouslyObtainedFetchedResultsController  objectAtIndexPath:lastSelectedIndexPath];
     
-    
-    self.amount_1.text= [formatter stringFromNumber: recordEntity.amount];    
-    self.amount_2.text= [formatter stringFromNumber: recordEntity.amount];    
-    
-    NSLog([formatter stringFromNumber: recordEntity.amount]);    
-    
-    
-    
-
+  
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    StatementRecordEntity* recordEntity =[self.previouslyObtainedFetchedResultsController  objectAtIndexPath:self.lastSelectedIndexPath];
+    pageCount = [[self.previouslyObtainedFetchedResultsController sections] count];
+    
+    NSLog(@"%d",[recordEntity.amount longLongValue]);
+    NSLog(@"timestamp=%lld",[recordEntity.timeStampInserted longLongValue]);
+    
+    
+    
+    self.amount_1.text= [formatter stringFromNumber:recordEntity.amount];    
+    self.narrative_1.text= [recordEntity narrative];
+    self.page_1.text =[NSString stringWithFormat:@"%d/%d", lastSelectedIndexPath.section+1,pageCount]; 
+    self.timeStamp_1.text =[NSString stringWithFormat:@"%lld", recordEntity.timeStampInserted ];
+     
+    
+    
+    NSLog([NSString stringWithFormat:@"%d", recordEntity.timeStampInserted] );
+    
+}
+ 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

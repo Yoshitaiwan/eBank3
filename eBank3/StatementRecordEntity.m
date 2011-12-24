@@ -2,7 +2,7 @@
 //  StatementRecordEntity.m
 //  eBank3
 //
-//  Created by Yoshiyuki Matsuoka on 13/12/11.
+//  Created by Yoshiyuki Matsuoka on 23/12/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,10 @@
 
 @dynamic account;
 @dynamic accumBal;
-@dynamic currency;
-@dynamic timeStampInserted;
-@dynamic narrative;
 @dynamic amount;
+@dynamic currency;
+@dynamic narrative;
+@dynamic timeStampInserted;
+@dynamic date;
 
 @end
