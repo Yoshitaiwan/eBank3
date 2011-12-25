@@ -111,7 +111,7 @@
                                      initWithFetchRequest:request 
                                      managedObjectContext:managedObjectContext 
                                        sectionNameKeyPath:nil 
-                                           cacheName:@"MyStatementEntityCache"];
+                                           cacheName:kBalanceRecordEntity];
     
     NSError *error = nil;
 	if (![[self fetchedResultsController] performFetch:&error]) {

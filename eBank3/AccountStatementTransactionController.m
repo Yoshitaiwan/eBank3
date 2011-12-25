@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AccountStatementTransactionController.h"
 #import "StatementRecordEntity.h"
+#import "DateTimeHelper.h"
 
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
@@ -16,7 +17,7 @@
 
 @implementation AccountStatementTransactionController
 
-@synthesize transactionDetailView_1, transactionDetailView_2,amount_1,amount_2,narrative_1,narrative_2, page_1,page_2,timeStamp_1,timeStamp_2;
+@synthesize transactionDetailView_1, transactionDetailView_2,amount_1,amount_2,narrative_1,narrative_2, page_1,page_2,timeStamp_1,timeStamp_2,account_1,account_2;
 @synthesize transitioning;
 @synthesize formatter ;
 @synthesize previouslyObtainedFetchedResultsController,containerView ;
@@ -83,21 +84,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     StatementRecordEntity* recordEntity =[self.previouslyObtainedFetchedResultsController  objectAtIndexPath:self.lastSelectedIndexPath];
-    pageCount = [[self.previouslyObtainedFetchedResultsController sections] count];
     
-    NSLog(@"%d",[recordEntity.amount longLongValue]);
-    NSLog(@"timestamp=%lld",[recordEntity.timeStampInserted longLongValue]);
+    pageCount = [self.previouslyObtainedFetchedResultsController.fetchedObjects  count];
     
-    
-    
-    self.amount_1.text= [formatter stringFromNumber:recordEntity.amount];    
+    self.account_1.text= [recordEntity account];    
+    self.amount_1.text= [[formatter stringFromNumber:recordEntity.amount] stringByAppendingString:@" pt."];    
     self.narrative_1.text= [recordEntity narrative];
-    self.page_1.text =[NSString stringWithFormat:@"%d/%d", lastSelectedIndexPath.section+1,pageCount]; 
-    self.timeStamp_1.text =[NSString stringWithFormat:@"%lld", recordEntity.timeStampInserted ];
-     
-    
-    
-    NSLog([NSString stringWithFormat:@"%d", recordEntity.timeStampInserted] );
+    self.page_1.text =[NSString stringWithFormat:@"%d/%d", lastSelectedIndexPath.row +1,pageCount]; 
+    self.timeStamp_1.text =[DateTimeHelper  convertNSNumberToDate:recordEntity.timeStampInserted withTime:TRUE ];
     
 }
  

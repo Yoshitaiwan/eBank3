@@ -67,7 +67,7 @@
                                 initWithFetchRequest:request 
                                 managedObjectContext:managedObjectContext 
                                 sectionNameKeyPath:@"date" 
-                                cacheName:@"MyStatementEntityCache"];
+                                cacheName:kStatementRecordEntity];
     
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -121,42 +121,11 @@
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
         recordEntity.date = [DateTimeHelper convertNSNumberToDate:recordEntity.timeStampInserted withTime:FALSE];
         
-        
         [stmtGroupEntity addRecordsObject:recordEntity ];
-        
-    //    NSLog(@"%d", [(Record*)rec accumBal] );
-        
-    //    NSLog(@"%d",[recordEntity.accumBal longLongValue]);
-    //    NSLog(@"%d",[recordEntity.amount longLongValue]);
-        
     }
     
     [context save:nil];
 
-}
-
-- (NSString*) retrieveStringDateOutOfNSNumber:(NSNumber*) dateNumber
-{
-    NSString* strDate =[dateNumber stringValue];
-    
-    NSDateComponents* comps = [[[NSDateComponents alloc] init] autorelease];
-    
-    [comps setYear:[[strDate substringWithRange:NSMakeRange(0,4)] integerValue]];
-    [comps setMonth:[[strDate substringWithRange:NSMakeRange(4,2)] integerValue]];
-    [comps setDay:[[strDate substringWithRange:NSMakeRange(6,2)] integerValue]];
-   // [comps setHour:[[strDate substringWithRange:NSMakeRange(8,2)] integerValue]];
-   // [comps setMinute:[[strDate substringWithRange:NSMakeRange(10,2)] integerValue]];
-   // [comps setSecond:[[strDate substringWithRange:NSMakeRange(12,2)] integerValue]];
-    
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDate* date = [calendar dateFromComponents:comps];
-    
-    NSLog(@"%@", date);
-    
-
-    
-    
-    return ;
 }
 
 
@@ -198,19 +167,12 @@
     StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = recordEntity.narrative;
     cell.detailTextLabel.text = [formatter stringFromNumber: recordEntity.amount];    
-    
-  //  NSLog(@"%d",[recordEntity.accumBal longLongValue]);
-  //  NSLog(@"%d",[recordEntity.amount longLongValue]);
-    
-    
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator   ;
     return cell;
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section 
 {
-//    NSLog([[[fetchedResultsController sections] objectAtIndex:section] name]);
     return [[[fetchedResultsController sections] objectAtIndex:section] name];
 }
 
@@ -219,10 +181,6 @@
 {   
  
     StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
- //   NSLog(@"%d",[recordEntity.accumBal longLongValue]);
- //   NSLog(@"%d",[recordEntity.amount longLongValue]);
-    
-    
     
     AccountStatementTransactionController  *addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];
     addViewController.previouslyObtainedFetchedResultsController = fetchedResultsController ;
