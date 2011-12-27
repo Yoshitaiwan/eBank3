@@ -62,6 +62,7 @@
 		2D915C9F1441E7B0004D3D31 /* daiso.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915C9E1441E7B0004D3D31 /* daiso.png */; };
 		2D915CA11441E7B8004D3D31 /* amazon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915CA01441E7B8004D3D31 /* amazon.png */; };
 		2D915CA51441E843004D3D31 /* FairPrice.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915CA41441E843004D3D31 /* FairPrice.png */; };
+		2D92FF9D14A870D700013724 /* AccountStatementTransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D92FF9C14A870D700013724 /* AccountStatementTransactionView.m */; };
 		2D9A6DD3143B4F94005C95DF /* payment arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD2143B4F94005C95DF /* payment arrow3.png */; };
 		2D9A6DD6143B4FA0005C95DF /* payment arrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */; };
 		2DA53392142F6478004852A5 /* AccountStatementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA53390142F6478004852A5 /* AccountStatementController.m */; };
@@ -184,6 +185,8 @@
 		2D915C9E1441E7B0004D3D31 /* daiso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daiso.png; sourceTree = "<group>"; };
 		2D915CA01441E7B8004D3D31 /* amazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazon.png; sourceTree = "<group>"; };
 		2D915CA41441E843004D3D31 /* FairPrice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FairPrice.png; sourceTree = "<group>"; };
+		2D92FF9B14A870D700013724 /* AccountStatementTransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementTransactionView.h; sourceTree = "<group>"; };
+		2D92FF9C14A870D700013724 /* AccountStatementTransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountStatementTransactionView.m; sourceTree = "<group>"; };
 		2D9A6DD2143B4F94005C95DF /* payment arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow3.png"; sourceTree = "<group>"; };
 		2D9A6DD5143B4FA0005C95DF /* payment arrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow2.png"; sourceTree = "<group>"; };
 		2DA5338F142F6478004852A5 /* AccountStatementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountStatementController.h; sourceTree = "<group>"; };
@@ -368,6 +371,8 @@
 				2DC479D8142C419D001426D5 /* AccountDisclosureController.m */,
 				2D8C558E14303EFE007D2FDA /* AccountStatementTransactionController.h */,
 				2D8C558F14303EFE007D2FDA /* AccountStatementTransactionController.m */,
+				2D92FF9B14A870D700013724 /* AccountStatementTransactionView.h */,
+				2D92FF9C14A870D700013724 /* AccountStatementTransactionView.m */,
 				2D8AD5101424859A00BDC690 /* AccountListController.h */,
 				2D8AD5111424859A00BDC690 /* AccountListController.m */,
 				2D8AD4DB1424704E00BDC690 /* RootViewController.h */,
@@ -604,6 +609,7 @@
 				2D886B151496D94F003EE5CC /* StatementGroupEntity.m in Sources */,
 				2D89523F14A40BBE0066E837 /* StatementRecordEntity.m in Sources */,
 				2D8C876814A5CA38002CE30B /* DateTimeHelper.m in Sources */,
+				2D92FF9D14A870D700013724 /* AccountStatementTransactionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

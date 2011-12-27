@@ -183,6 +183,8 @@
     StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
     
     AccountStatementTransactionController  *addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];
+   
+    
     addViewController.previouslyObtainedFetchedResultsController = fetchedResultsController ;
     addViewController.lastSelectedIndexPath=indexPath;
     addViewController.title= @"Details";

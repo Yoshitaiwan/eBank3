@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "AccountStatementTransactionView.h"
+
 
 @interface AccountStatementTransactionController : UIViewController
 {
@@ -37,8 +39,8 @@
     NSFetchedResultsController* previouslyObtainedFetchedResultsController;
     NSIndexPath* lastSelectedIndexPath;
     
-    
     NSInteger pageCount ;
+   
     
 }
 

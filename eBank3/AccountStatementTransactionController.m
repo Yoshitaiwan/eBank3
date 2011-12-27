@@ -26,15 +26,21 @@
 
 -(void) dealloc
 {
-    [transactionDetailView_1 dealloc];
-    [transactionDetailView_2 dealloc];
-    [amount_1 dealloc];
-    [amount_2 dealloc];
-    [narrative_1 dealloc];
-    [narrative_2 dealloc];
+    [transactionDetailView_1 release];
+    [transactionDetailView_2 release];
+    [amount_1 release];
+    [amount_2 release];
+    [narrative_1 release];
+    [narrative_2 release];
+    [page_1 release];
+    [page_2 release];
+    [timeStamp_1 release];
+    [timeStamp_2 release];
+    [account_1 release];
+    [account_2 release];
     
-    [formatter dealloc];
-    [previouslyObtainedFetchedResultsController dealloc];
+    [formatter release];
+    [previouslyObtainedFetchedResultsController release];
     
     [super dealloc];
 }
@@ -63,11 +69,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.containerView addSubview:self.transactionDetailView_1];
-    [self.containerView addSubview:self.transactionDetailView_2];
+      [self.containerView becomeFirstResponder];
+      [self.containerView addSubview:self.transactionDetailView_1];
+//    [self.containerView addSubview:self.transactionDetailView_2];
+ 
+//    self.transactionDetailView_1.userInteractionEnabled = TRUE ;
+  //  [self.transactionDetailView_1 becomeFirstResponder];
+    
     
     self.transactionDetailView_1.hidden = NO;
-    self.transactionDetailView_2.hidden = YES;
+  //  self.transactionDetailView_2.hidden = YES;
     self.transitioning = NO;
     
     
@@ -77,9 +88,13 @@
    // self.navigationItem.title =kAccounts;
    // self.navigationItem.leftBarButtonItem =self.menuButton;
     
+    self.view.userInteractionEnabled=TRUE;
+   // [self.view becomeFirstResponder];
     
   
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -95,21 +110,6 @@
     
 }
  
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
-{
-    StatementRecordEntity* record =[previouslyObtainedFetchedResultsController objectAtIndexPath:indexPath];
-    self.amount_2.text = [formatter stringFromNumber: record.accumBal];    
-    
-    [self nextTransition];
-}    
-
 
 -(void)performTransition
 {
@@ -158,5 +158,7 @@
 	}
 }
 
-
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
+    NSLog(@"touches Began !!");
+}
 @end
