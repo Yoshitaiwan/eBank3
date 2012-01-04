@@ -39,7 +39,7 @@
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     }
     
-     NSLog(@"dateFormatter=%@",date);
+ //    NSLog(@"dateFormatter=%@",date);
      return [dateFormatter stringFromDate:date];
 }
 

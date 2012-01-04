@@ -13,6 +13,8 @@
 #import "StatementRecordEntity.h"
 #import "DateTimeHelper.h"
 
+#import "AccountStatementTransactionController.h"
+
 #define kStatementRecordEntity @"StatementRecordEntity"
 #define kStatementGroupEntity  @"StatementGroupEntity"
 
@@ -179,15 +181,12 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {   
- 
-    StatementRecordEntity* recordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
     
-    AccountStatementTransactionController  *addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];
-   
-    
+    AccountStatementTransactionController* addViewController = [[AccountStatementTransactionController alloc] initWithNibName:@"AccountStatementTransactionController" bundle:nil];   
     addViewController.previouslyObtainedFetchedResultsController = fetchedResultsController ;
     addViewController.lastSelectedIndexPath=indexPath;
     addViewController.title= @"Details";
+   
     [self.navigationController pushViewController:addViewController animated:YES]; 
     [addViewController release];
      
