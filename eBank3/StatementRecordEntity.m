@@ -1,9 +1,9 @@
 //
 //  StatementRecordEntity.m
-//  eBank3
+//  eBank4
 //
-//  Created by Yoshiyuki Matsuoka on 23/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Yoshiyuki Matsuoka on 5/1/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "StatementRecordEntity.h"
@@ -14,9 +14,9 @@
 @dynamic account;
 @dynamic accumBal;
 @dynamic amount;
-@dynamic currency;
+@dynamic book;
+@dynamic date;
 @dynamic narrative;
 @dynamic timeStampInserted;
-@dynamic date;
 
 @end

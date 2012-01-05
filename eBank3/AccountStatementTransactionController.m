@@ -47,6 +47,8 @@
     [datasource release];
     [super dealloc];
 }
+
+
 - (void)viewDidLoad
 {
     self.view.backgroundColor = [UIColor blueColor]; 
@@ -87,7 +89,7 @@
 
 #pragma mark ----- Responder -----
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
-    NSLog(@"touches Began !!");
+ //   NSLog(@"touches Began !!");
     // タッチした位置を保存
     touchBegan_ = [[touches anyObject] locationInView:self.view];
     // ラベルの元の位置を保存
@@ -138,7 +140,7 @@
         [self nextTransition:TRUE];
     }
         
-    NSLog(@"currentPage=%d",currentPage);
+//    NSLog(@"currentPage=%d",currentPage);
     
 }
 
@@ -234,8 +236,8 @@
 {
 	if(!self.transitioning){
         if (isIncrement){
-            if (++currentPage > [datasource count]){
-                currentPage = [datasource count];   
+            if (++currentPage >= [datasource count]){
+                currentPage = [datasource count]-1;   
             }else{
                [self performTransition:kCATransitionFromRight];
             }

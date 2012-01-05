@@ -6,7 +6,7 @@
     <entity name="BalanceRecordEntity" representedClassName="BalanceRecordEntity" syncable="YES">
         <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="accumBal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="book" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStampInserted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="StatementGroupEntity" representedClassName="StatementGroupEntity" syncable="YES">
@@ -16,7 +16,7 @@
         <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="accumBal" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="book" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="narrative" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStampInserted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>

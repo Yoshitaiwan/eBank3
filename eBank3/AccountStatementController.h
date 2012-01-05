@@ -19,13 +19,13 @@
     
     NSNumberFormatter* formatter;
     StatementGroupEntity* stmtGroupEntity ; 
-    BalanceRecordEntity* PreviouslyLastSelectedBalanceRecordEntity ;
+    BalanceRecordEntity* lastSelectedBalanceRecordEntity ;
 
 }
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSNumberFormatter* formatter;
-@property (nonatomic, retain) BalanceRecordEntity* PreviouslyLastSelectedBalanceRecordEntity ; 
+@property (nonatomic, retain) BalanceRecordEntity* lastSelectedBalanceRecordEntity ; 
 
 
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *) context;

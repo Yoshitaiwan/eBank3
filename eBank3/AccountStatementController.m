@@ -20,14 +20,14 @@
 
 @implementation AccountStatementController
 
-@synthesize managedObjectContext, fetchedResultsController, formatter,PreviouslyLastSelectedBalanceRecordEntity;
+@synthesize managedObjectContext, fetchedResultsController, formatter,lastSelectedBalanceRecordEntity;
 
 - (void)dealloc
 {
     [managedObjectContext release];
     [fetchedResultsController release];
     [formatter release];
-    [PreviouslyLastSelectedBalanceRecordEntity release];
+    [lastSelectedBalanceRecordEntity release];
     [super dealloc];
 }
 
@@ -45,24 +45,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad called1");
     
     self.navigationItem.title =@"Transactions";
-    [self downloadAndSaveStatement:self.managedObjectContext];
-    
     
     formatter = [[NSNumberFormatter alloc]init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
    
-	
+    NSLog(@"viewDidLoad called2");
+    [self fetchResultsController];  // this fetch is to find if the data needs to be downloaded from ggl
+ 
+    StatementRecordEntity* recordEntity = [[fetchedResultsController fetchedObjects] lastObject];
+    NSNumber* timeStampOfStatement  = recordEntity.timeStampInserted;
+    NSNumber* timeStampOfBalance =  lastSelectedBalanceRecordEntity.timeStampInserted;
     
-    
+    // if there is no data in coreData, then download from ggl
+    if ([[fetchedResultsController fetchedObjects]count] == 0) {
+        NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?book_ac="];
+        urlString = [urlString stringByAppendingString:lastSelectedBalanceRecordEntity.book];
+        urlString = [urlString stringByAppendingString:@"_"];
+        urlString = [urlString stringByAppendingString:lastSelectedBalanceRecordEntity.account];
+     
+        [self downloadAndSaveStatement:self.managedObjectContext withURLString:urlString];
+        
+        //if there is data in coreData, but not fully updated then download from ggl    
+    }else if (timeStampOfBalance >timeStampOfStatement){              
+        NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?book_ac="];
+        urlString = [urlString stringByAppendingString:lastSelectedBalanceRecordEntity.book];
+        urlString = [urlString stringByAppendingString:@"_"];
+        urlString = [urlString stringByAppendingString:lastSelectedBalanceRecordEntity.account];
+        urlString = [urlString stringByAppendingString:@"&timeStampInsert="];
+        urlString = [urlString stringByAppendingString:[[lastSelectedBalanceRecordEntity timeStampInserted] stringValue]];
+        
+        [self downloadAndSaveStatement:self.managedObjectContext withURLString:urlString];
+        
+        [self deleteAllObjects:@"BalanceRecordEntity"];
+        // Update balance data as well 
+        
+    }
+
 }
--(void)viewWillAppear:(BOOL)animated{
-    
+
+-(void)fetchResultsController
+{
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:kStatementRecordEntity inManagedObjectContext:self.managedObjectContext];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timeStampInserted" ascending:YES]];
-    request.predicate = nil;
+    request.predicate = [NSPredicate predicateWithFormat:@"account == %@", lastSelectedBalanceRecordEntity.account];
+    
     request.fetchBatchSize = 20;
     
     fetchedResultsController = [[NSFetchedResultsController alloc]
@@ -81,23 +111,21 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }	
-
-    
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self fetchResultsController]; // this fetch to ensure the fetch result object is avail even after come back from the next screen
+}
 
--(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   
+
+-(void) downloadAndSaveStatement:(NSManagedObjectContext *)context  withURLString:(NSString *) urlString 
 {
    
     stmtGroupEntity= (StatementGroupEntity*)[NSEntityDescription insertNewObjectForEntityForName:kStatementGroupEntity 
                                                                   inManagedObjectContext:context]; 
     
-    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gs?account="];
-    urlString = [urlString stringByAppendingString:PreviouslyLastSelectedBalanceRecordEntity.account];
-    urlString = [urlString stringByAppendingString:@"&currency="];
-    urlString = [urlString stringByAppendingString:PreviouslyLastSelectedBalanceRecordEntity.currency];
-    
+   
     
      //   NSLog(PreviouslyLastSelectedBalanceRecordEntity.account);
     NSLog(urlString);
@@ -115,10 +143,10 @@
         StatementRecordEntity* recordEntity= (StatementRecordEntity*)[NSEntityDescription insertNewObjectForEntityForName:kStatementRecordEntity 
                                                                                  inManagedObjectContext:context]; 
         
-    //    recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
+        recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
         recordEntity.amount= [NSNumber numberWithLongLong:[(Record*)rec amount ]];
         recordEntity.account = [(Record*)rec account];
-        recordEntity.currency = [(Record*)rec currency];
+        recordEntity.book = [(Record*)rec book];
         recordEntity.narrative =[(Record*)rec narrative];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
         recordEntity.date = [DateTimeHelper convertNSNumberToDate:recordEntity.timeStampInserted withTime:FALSE];
@@ -193,6 +221,25 @@
 }    
 
 
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [fetchRequest release];
+    
+    
+    for (NSManagedObject *managedObject in items) {
+        [self.managedObjectContext deleteObject:managedObject];
+        NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+    
+}
 
 
 

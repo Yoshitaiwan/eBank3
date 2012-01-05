@@ -1,9 +1,9 @@
 //
 //  StatementRecordEntity.h
-//  eBank3
+//  eBank4
 //
-//  Created by Yoshiyuki Matsuoka on 23/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Yoshiyuki Matsuoka on 5/1/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,9 +15,9 @@
 @property (nonatomic, retain) NSString * account;
 @property (nonatomic, retain) NSNumber * accumBal;
 @property (nonatomic, retain) NSNumber * amount;
-@property (nonatomic, retain) NSString * currency;
+@property (nonatomic, retain) NSString * book;
+@property (nonatomic, retain) NSString * date;
 @property (nonatomic, retain) NSString * narrative;
 @property (nonatomic, retain) NSNumber * timeStampInserted;
-@property (nonatomic, retain) NSString * date;
 
 @end

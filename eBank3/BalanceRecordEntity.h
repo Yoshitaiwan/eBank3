@@ -1,9 +1,9 @@
 //
 //  BalanceRecordEntity.h
-//  eBank3
+//  eBank4
 //
-//  Created by Yoshiyuki Matsuoka on 13/12/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Yoshiyuki Matsuoka on 5/1/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSString * account;
 @property (nonatomic, retain) NSNumber * accumBal;
-@property (nonatomic, retain) NSString * currency;
+@property (nonatomic, retain) NSString * book;
 @property (nonatomic, retain) NSNumber * timeStampInserted;
 
 @end

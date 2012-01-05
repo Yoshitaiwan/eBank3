@@ -67,23 +67,23 @@
   BOOL hasAmount_:1;
   BOOL hasTimeStampInsert_:1;
   BOOL hasAccumBal_:1;
-  BOOL hasCurrency_:1;
+  BOOL hasBook_:1;
   BOOL hasAccount_:1;
   BOOL hasNarrative_:1;
   int64_t amount;
   int64_t timeStampInsert;
   int64_t accumBal;
-  NSString* currency;
+  NSString* book;
   NSString* account;
   NSString* narrative;
 }
-- (BOOL) hasCurrency;
+- (BOOL) hasBook;
 - (BOOL) hasAccount;
 - (BOOL) hasAmount;
 - (BOOL) hasNarrative;
 - (BOOL) hasTimeStampInsert;
 - (BOOL) hasAccumBal;
-@property (readonly, retain) NSString* currency;
+@property (readonly, retain) NSString* book;
 @property (readonly, retain) NSString* account;
 @property (readonly) int64_t amount;
 @property (readonly, retain) NSString* narrative;
@@ -124,10 +124,10 @@
 - (Record_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input;
 - (Record_Builder*) mergeFromCodedInputStream:(PBCodedInputStream*) input extensionRegistry:(PBExtensionRegistry*) extensionRegistry;
 
-- (BOOL) hasCurrency;
-- (NSString*) currency;
-- (Record_Builder*) setCurrency:(NSString*) value;
-- (Record_Builder*) clearCurrency;
+- (BOOL) hasBook;
+- (NSString*) book;
+- (Record_Builder*) setBook:(NSString*) value;
+- (Record_Builder*) clearBook;
 
 - (BOOL) hasAccount;
 - (NSString*) account;

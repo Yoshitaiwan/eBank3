@@ -103,7 +103,7 @@
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = [NSEntityDescription entityForName:kBalanceRecordEntity inManagedObjectContext:self.managedObjectContext];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"currency" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"book" ascending:YES]];
     request.predicate = nil;
     request.fetchBatchSize = 20;
     
@@ -137,7 +137,7 @@
     balanceGroupEntity= (StatementGroupEntity*)[NSEntityDescription insertNewObjectForEntityForName:kBalanceGroupEntity 
                                                                 inManagedObjectContext:context]; 
     
-    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gb?account=Ac2"]; 
+    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8082/gb?book=Ccy1"]; 
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease]; 
     [request setURL:[NSURL URLWithString:urlString]]; 
     [request setHTTPMethod:@"GET"];
@@ -153,7 +153,7 @@
         
         recordEntity.accumBal=[NSNumber numberWithLongLong:[(Record*)rec accumBal]];
         recordEntity.account = [(Record*)rec account];
-        recordEntity.currency = [(Record*)rec currency];
+        recordEntity.book = [(Record*)rec book];
         recordEntity.timeStampInserted=  [NSNumber numberWithLongLong:[(Record*)rec timeStampInsert]];
     
         [balanceGroupEntity addRecordsObject:recordEntity ];
@@ -204,32 +204,17 @@
         [cell autorelease];
     }
  
-    lastSelectedBalanceRecordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = lastSelectedBalanceRecordEntity.account;
+    cell.textLabel.text = [[fetchedResultsController objectAtIndexPath:indexPath]account]    ;
   //  cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
 
     return cell;
 }
 
-/*
-- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section 
-{
-    return [keys_ objectAtIndex:section];
-}
-
-
-- (NSArray*)sectionIndexTitlesForTableView:(UITableView*)tableView
-{
-    return keys_;
-}
-*/
-
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-    BalanceRecordEntity* record =[fetchedResultsController objectAtIndexPath:indexPath];
-    self.amount_2.text = [formatter stringFromNumber: record.accumBal];    
-    
+    lastSelectedBalanceRecordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
+    self.amount_2.text = [formatter stringFromNumber: lastSelectedBalanceRecordEntity.accumBal];    
     [self nextTransition];
 }    
 
@@ -308,7 +293,9 @@
     NSLog(@"go to statement pressed");
 
     AccountStatementController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil context:self.managedObjectContext];
-    addViewController.PreviouslyLastSelectedBalanceRecordEntity =lastSelectedBalanceRecordEntity;
+    
+    
+    addViewController.lastSelectedBalanceRecordEntity =lastSelectedBalanceRecordEntity;
   	[self.navigationController pushViewController:addViewController animated:YES];
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
   	[addViewController release];

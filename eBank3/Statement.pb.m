@@ -216,7 +216,7 @@ static Statement* defaultStatementInstance = nil;
 @end
 
 @interface Record ()
-@property (retain) NSString* currency;
+@property (retain) NSString* book;
 @property (retain) NSString* account;
 @property int64_t amount;
 @property (retain) NSString* narrative;
@@ -226,13 +226,13 @@ static Statement* defaultStatementInstance = nil;
 
 @implementation Record
 
-- (BOOL) hasCurrency {
-  return !!hasCurrency_;
+- (BOOL) hasBook {
+  return !!hasBook_;
 }
-- (void) setHasCurrency:(BOOL) value {
-  hasCurrency_ = !!value;
+- (void) setHasBook:(BOOL) value {
+  hasBook_ = !!value;
 }
-@synthesize currency;
+@synthesize book;
 - (BOOL) hasAccount {
   return !!hasAccount_;
 }
@@ -269,14 +269,14 @@ static Statement* defaultStatementInstance = nil;
 }
 @synthesize accumBal;
 - (void) dealloc {
-  self.currency = nil;
+  self.book = nil;
   self.account = nil;
   self.narrative = nil;
   [super dealloc];
 }
 - (id) init {
   if ((self = [super init])) {
-    self.currency = @"";
+    self.book = @"";
     self.account = @"";
     self.amount = 0L;
     self.narrative = @"";
@@ -301,8 +301,8 @@ static Record* defaultRecordInstance = nil;
   return YES;
 }
 - (void) writeToCodedOutputStream:(PBCodedOutputStream*) output {
-  if (self.hasCurrency) {
-    [output writeString:1 value:self.currency];
+  if (self.hasBook) {
+    [output writeString:1 value:self.book];
   }
   if (self.hasAccount) {
     [output writeString:2 value:self.account];
@@ -328,8 +328,8 @@ static Record* defaultRecordInstance = nil;
   }
 
   size = 0;
-  if (self.hasCurrency) {
-    size += computeStringSize(1, self.currency);
+  if (self.hasBook) {
+    size += computeStringSize(1, self.book);
   }
   if (self.hasAccount) {
     size += computeStringSize(2, self.account);
@@ -421,8 +421,8 @@ static Record* defaultRecordInstance = nil;
   if (other == [Record defaultInstance]) {
     return self;
   }
-  if (other.hasCurrency) {
-    [self setCurrency:other.currency];
+  if (other.hasBook) {
+    [self setBook:other.book];
   }
   if (other.hasAccount) {
     [self setAccount:other.account];
@@ -461,7 +461,7 @@ static Record* defaultRecordInstance = nil;
         break;
       }
       case 10: {
-        [self setCurrency:[input readString]];
+        [self setBook:[input readString]];
         break;
       }
       case 18: {
@@ -487,20 +487,20 @@ static Record* defaultRecordInstance = nil;
     }
   }
 }
-- (BOOL) hasCurrency {
-  return result.hasCurrency;
+- (BOOL) hasBook {
+  return result.hasBook;
 }
-- (NSString*) currency {
-  return result.currency;
+- (NSString*) book {
+  return result.book;
 }
-- (Record_Builder*) setCurrency:(NSString*) value {
-  result.hasCurrency = YES;
-  result.currency = value;
+- (Record_Builder*) setBook:(NSString*) value {
+  result.hasBook = YES;
+  result.book = value;
   return self;
 }
-- (Record_Builder*) clearCurrency {
-  result.hasCurrency = NO;
-  result.currency = @"";
+- (Record_Builder*) clearBook {
+  result.hasBook = NO;
+  result.book = @"";
   return self;
 }
 - (BOOL) hasAccount {
