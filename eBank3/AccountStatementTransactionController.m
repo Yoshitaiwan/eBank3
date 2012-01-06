@@ -218,7 +218,7 @@
     self.page_2= self.page_1 ;
     self.page_1 =lblTemp4 ;
     
-    self.timeStamp_1.text=  [DateTimeHelper  convertNSNumberToDate:recordEntity.timeStampInserted withTime:TRUE ];
+    self.timeStamp_2.text=  [DateTimeHelper  convertNSNumberToDate:recordEntity.timeStampInserted withTime:TRUE ];
     UILabel* lblTemp5 = self.timeStamp_2;
     self.timeStamp_2= self.timeStamp_1 ;
     self.timeStamp_1 =lblTemp5 ;
