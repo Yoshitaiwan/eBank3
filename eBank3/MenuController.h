@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class RootViewController;
-@interface MenuController : NSObject<UITableViewDataSource>
+@interface MenuController : NSObject<UITableViewDelegate,UITableViewDataSource>
 {
     
 @private

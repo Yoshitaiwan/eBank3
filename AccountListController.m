@@ -86,9 +86,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id key = [keys_ objectAtIndex:indexPath.section];
-    NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
-    NSLog (tmp);
+  //  id key = [keys_ objectAtIndex:indexPath.section];
+   // s NSString* tmp  = [[dataSource_ objectForKey:key] objectAtIndex:indexPath.row];
+  //  NSLog (tmp);
     
     //addViewController.title= tmp;
  // 	[self.navigationController pushViewController:addViewController animated:YES]; 

@@ -7,7 +7,7 @@
 //
 
 #import "eBank3AppDelegate.h"
-//#import "RootViewController.h"
+#import "RootViewController.h"
 
 
 @implementation eBank3AppDelegate
@@ -26,7 +26,7 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     window = [[UIWindow alloc] initWithFrame:frame];
    
-    RootViewController* rootViewController= [[RootViewController alloc] initWithNibName:@"RootViewController"  bundle:nil context:self.managedObjectContext] ;
+    UIViewController* rootViewController= [[RootViewController alloc] initWithNibName:@"RootViewController"  bundle:nil context:self.managedObjectContext] ;
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController]  ;
     navigationController.navigationBar.tintColor= [UIColor greenColor];
     [navigationController setNavigationBarHidden:NO animated:NO]; 

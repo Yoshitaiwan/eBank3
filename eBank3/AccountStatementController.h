@@ -29,6 +29,9 @@
 
 
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil context:(NSManagedObjectContext *) context;
--(void) downloadAndSaveStatement:(NSManagedObjectContext *)context   ;
+
+-(void) downloadAndSaveStatement:(NSManagedObjectContext *)context  withURLString:(NSString *) urlString ;
+-(void)fetchResultsController;
+
 
 @end

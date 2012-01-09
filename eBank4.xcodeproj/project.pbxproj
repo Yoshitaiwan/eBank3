@@ -51,6 +51,8 @@
 		2D8E3FA014408D2D002451EE /* accounts.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8E3F9C14408D2D002451EE /* accounts.png */; };
 		2D8FFCB114322546007333B7 /* CurrencyBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */; };
 		2D8FFCB214322546007333B7 /* CurrencyBoardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */; };
+		2D90526E14B81EB800558670 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D90526C14B81EB800558670 /* LogInController.m */; };
+		2D90526F14B81EB800558670 /* LogInController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D90526D14B81EB800558670 /* LogInController.xib */; };
 		2D915C9C1441E7A9004D3D31 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915C9B1441E7A9004D3D31 /* starbucks.png */; };
 		2D915C9F1441E7B0004D3D31 /* daiso.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915C9E1441E7B0004D3D31 /* daiso.png */; };
 		2D915CA11441E7B8004D3D31 /* amazon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D915CA01441E7B8004D3D31 /* amazon.png */; };
@@ -65,6 +67,7 @@
 		2DAA5085143A039F007E14E7 /* TransferAmountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA5083143A039F007E14E7 /* TransferAmountController.m */; };
 		2DAA5086143A039F007E14E7 /* TransferAmountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5084143A039F007E14E7 /* TransferAmountController.xib */; };
 		2DAA5089143A0420007E14E7 /* payment arrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAA5088143A0420007E14E7 /* payment arrow1.png */; };
+		2DAAD45E14B9CEAC0021D1F7 /* button_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DAAD45D14B9CEAC0021D1F7 /* button_green.png */; };
 		2DC479DA142C419D001426D5 /* AccountDisclosureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC479D8142C419D001426D5 /* AccountDisclosureController.m */; };
 		2DC479DB142C419D001426D5 /* AccountDisclosureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */; };
 		2DD4BA8C14402F1500C4C97F /* CustomViewForPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4BA8B14402F1400C4C97F /* CustomViewForPicker.m */; };
@@ -167,6 +170,9 @@
 		2D8FFCAE14322545007333B7 /* CurrencyBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyBoardController.h; sourceTree = "<group>"; };
 		2D8FFCAF14322546007333B7 /* CurrencyBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyBoardController.m; sourceTree = "<group>"; };
 		2D8FFCB014322546007333B7 /* CurrencyBoardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyBoardController.xib; sourceTree = "<group>"; };
+		2D90526B14B81EB800558670 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogInController.h; path = eBank3/LogInController.h; sourceTree = "<group>"; };
+		2D90526C14B81EB800558670 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogInController.m; path = eBank3/LogInController.m; sourceTree = "<group>"; };
+		2D90526D14B81EB800558670 /* LogInController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LogInController.xib; path = eBank3/LogInController.xib; sourceTree = "<group>"; };
 		2D915C9B1441E7A9004D3D31 /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
 		2D915C9E1441E7B0004D3D31 /* daiso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daiso.png; sourceTree = "<group>"; };
 		2D915CA01441E7B8004D3D31 /* amazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazon.png; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 		2DAA5083143A039F007E14E7 /* TransferAmountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferAmountController.m; sourceTree = "<group>"; };
 		2DAA5084143A039F007E14E7 /* TransferAmountController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferAmountController.xib; sourceTree = "<group>"; };
 		2DAA5088143A0420007E14E7 /* payment arrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment arrow1.png"; sourceTree = "<group>"; };
+		2DAAD45D14B9CEAC0021D1F7 /* button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_green.png; sourceTree = "<group>"; };
 		2DC479D7142C419D001426D5 /* AccountDisclosureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDisclosureController.h; sourceTree = "<group>"; };
 		2DC479D8142C419D001426D5 /* AccountDisclosureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDisclosureController.m; sourceTree = "<group>"; };
 		2DC479D9142C419D001426D5 /* AccountDisclosureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDisclosureController.xib; sourceTree = "<group>"; };
@@ -387,8 +394,20 @@
 				2D8790E51441A8ED00307FCB /* MyOfferController.m */,
 				2D8790E61441A8ED00307FCB /* MyOfferController.xib */,
 				2D8D4390144A725C003C0A0B /* CurrencyBoard */,
+				2D90527014B81ED900558670 /* Setting */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		2D90527014B81ED900558670 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2D90526B14B81EB800558670 /* LogInController.h */,
+				2D90526C14B81EB800558670 /* LogInController.m */,
+				2D90526D14B81EB800558670 /* LogInController.xib */,
+			);
+			name = Setting;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2DA7C99E148BBAD300101450 /* Model Class */ = {
@@ -410,6 +429,7 @@
 		2DD4BA7F143F60C500C4C97F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2DAAD45D14B9CEAC0021D1F7 /* button_green.png */,
 				2D21798D1489695E009C0983 /* icons */,
 				2D8D43AD144A9775003C0A0B /* question-mark.png */,
 				2DAA5088143A0420007E14E7 /* payment arrow1.png */,
@@ -569,6 +589,8 @@
 				2D21798314894C9F009C0983 /* iMint-roman-coin114by114.png in Resources */,
 				2D21798614894CC2009C0983 /* iMint-roman-coin57by57.png in Resources */,
 				2D92179114B20E4D008900D5 /* AccountStatementTransactionController.xib in Resources */,
+				2D90526F14B81EB800558670 /* LogInController.xib in Resources */,
+				2DAAD45E14B9CEAC0021D1F7 /* button_green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +626,7 @@
 				2DDB03F814B4BDD700E19CF7 /* StatementGroupEntity.m in Sources */,
 				2DDB03FB14B4BDD700E19CF7 /* BalanceGroupEntity.m in Sources */,
 				2DDB03FE14B4BF0200E19CF7 /* StatementRecordEntity.m in Sources */,
+				2D90526E14B81EB800558670 /* LogInController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

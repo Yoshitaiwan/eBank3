@@ -10,12 +10,15 @@
 #import "CurrencyBoardController.h"
 #import "TransferAmountController.h"
 //#import "RootViewController.h"
+#import "LogInController.h"
 
 #define kTransfer        @"Transfer"
 #define kExchangeMarkets @"Market"
 #define kAccounts        @"Accounts"
 #define kDelivery        @"Get Delivery"
 #define kMyCurrency  @"My Currency"
+#define kLogIn       @"Log In"
+
 
 @implementation MenuController
 @synthesize  mainViewContainer= mainViewContainer_;
@@ -37,9 +40,9 @@
         // Initialization code here.
         keys_ = [[NSArray alloc] initWithObjects:@"", @"Markets", @"Ranking",@"Setting", nil];
         NSArray* object1 = [NSArray arrayWithObjects:kAccounts,kTransfer, kDelivery, nil];
-        NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets, nil];
+        NSArray* object2 = [NSArray arrayWithObjects:kExchangeMarkets,nil];
         NSArray* object3 = [NSArray arrayWithObjects:@"Trade Volumne",@"News", nil];
-        NSArray* object4 = [NSArray arrayWithObjects:kMyCurrency, nil];
+        NSArray* object4 = [NSArray arrayWithObjects:kLogIn,kMyCurrency, nil];
         
         NSArray* objects = [NSArray arrayWithObjects:object1, object2, object3,object4,  nil];
         
@@ -146,6 +149,11 @@
     { 
         addViewController = [[CurrencyBoardController alloc] initWithNibName:@"CurrencyBoardControll" bundle:nil];
         addViewController.title= kExchangeMarkets;
+    }   
+    else if ([tmp isEqualToString:kLogIn]) 
+   { 
+        addViewController = [[LogInController alloc] initWithNibName:@"LogInController" bundle:nil];
+        addViewController.title= kLogIn;
         
     }else {
         addViewController = [[TransferAmountController alloc] initWithNibName:@"TransferAmountController" bundle:nil];

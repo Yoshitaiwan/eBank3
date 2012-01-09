@@ -16,6 +16,7 @@
 #define kTagViewForTransition 1.0
 #define kTransitionDuration   0.70
 #define kAnimationDuration    1.00
+#define kSlideDistance        280
 
 #define kAccounts        @"My Accounts"
 #define kMenu            @"Menu"
@@ -30,12 +31,14 @@
 @synthesize amount_2 = amount_2_;
 @synthesize accountDetailTopScreenView_2= accountDetailView_2_;
 
-@synthesize transitioning;
+@synthesize menuView, accountView;
+
+//@synthesize transitioning;
 @synthesize editAccountButton=editAccountButton_;
 @synthesize menuButton=menuButton_;
 
 @synthesize containerView =containerView_;
-@synthesize  myDataSource=myDataSource_;
+@synthesize  menuController;
 @synthesize images = images_;
 
 @synthesize fetchedResultsController,balanceGroupEntity,lastSelectedBalanceRecordEntity;
@@ -57,7 +60,7 @@
     [menuButton_ release];
     
     [containerView_ release];
-    [myDataSource_ release];
+    [menuController release];
     
     [images_ release];
 
@@ -79,20 +82,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title =kAccounts;
+    self.menuButton.title= @"Menu";
+    self.menuButton.style=UIBarButtonItemStyleDone; 
+    
+    self.navigationItem.leftBarButtonItem =self.menuButton;
+    self.view = [[[UIView alloc]init]autorelease ];//  rightfully this should be in nib, but if in nib, then cannot 
     
     [self.containerView addSubview:self.accountDetailTopScreenView_1];
     [self.containerView addSubview:self.accountDetailTopScreenView_2];
     
     self.accountDetailTopScreenView_1.hidden = NO;
     self.accountDetailTopScreenView_2.hidden = YES;
-    self.transitioning = NO;
     
-    self.navigationItem.title =kAccounts;
-    self.navigationItem.leftBarButtonItem =self.menuButton;
+    [self.view addSubview:self.menuView];
+    [self.view addSubview:self.accountView];
     
+    transitioning = NO;
+    isMenuClicked = NO;
+  
+    [menuController setMainViewContainer:self];
+    
+ /*   
     MenuController* menudata = [[MenuController alloc] init ];
     [menudata setMainViewContainer:self];
     myDataSource_ = menudata;
+    
+    
+    UITableView *table = [[[UITableView alloc] init ]autorelease];
+    table.dataSource = myDataSource_;
+    table.delegate = myDataSource_;
+   [self.view addSubview:table];
+    
+    //self.containerView.hidden=YES;
+    
+   // [self.navigationItem setTitle:kMenu]; 
+   // [self.navigationItem setRightBarButtonItem:nil animated:YES];
+
+    
+ */   
     
 }
 
@@ -204,18 +232,22 @@
         [cell autorelease];
     }
  
-    cell.textLabel.text = [[fetchedResultsController objectAtIndexPath:indexPath]account]    ;
+    cell.textLabel.text = [[fetchedResultsController objectAtIndexPath:indexPath]account];
+ //   cell.textLabel.textColor=[UIColor whiteColor];
   //  cell.imageView.image =  [[dataSourceImage_ objectForKey:key] objectAtIndex:indexPath.row];
 
     return cell;
 }
 
-
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath 
 {
-    lastSelectedBalanceRecordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
-    self.amount_2.text = [formatter stringFromNumber: lastSelectedBalanceRecordEntity.accumBal];    
-    [self nextTransition];
+    if (isMenuClicked) {
+        [self moveMenuView];
+    }else{
+        lastSelectedBalanceRecordEntity =[fetchedResultsController objectAtIndexPath:indexPath];
+        self.amount_2.text = [formatter stringFromNumber: lastSelectedBalanceRecordEntity.accumBal];    
+        [self nextTransition];
+    }
 }    
 
 
@@ -255,12 +287,12 @@
 
 -(void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
-	self.transitioning = NO;
+	transitioning = NO;
 }
 
 -(void)nextTransition 
 {
-	if(!self.transitioning)
+	if(!transitioning)
 	{
 		[self performTransition];
 	}
@@ -276,7 +308,9 @@
 }
 
 - (IBAction) menuButtonPressed: (id) sender {
-    UIView *nextView = [self nextView];
+    [self moveMenuView];
+    
+/*    UIView *nextView = [self nextView];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
@@ -286,23 +320,41 @@
     [self.view addSubview:nextView];
     [UIView commitAnimations];
     [UIView setAnimationsEnabled:NO];
+*/
 }
 
+-(void) moveMenuView 
+{
+    [UIView beginAnimations:nil context:nil];
+    CGPoint newPoint ; 
+    if (isMenuClicked) {
+        newPoint =  originalCentrePoint_;
+        isMenuClicked=NO;
+    }else{
+        originalCentrePoint_ = self.accountView.center;
+        newPoint = originalCentrePoint_ ;
+        newPoint.x += kSlideDistance ;
+        isMenuClicked=YES;
+    }
+    self.accountView.center=newPoint;
+    [UIView commitAnimations];
+
+   // return isMenuClicked;
+}
 
 -(IBAction)goToStatementLabelPressed :(id) sender{
-    NSLog(@"go to statement pressed");
-
-    AccountStatementController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil context:self.managedObjectContext];
-    
-    
-    addViewController.lastSelectedBalanceRecordEntity =lastSelectedBalanceRecordEntity;
-  	[self.navigationController pushViewController:addViewController animated:YES];
-    [self.navigationItem setRightBarButtonItem:nil animated:YES];
-  	[addViewController release];
-
-     
+  
+    if(isMenuClicked){
+        [self moveMenuView];
+    }else{
+        AccountStatementController *addViewController = [[AccountStatementController alloc] initWithNibName:@"AccountStatementController" bundle:nil context:self.managedObjectContext];
+        addViewController.lastSelectedBalanceRecordEntity =lastSelectedBalanceRecordEntity;
+        [self.navigationController pushViewController:addViewController animated:YES];
+        [self.navigationItem setRightBarButtonItem:nil animated:YES];
+        [addViewController release];
+    }
 }
-
+/*
 - (UIView*)nextView {
     UIView* view;
     UITableView *table ;
@@ -326,7 +378,7 @@
     view.contentMode = UIViewContentModeScaleAspectFill;
     return view;
 }
-
+*/
 - (void)animationDidStop {
     [UIView setAnimationsEnabled:YES];
     
